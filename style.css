@@ -1,0 +1,102 @@
+html {
+    background-color: rgb(44, 44, 44);
+    color: white;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Berylium BD';
+    src: url('font/berylium bd.otf') format('opentype');
+}
+
+body {
+    font-family: 'Berylium BD';
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+nav {
+    background-color: rgb(32, 32, 32);
+    height: 50px;
+}
+
+nav img {
+    height: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+section {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: rgb(32, 32, 32);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+@keyframes beta {
+    0% { color: rgb(0, 225, 0); }
+    7% { color: #2F2F2F; }
+    10% { color: rgb(0, 255, 0); }
+    17% { color: #2F2F2F; }
+    20% { color: rgb(0, 255, 0); }
+    25% { color: rgb(0, 255, 0); }
+    30% { color: #2F2F2F; }
+    40% { color: #2F2F2F; }
+    43% { color: rgb(0, 255, 0); }
+    50% { color: #2F2F2F; }
+    53% { color: rgb(0, 255, 0); }
+    63% { color: rgb(0, 255, 0); }
+    70% { color: #2F2F2F; }
+    73% { color: rgb(0, 255, 0); }
+    80% { color: #2F2F2F; }
+    85% { color: #2F2F2F; }
+    93% { color: rgb(0, 255, 0); }
+    95% { color: #2F2F2F; }
+    100% { color: rgb(0, 255, 0); }
+}
+
+.beta::before {
+    content: "β ";
+  }
+
+.beta {
+    animation: beta 10s infinite;
+}
+
+@keyframes ruined {
+    0% { color: rgb(0, 225, 225); }
+    7% { color: #2F2F2F; }
+    10% { color: rgb(0, 255, 225); }
+    17% { color: #2F2F2F; }
+    20% { color: rgb(0, 255, 225); }
+    25% { color: rgb(0, 255, 225); }
+    30% { color: #2F2F2F; }
+    40% { color: #2F2F2F; }
+    43% { color: rgb(0, 255, 225); }
+    50% { color: #2F2F2F; }
+    53% { color: rgb(0, 255, 225); }
+    63% { color: rgb(0, 255, 225); }
+    70% { color: #2F2F2F; }
+    73% { color: rgb(0, 255, 225); }
+    80% { color: #2F2F2F; }
+    85% { color: #2F2F2F; }
+    93% { color: rgb(0, 255, 225); }
+    95% { color: #2F2F2F; }
+    100% { color: rgb(0, 255, 225); }
+}
+
+.ruined {
+    animation: ruined 10s infinite;
+}
