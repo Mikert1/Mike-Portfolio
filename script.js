@@ -7,3 +7,4 @@ if (hr < 12) {
 } else {
     helloText.innerHTML = 'A very Good Afternoon';
 }
+helloText.innerHTML += ', Welcome to my website!';

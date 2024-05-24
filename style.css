@@ -39,14 +39,15 @@ nav a img {
 }
 
 section {
+    margin-top: 20px;
     margin-left: 10%;
     margin-right: 10%;
 }
 
 .container {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-between;
     background-color: rgb(32, 32, 32);
     padding: 10px;
     border-radius: 10px;
@@ -106,4 +107,26 @@ section {
 
 .ruined {
     animation: ruined 10s infinite;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title {
+    font-size: 2em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.game-prefiew {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: rgb(32, 32, 32);
+    border-radius: 10px;
+}
+.game-prefiew-image {
+    width: 100%;
 }
