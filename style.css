@@ -4,6 +4,10 @@ html {
     padding: 0;
 }
 
+img {
+    image-rendering: pixelated;
+}
+
 @font-face {
     font-family: 'Berylium BD';
     src: url('font/berylium bd.otf') format('opentype');
@@ -128,5 +132,23 @@ section {
     border-radius: 10px;
 }
 .game-prefiew-image {
+    width: 100%;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: rgb(32, 32, 32);
+    padding: 10px;
+    border-radius: 10px;
+}
+.card-img {
     width: 100%;
 }
