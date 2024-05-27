@@ -135,13 +135,19 @@ section {
 
 .game-prefiew {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
     background-color: rgb(32, 32, 32);
     border-radius: 10px;
 }
 .game-prefiew-image {
-    width: 100%;
+    width: 60%;
+}
+
+.game-prefiew-info {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
 }
 
 .cards {
@@ -177,4 +183,24 @@ footer {
     width: 20%;
     margin-left: 40%;
     margin-right: 40%;
+}
+
+@media (max-width: 768px) {
+    .game-prefiew {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: rgb(32, 32, 32);
+        border-radius: 10px;
+    }
+    .game-prefiew-image {
+        width: 100%;
+        
+    }
+    .game-prefiew-info {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px;
+    }
 }
