@@ -57,6 +57,25 @@ section {
     margin-right: 10%;
 }
 
+button {
+    background-color: rgb(62, 62, 62);
+    border-color: rgb(15, 15, 15);
+    color: rgb(15, 15, 15);
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    border-color: rgb(0, 255, 255);
+    color: rgb(0, 225, 255);
+}
+
+button:active {
+    border-color: rgb(0, 128, 128);
+    color: rgb(0, 128, 128);
+}
+
 .container {
     display: flex;
     flex-direction: column;
