@@ -204,6 +204,12 @@ footer {
     margin-right: 40%;
 }
 
+.platform {
+    width: 32px;
+    margin-top: 10px;
+    image-rendering: optimizeQuality;
+}
+
 @media (max-width: 600px) {
     .game-prefiew {
         display: flex;
