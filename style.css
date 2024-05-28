@@ -173,7 +173,6 @@ button:active {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
 }
 .card {
     display: flex;
@@ -182,6 +181,7 @@ button:active {
     background-color: rgb(32, 32, 32);
     padding: 10px;
     border-radius: 10px;
+    margin-bottom: 30px;
 }
 .card-img {
     width: 100%;
@@ -204,7 +204,7 @@ footer {
     margin-right: 40%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .game-prefiew {
         display: flex;
         flex-wrap: wrap;
@@ -221,5 +221,16 @@ footer {
         flex-direction: column;
         justify-content: space-between;
         padding: 10px;
+    }
+    section {
+        margin-top: 20px;
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    
     }
 }
