@@ -170,9 +170,13 @@ button:active {
     justify-content: space-between;
 }
 
-.game-prefiew-image div img {
+.game-prefiew-image div div {
     width: 20%;
+}
+
+.game-prefiew-image div div img {
     padding: 5px;
+    width: 100%;
 }
 
 .game-prefiew-info {
