@@ -215,11 +215,14 @@ footer {
 }
 .social-icons {
     display: flex;
+    justify-content: center;
+    min-width: 20%;
+}
+.social-icons div {
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 20%;
-    margin-left: 40%;
-    margin-right: 40%;
+    width: 100%;
 }
 
 .platform {
