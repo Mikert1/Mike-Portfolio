@@ -19,7 +19,7 @@ img {
 
 @font-face {
     font-family: 'Berylium BD';
-    src: url('font/berylium bd.otf') format('opentype');
+    src: url('assets/font/berylium bd.otf') format('opentype');
 }
 
 body {
@@ -213,7 +213,11 @@ footer {
     background-color: rgb(32, 32, 32);
     height: 200px;
 }
+.footer-object {
+    margin-top: auto;
+}
 .social-icons {
+    margin-top: 5px;
     display: flex;
     justify-content: center;
     min-width: 20%;
@@ -229,6 +233,10 @@ footer {
     width: 32px;
     margin-top: 10px;
     image-rendering: optimizeQuality;
+}
+
+object {
+    width: 100%;
 }
 
 @media (max-width: 600px) {
