@@ -235,6 +235,17 @@ footer {
     image-rendering: optimizeQuality;
 }
 
+.server-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.skin3d {
+    height: 300px;
+}
+
 object {
     width: 100%;
 }
