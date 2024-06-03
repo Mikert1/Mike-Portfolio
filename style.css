@@ -195,7 +195,6 @@ button:active {
 .card {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     background-color: rgb(32, 32, 32);
     padding: 10px;
     border-radius: 10px;
@@ -262,6 +261,25 @@ iframe {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.ranks {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(32, 32, 32);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.rank  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(51, 51, 51);
+    padding: 10px;
+    border-radius: 10px;
+    border: #2F2F2F 1px solid;
 }
 
 @media (max-width: 600px) {
