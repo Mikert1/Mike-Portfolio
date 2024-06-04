@@ -266,6 +266,7 @@ iframe {
 .ranks {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     background-color: rgb(32, 32, 32);
     padding: 10px;
     border-radius: 10px;
@@ -278,8 +279,15 @@ iframe {
     align-items: center;
     background-color: rgb(51, 51, 51);
     padding: 10px;
+    width: 300px;
+    border: #2e2e2e 1px solid;
     border-radius: 10px;
-    border: #2F2F2F 1px solid;
+    margin: 10px;
+}
+
+.rank p {
+    width: 100%;
+    margin: 0;
 }
 
 @media (max-width: 600px) {
