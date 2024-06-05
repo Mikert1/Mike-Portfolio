@@ -284,9 +284,21 @@ iframe {
     border-radius: 10px;
     margin: 10px;
 }
-
 .rank p {
     width: 100%;
+    margin: 0;
+}
+
+.rank hr {
+    width: 100%;
+    margin: 10px;
+}
+
+.terms {
+    opacity: 0.05;
+}
+
+.terms p {
     margin: 0;
 }
 
