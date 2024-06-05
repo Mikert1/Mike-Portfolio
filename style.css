@@ -244,6 +244,22 @@ footer {
     margin-top: 10px;
 }
 
+.ranks-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.ranks-info div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
 .skin3d {
     height: 300px;
 }
@@ -292,6 +308,10 @@ iframe {
 .rank hr {
     width: 100%;
     margin: 10px;
+}
+
+.rank-image {
+    width: 100px;
 }
 
 .terms {
