@@ -420,4 +420,8 @@ a:hover {
         align-items: center;
         margin-top: 10px;
     }
+    .game-prefiew-image div div img {
+        padding: 0px;
+        width: 100%;
+    }
 }
