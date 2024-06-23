@@ -376,7 +376,7 @@ a:hover {
 
 @keyframes green {
     0% { width: 0%; }
-    100% { width: 40%; }
+    100% { width: 90%; }
 }
 
 @media (max-width: 600px) {
