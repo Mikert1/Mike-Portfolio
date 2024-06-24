@@ -370,13 +370,13 @@ a:hover {
     background-color: rgb(0, 172, 0);
     border-radius: 5px;
     height: 10px;
-    width: 40%;
+    width: 90%;
     animation: green 2s;
 }
 
 @keyframes green {
     0% { width: 0%; }
-    100% { width: 40%; }
+    100% { width: 90%; }
 }
 
 @media (max-width: 600px) {
