@@ -1,0 +1,15 @@
+[
+    {
+        "id": 1,
+        "name": "Ruined",
+        "type": "Game",
+        "description": "Ruined is a game that is currently in development.",
+        "platforms": ["Windows", "Mac", "Linux"],
+        "VersionPrefix": "Pre-Alpha Developer",
+        "Version": "1.5",
+        "versionSuffix": "(Stable)",
+        "status": "Active",
+        "images": ["https://github.com/Mikert1/Ruined/assets/73882306/b35ce5a7-e065-462e-8beb-51ac57dd84d1", "https://github.com/Mikert1/Ruined/assets/73882306/1ef52b0c-8240-489a-a191-458290eeaa21", "https://github.com/Mikert1/Ruined/assets/73882306/ec4af4f6-0ac1-460c-8bae-5d015817904d", "https://github.com/Mikert1/Ruined/assets/73882306/eef28b86-3676-42fc-b7ba-cc05ba1171a6", "https://github.com/Mikert1/Ruined/assets/73882306/adea97ac-11a2-4c1b-b628-0f0edf4c7494"],
+        
+    }
+]
