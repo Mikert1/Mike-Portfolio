@@ -71,9 +71,9 @@ nav .navContainer {
 }
    
 section {
-    margin-top: 20px;
-    margin-left: 10%;
-    margin-right: 10%;
+    padding-top: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 button {
@@ -179,17 +179,27 @@ button:active {
     margin-bottom: 10px;
 }
 
+#introduction {
+    height: 100%;
+}
+
 .game-prefiew {
     display: flex;
     background-color: rgb(32, 32, 32);
     border-radius: 10px;
+    width: 100%;
+    height: auto;
 }
 .game-prefiew-image {
     width: 60%;
+    height: 100%;
 }
 
 #main-image {
     width: 100%;
+    height: 83%;
+    border-top-left-radius: 10px;
+    object-fit: contain;
 }
 
 .game-prefiew-image div {
@@ -198,13 +208,23 @@ button:active {
     width: 100%;
 }
 
+.sub-images {
+    width: 100%;
+    height: 16%;
+}
+
 .game-prefiew-image div div {
     width: 20%;
 }
 
 .game-prefiew-image div div img {
-    padding: 5px;
+    margin-left: 5px;
     width: 100%;
+    object-fit: contain;
+}
+
+.game-prefiew-image div div:first-child img {
+    margin-left: 0px;
 }
 
 .game-prefiew-info {

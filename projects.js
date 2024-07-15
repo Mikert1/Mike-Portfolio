@@ -36,6 +36,12 @@ const title = document.getElementById('title');
 const description = document.getElementById('description');
 const platforms = document.getElementById('platforms');
 const version = document.getElementById('version');
+const mainImage = document.getElementById('main-image');
+const image1 = document.getElementById('image1');
+const image2 = document.getElementById('image2');
+const image3 = document.getElementById('image3');
+const image4 = document.getElementById('image4');
+const image5 = document.getElementById('image5');
 
 getData()
     .then(data => {
@@ -52,14 +58,26 @@ getData()
             }
         }
         version.innerHTML = data[params.id].versionPrefix + data[params.id].version + data[params.id].versionSuffix;
+        for (let i = 0; i < data[params.id].images.length; i++) {
+            const div = document.createElement('div');
+            let img = document.createElement('img');
+            img.src = data[params.id].images[i];
+            img.alt = data[params.id].name;
+            img.id = `image${i + 1}`;
+            div.appendChild(img);
+            document.querySelector('.sub-images').appendChild(div);
+            document.title = "Mikert.com | " + data[params.id].name;
+        }
+        mainImage.src = data[params.id].images[0];
+    })
+    .then(() => {
+        const subImages = document.querySelectorAll('.sub-images div img');
+        subImages.forEach((image) => {
+            image.addEventListener('mouseover', (e) => {
+                document.getElementById('main-image').src = e.target.src;
+            });
+            image.addEventListener('click', (e) => {
+                document.getElementById('main-image').src = e.target.src;
+            });
+        });
     });
-
-subImages = document.querySelectorAll('.game-prefiew-image div img');
-subImages.forEach((image) => {
-    image.addEventListener('mouseover', (e) => {
-        document.getElementById('main-image').src = e.target.src;
-    });
-    image.addEventListener('click', (e) => {
-        document.getElementById('main-image').src = e.target.src;
-    });
-});
