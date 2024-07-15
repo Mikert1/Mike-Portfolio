@@ -95,6 +95,11 @@ button:active {
     color: rgb(0, 128, 128);
 }
 
+#buttons {
+    display: flex;
+    gap: 20px;
+}
+
 .container {
     display: flex;
     flex-direction: column;

@@ -42,6 +42,7 @@ const image2 = document.getElementById('image2');
 const image3 = document.getElementById('image3');
 const image4 = document.getElementById('image4');
 const image5 = document.getElementById('image5');
+const buttons = document.getElementById('buttons');
 
 getData()
     .then(data => {
@@ -69,6 +70,24 @@ getData()
             document.title = "Mikert.com | " + data[params.id].name;
         }
         mainImage.src = data[params.id].images[0];
+        if (data[params.id].type === 'Game') {
+            const download = document.createElement('img');
+            download.src = 'assets/img/buttons/download.png';
+            download.addEventListener('click', () => {
+                window.open(data[params.id].releases);
+            });
+            buttons.appendChild(download);
+            const source = document.createElement('img');
+            if (data[params.id].versionType === 'alpha') {
+                source.src = 'assets/img/buttons/alpha.png';
+            } else if (data[params.id].versionType === 'beta') {
+                source.src = 'assets/img/buttons/beta.png';
+            }
+            source.addEventListener('click', () => {
+                window.open(data[params.id].repository);
+            });
+            buttons.appendChild(source);
+        }
     })
     .then(() => {
         const subImages = document.querySelectorAll('.sub-images div img');
