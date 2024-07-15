@@ -205,6 +205,7 @@ button:active {
     height: 83%;
     border-top-left-radius: 10px;
     object-fit: contain;
+    image-rendering: optimizeQuality;
 }
 
 .game-prefiew-image div {
@@ -226,6 +227,7 @@ button:active {
     margin-left: 5px;
     width: 100%;
     object-fit: contain;
+    image-rendering: optimizeQuality;
 }
 
 .game-prefiew-image div div:first-child img {

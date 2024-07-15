@@ -58,7 +58,6 @@ getData()
                 platforms.appendChild(img);
             }
         }
-        version.innerHTML = data[params.id].versionPrefix + data[params.id].version + data[params.id].versionSuffix;
         for (let i = 0; i < data[params.id].images.length; i++) {
             const div = document.createElement('div');
             let img = document.createElement('img');
@@ -77,17 +76,22 @@ getData()
                 window.open(data[params.id].releases);
             });
             buttons.appendChild(download);
-            const source = document.createElement('img');
-            if (data[params.id].versionType === 'alpha') {
-                source.src = 'assets/img/buttons/alpha.png';
-            } else if (data[params.id].versionType === 'beta') {
-                source.src = 'assets/img/buttons/beta.png';
-            }
-            source.addEventListener('click', () => {
-                window.open(data[params.id].repository);
+            version.innerHTML = data[params.id].versionPrefix + data[params.id].version + data[params.id].versionSuffix;
+        } else if (data[params.id].type === 'Website') {
+            const link = document.createElement('img');
+            link.src = 'assets/img/buttons/visit.png';
+            link.addEventListener('click', () => {
+                window.open(data[params.id].link);
             });
-            buttons.appendChild(source);
+            buttons.appendChild(link);
+            version.innerHTML = ""
         }
+        const source = document.createElement('img');
+        source.src = 'assets/img/buttons/github.png';
+        source.addEventListener('click', () => {
+            window.open(data[params.id].repository);
+        });
+        buttons.appendChild(source);
     })
     .then(() => {
         const subImages = document.querySelectorAll('.sub-images div img');
