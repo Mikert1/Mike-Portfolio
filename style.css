@@ -401,6 +401,25 @@ a:hover {
     animation: green 2s;
 }
 
+#projects {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#projects div {
+    width: 30%;
+    margin: 10px;
+    background-color: rgb(32, 32, 32);
+    border-radius: 10px;
+}
+
+.projectImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: optimizeQuality;
+}
+
 @keyframes green {
     0% { width: 0%; }
     100% { width: 90%; }

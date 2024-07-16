@@ -6,7 +6,7 @@
         "description": "Ruined is a game that is currently in development.",
         "platforms": ["windows", "mac", "linux"],
         "versionType": "alpha",
-        "versionPrefix": "Pre-Alpha Developer ",
+        "versionPrefix": "Pre-Alpha ",
         "version": "1.5",
         "versionSuffix": " (Stable)",
         "status": "Active",
