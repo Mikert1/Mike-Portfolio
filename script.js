@@ -30,8 +30,9 @@ getData()
         console.log(data);
         data.forEach(project => {
             const clone = template.content.cloneNode(true);
-            clone.querySelector('h2').textContent = project.name;
-            clone.querySelector('p').textContent = project.description;
+            clone.querySelector('p').textContent = project.name + ' · ' + project.type;
+            clone.querySelector('h2').textContent = project.lang;
+            clone.querySelector('h4').textContent = project.description;
             clone.querySelector('div').addEventListener('click', () => {
                 window.location.href = `project.html?id=${project.id}`;
             });
