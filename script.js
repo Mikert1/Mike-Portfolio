@@ -32,7 +32,7 @@ getData()
             const clone = template.content.cloneNode(true);
             clone.querySelector('h2').textContent = project.name;
             clone.querySelector('p').textContent = project.description;
-            clone.addEventListener('click', () => {
+            clone.querySelector('div').addEventListener('click', () => {
                 window.location.href = `project.html?id=${project.id}`;
             });
             clone.querySelector('img').src = `${project.images[0]}`;

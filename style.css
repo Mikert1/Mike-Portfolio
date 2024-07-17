@@ -404,22 +404,46 @@ a:hover {
 #projects {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 #projects div {
     width: 30%;
-    margin: 10px;
     background-color: rgb(32, 32, 32);
     border-radius: 10px;
+}
+
+#projects div div {
+    width: 100%;
+    border-bottom-left-radius:0;
+    border-bottom-right-radius: 0;
 }
 
 .projectImage {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     width: 100%;
-    height: auto;
-    object-fit: contain;
+    height: 200px;
+    object-fit: cover;
     image-rendering: optimizeQuality;
+    display: block;
+}
+
+.projectCard {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.projectCard .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    opacity: 0.5;
+    pointer-events: none; /* Allows clicks to pass through */
 }
 
 @keyframes green {
