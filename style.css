@@ -28,11 +28,6 @@ body {
     padding: 0;
 }
 
-header {
-    margin-left: 10%;
-    margin-right: 10%;
-}
-
 nav {
     display: flex;
     background-color: rgb(32, 32, 32);
@@ -404,11 +399,12 @@ a:hover {
 #projects {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: start;
+    gap: 30px;
 }
 
 #projects div {
-    width: 30%;
+    width: 400px;
     background-color: rgb(32, 32, 32);
     border-radius: 10px;
 }
@@ -417,6 +413,32 @@ a:hover {
     width: 100%;
     border-bottom-left-radius:0;
     border-bottom-right-radius: 0;
+}
+
+@media (max-width: 1060px) {
+    #projects div {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .projectImage {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        image-rendering: optimizeQuality;
+        display: block;
+    }
+    .projectCard .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 400px;
+        background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+        opacity: 0.5;
+        pointer-events: none; /* Allows clicks to pass through */
+    }
 }
 
 .projectCard .info {
@@ -463,7 +485,7 @@ a:hover {
     100% { width: 90%; }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1033px) {
     .game-prefiew {
         display: flex;
         flex-wrap: wrap;
