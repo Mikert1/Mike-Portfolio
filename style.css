@@ -17,6 +17,10 @@ img {
     image-rendering: pixelated;
 }
 
+#welcome {
+    font-size: 2em;
+}
+
 @font-face {
     font-family: 'Berylium BD';
     src: url('assets/font/berylium bd.otf') format('opentype');
@@ -66,7 +70,6 @@ nav .navContainer {
 }
    
 section {
-    padding-top: 20px;
     padding-left: 10%;
     padding-right: 10%;
 }
@@ -398,7 +401,7 @@ a:hover {
 
 #projects {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: start;
     gap: 30px;
 }
@@ -413,32 +416,6 @@ a:hover {
     width: 100%;
     border-bottom-left-radius:0;
     border-bottom-right-radius: 0;
-}
-
-@media (max-width: 1060px) {
-    #projects div {
-        width: 100%;
-        margin-bottom: 30px;
-    }
-    .projectImage {
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        width: 100%;
-        height: 400px;
-        object-fit: cover;
-        image-rendering: optimizeQuality;
-        display: block;
-    }
-    .projectCard .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 400px;
-        background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-        opacity: 0.5;
-        pointer-events: none; /* Allows clicks to pass through */
-    }
 }
 
 .projectCard .info {
@@ -465,7 +442,7 @@ a:hover {
 
 .projectCard {
     position: relative;
-    width: 100%;
+    width: 400px;
     overflow: hidden;
 }
 
