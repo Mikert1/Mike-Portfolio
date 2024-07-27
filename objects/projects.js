@@ -21,9 +21,10 @@ getData()
             const clone = template.content.cloneNode(true);
             clone.querySelector('p').textContent = project.name + ' · ' + project.type;
             clone.querySelector('h2').textContent = project.lang;
-            clone.querySelector('h4').textContent = project.description;
+            const description = project.description.length > 90 ? project.description.slice(0, 90) + '...' : project.description;
+            clone.querySelector('h4').textContent = description;
             clone.querySelector('div').addEventListener('click', () => {
-                window.location.href = `../project.html?id=${project.id}`;
+                top.location.href = `../project.html?id=${project.id}`;
             });
             clone.querySelector('img').src = `${project.images[0]}`;
             document.getElementById('projects').appendChild(clone);

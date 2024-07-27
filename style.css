@@ -74,6 +74,10 @@ section {
     padding-right: 10%;
 }
 
+.gap {
+    padding-top: 20px;
+}
+
 button {
     background-color: rgb(62, 62, 62);
     border-color: rgb(15, 15, 15);
@@ -460,7 +464,6 @@ a:hover {
         padding: 10px;
     }
     section {
-        margin-top: 20px;
         margin-left: 0%;
         margin-right: 0%;
     }
