@@ -14,10 +14,15 @@ async function getData() {
     }
 }
 
+const urlParams = new URLSearchParams(window.location.search);
+let team = urlParams.get('team');
+team = team === "true" ? true : false;
+
+
 getData()
-    .then(data => {
-        console.log(data);
-        data.forEach(project => {
+.then(data => {
+    const filteredData = data.filter(project => project.team == team);
+        filteredData.forEach(project => {
             const clone = template.content.cloneNode(true);
             clone.querySelector('p').textContent = project.name + ' · ' + project.type;
             clone.querySelector('h2').textContent = project.lang;
