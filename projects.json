@@ -12,6 +12,7 @@
         "version": "1.5",
         "versionSuffix": " (Stable)",
         "status": "Active",
+        "date": "2022-11-30",
         "releases": "https://github.com/Mikert1/Ruined/releases/tag/v1.5-early-developer-beta",
         "repository": "https://github.com/Mikert1/Ruined",
         "images": ["https://github.com/Mikert1/Ruined/assets/73882306/b35ce5a7-e065-462e-8beb-51ac57dd84d1", "https://github.com/Mikert1/Ruined/assets/73882306/1ef52b0c-8240-489a-a191-458290eeaa21", "https://github.com/Mikert1/Ruined/assets/73882306/ec4af4f6-0ac1-460c-8bae-5d015817904d", "https://github.com/Mikert1/Ruined/assets/73882306/eef28b86-3676-42fc-b7ba-cc05ba1171a6", "https://github.com/Mikert1/Ruined/assets/73882306/adea97ac-11a2-4c1b-b628-0f0edf4c7494"]
@@ -25,13 +26,14 @@
         "platforms": ["mobile", "desktop"],
         "description": "A website that has inspiration from Rotten Tomatoes, IMDb and Netflix.",
         "status": "Active",
+        "date": "2024-07-4",
         "link": "https://mikert1.github.io/Mikert-Video/",
         "repository": "https://github.com/Mikert1/Mikert-Video",
         "images": ["https://github.com/user-attachments/assets/33084fdd-bc6e-40f1-a522-5751bc1b2e52", "https://github.com/user-attachments/assets/98da2ad1-5314-4735-b9ec-f7a1a31e7505", "https://github.com/user-attachments/assets/73c79512-2347-4e28-ae84-cfe8a9f08059", "https://github.com/user-attachments/assets/4beb8aaf-6810-4786-a410-c299a669c8a2", "https://github.com/user-attachments/assets/3de39682-375a-488f-9fcc-17f49ef4da5d"]
     },
     {
         "id": 3,
-        "name": "Mikert-food-menu",
+        "name": "Mikert Food Menu",
         "type": "Website",
         "project": "solo",
         "lang": "HTML, CSS, JavaScript",
@@ -70,15 +72,15 @@
     },
     {
         "id": 6,
-        "name": "One-Punch-Man-Leaderboard",
+        "name": "One Punch Man Leaderboard",
         "type": "Website",
         "project": "5day",
         "lang": "JavaScript",
         "platforms": ["mobile", "desktop"],
-        "description": "A 5 day project to test our skills. This was halveway our first year of school.",
+        "description": "A 5 day project to test our skills. This was halveway our first year of school. I made the javascript with someone else.",
         "status": "Active",
-        "link": "https://mikert1.github.io/",
-        "repository": "https://github.com/Mikert1/Ruined",
+        "link": "https://mikert1.github.io/One-Punch-Man-Leaderboard",
+        "repository": "https://github.com/Mikert1/One-Punch-Man-Leaderboard",
         "images": [""]
     }
 ]

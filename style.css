@@ -428,6 +428,27 @@ a:hover {
     border-bottom-right-radius: 0;
 }
 
+#projects .body {
+    padding: 10px;
+    width: 380px;
+    height: 200px;
+}
+
+#projects .body div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#projects .body div svg {
+    min-width: 20px;
+    min-height: 20px;
+}
+
+#projects .body div h2 {
+    margin: 0px;
+}
+
 #projects .info {
     padding: 10px;
 }
