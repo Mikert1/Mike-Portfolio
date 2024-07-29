@@ -39,7 +39,8 @@
         "lang": "HTML, CSS, JavaScript",
         "platforms": ["mobile", "desktop"],
         "description": "A website that has a food menu. I made this as my end project for the first year of school.",
-        "status": "Inactive",
+        "status": "Done",
+        "date": "2024-02-8",
         "link": "https://mikert1.github.io/Mikert-food-menu/",
         "repository": "https://github.com/Mikert1/Mikert-food-menu",
         "images": ["https://github.com/user-attachments/assets/f9ed3a5a-93a2-4cec-ad9c-b8ff540769be"]
@@ -52,7 +53,8 @@
         "lang": "HTML, CSS",
         "platforms": ["mobile", "desktop"],
         "description": "A website that i made for a client. The website is for a company that installs electrical and security systems.",
-        "status": "Active",
+        "status": "InActive",
+        "date": "2024-02-29",
         "link": "https://mb-elektro.nl/",
         "repository": "https://github.com/Mikert1/MB-Elektro",
         "images": [""]
@@ -66,6 +68,7 @@
         "platforms": ["mobile", "desktop"],
         "description": "This is a project where i made the Javascript and PHP part. The styling is not made by me. The website was for a school client to leurn us how to work with a client",
         "status": "Done",
+        "date": "2024-05-22",
         "link": "http://85.10.148.52/index.html",
         "repository": "https://github.com/Mikert1/My-Education-Lifestyle",
         "images": [""]
@@ -78,7 +81,8 @@
         "lang": "JavaScript",
         "platforms": ["mobile", "desktop"],
         "description": "A 5 day project to test our skills. This was halveway our first year of school. I made the javascript with someone else.",
-        "status": "Active",
+        "status": "Done",
+        "date": "2024-02-12",
         "link": "https://mikert1.github.io/One-Punch-Man-Leaderboard",
         "repository": "https://github.com/Mikert1/One-Punch-Man-Leaderboard",
         "images": [""]

@@ -445,8 +445,16 @@ a:hover {
     min-height: 20px;
 }
 
-#projects .body div h2 {
+#projects .body p,
+#projects .body h2 {
     margin: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: rgb(156, 156, 156);
+}
+
+#projects .body span {
+    color: rgb(236, 236, 236);
 }
 
 #projects .info {
