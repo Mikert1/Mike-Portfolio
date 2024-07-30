@@ -5,7 +5,7 @@
         "type": "Game",
         "project": "solo",
         "lang": "Lua",
-        "description": "Ruined is a game that is currently in development.",
+        "description": "Ruined is a game that is currently in development. it is made with the Love2D engine. The game is a 2D platformer game and it will have a story.",
         "platforms": ["windows", "mac", "linux"],
         "versionType": "alpha",
         "versionPrefix": "Pre-Alpha ",
