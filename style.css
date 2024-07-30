@@ -492,15 +492,11 @@ a:hover {
         justify-content: space-between;
         padding: 10px;
     }
-    section {
-        margin-left: 0%;
-        margin-right: 0%;
-    }
     .cards {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-    
+        
     }
     nav {
         height: 50px;
@@ -517,5 +513,40 @@ a:hover {
     .game-prefiew-image div div img {
         padding: 0px;
         width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    #projects {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    #projects .project,
+    #projects .image {
+        width: 100%;
+        background-color: rgb(32, 32, 32);
+        border-radius: 10px;
+    }
+
+    #projects .body {
+        padding: 3%;
+    }    
+    
+    #projects .head,
+    #projects .body {
+        width: 100%;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    
+    #projects .body {
+        width: 94%;
+    }
+    section {
+        padding-left: 0%;
+        padding-right: 0%;
     }
 }
