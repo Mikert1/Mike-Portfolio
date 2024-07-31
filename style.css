@@ -245,6 +245,25 @@ button:active {
     padding: 10px;
 }
 
+#projectDisplay .info hr {
+    margin: 0;
+    opacity: 20%;
+}
+
+#projectDisplay .info h1 {
+    margin: 0;
+}
+
+#projectDisplay .info p {
+    color: rgb(156, 156, 156);
+}
+
+.iconDiv {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
 .cards {
     display: flex;
     flex-wrap: wrap;
@@ -289,9 +308,15 @@ footer {
     width: 100%;
 }
 
+.multipleIcons {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
 .platform {
     width: 32px;
-    margin-top: 10px;
+    height: 32px;
     image-rendering: optimizeQuality;
 }
 
@@ -485,11 +510,11 @@ a:hover {
         background-color: rgb(32, 32, 32);
         border-radius: 10px;
     }
-    #projectDisplay-image {
+    #projectDisplay .image {
         width: 100%;
         
     }
-    #projectDisplay-info {
+    #projectDisplay .info {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -514,7 +539,7 @@ a:hover {
         align-items: center;
         margin-top: 10px;
     }
-    #projectDisplay-image div div img {
+    #projectDisplay .image div div img {
         padding: 0px;
         width: 100%;
     }

@@ -76,7 +76,7 @@ getData()
                 window.open(data[params.id].releases);
             });
             buttons.appendChild(download);
-            version.innerHTML = data[params.id].versionPrefix + data[params.id].version + data[params.id].versionSuffix;
+            version.innerHTML = version.innerHTML + '<p>' + data[params.id].versionPrefix + data[params.id].version + '<span>' + data[params.id].versionSuffix + '</span> </p>';
         } else if (data[params.id].type === 'Website') {
             const link = document.createElement('img');
             link.src = 'assets/img/buttons/visit.png';
