@@ -191,14 +191,14 @@ button:active {
     height: 100%;
 }
 
-.game-prefiew {
+#projectDisplay {
     display: flex;
     background-color: rgb(32, 32, 32);
     border-radius: 10px;
     width: 100%;
     height: auto;
 }
-.game-prefiew-image {
+#projectDisplay .image {
     width: 60%;
     height: 100%;
 }
@@ -211,33 +211,33 @@ button:active {
     image-rendering: optimizeQuality;
 }
 
-.game-prefiew-image div {
+#projectDisplay .image div {
     display: flex;
     justify-content: space-between;
     width: 100%;
 }
 
-.sub-images {
+#projectDisplay .sub-images {
     width: 100%;
     height: 16%;
 }
 
-.game-prefiew-image div div {
+#projectDisplay .image div div {
     width: 20%;
 }
 
-.game-prefiew-image div div img {
+#projectDisplay .image div div img {
     margin-left: 5px;
     width: 100%;
     object-fit: contain;
     image-rendering: optimizeQuality;
 }
 
-.game-prefiew-image div div:first-child img {
+#projectDisplay .image div div:first-child img {
     margin-left: 0px;
 }
 
-.game-prefiew-info {
+#projectDisplay .info {
     width: 40%;
     display: flex;
     flex-direction: column;
@@ -479,17 +479,17 @@ a:hover {
 }
 
 @media (max-width: 1033px) {
-    .game-prefiew {
+    #projectDisplay {
         display: flex;
         flex-wrap: wrap;
         background-color: rgb(32, 32, 32);
         border-radius: 10px;
     }
-    .game-prefiew-image {
+    #projectDisplay-image {
         width: 100%;
         
     }
-    .game-prefiew-info {
+    #projectDisplay-info {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -514,7 +514,7 @@ a:hover {
         align-items: center;
         margin-top: 10px;
     }
-    .game-prefiew-image div div img {
+    #projectDisplay-image div div img {
         padding: 0px;
         width: 100%;
     }
