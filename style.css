@@ -246,7 +246,6 @@ button:active {
 }
 
 #projectDisplay .info hr {
-    margin: 0;
     opacity: 20%;
 }
 
@@ -328,6 +327,10 @@ footer {
     width: 32px;
     height: 32px;
     image-rendering: optimizeQuality;
+}
+
+.selectedPlatform {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(240deg);
 }
 
 .server-info {
