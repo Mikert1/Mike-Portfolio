@@ -32,7 +32,7 @@ getData()
             const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
 
             clone.querySelector('.date').innerHTML = `Created <span>${daysDifference}</span> days ago | <span>${project.status}</span>`;
-            clone.querySelector('div').addEventListener('click', () => {
+            clone.querySelector('.button').addEventListener('click', () => {
                 top.location.href = `../project.html?id=${project.id}`;
             });
             clone.querySelector('img').src = `${project.images[0]}`;
