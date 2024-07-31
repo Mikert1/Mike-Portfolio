@@ -256,6 +256,16 @@ button:active {
 
 #projectDisplay .info p {
     color: rgb(156, 156, 156);
+    margin: 0;
+    margin-top: 15px;
+}
+
+#projectDisplay .info #version p {
+    margin: 0;
+}
+
+#projectDisplay .info span {
+    color: rgb(236, 236, 236);
 }
 
 .iconDiv {

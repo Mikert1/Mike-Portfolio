@@ -76,7 +76,7 @@ getData()
                 window.open(data[params.id].releases);
             });
             buttons.appendChild(download);
-            version.innerHTML = version.innerHTML + '<p>' + data[params.id].versionPrefix + data[params.id].version + '<span>' + data[params.id].versionSuffix + '</span> </p>';
+            version.innerHTML = version.innerHTML + '<p>' + data[params.id].versionPrefix + '<span>' + data[params.id].version + '</span>' + data[params.id].versionSuffix + '</p>';
         } else if (data[params.id].type === 'Website') {
             const link = document.createElement('img');
             link.src = 'assets/img/buttons/visit.png';
@@ -96,9 +96,6 @@ getData()
     .then(() => {
         const subImages = document.querySelectorAll('.sub-images div img');
         subImages.forEach((image) => {
-            image.addEventListener('mouseover', (e) => {
-                document.getElementById('main-image').src = e.target.src;
-            });
             image.addEventListener('click', (e) => {
                 document.getElementById('main-image').src = e.target.src;
             });
