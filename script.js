@@ -9,11 +9,41 @@ if (hr < 12) {
 }
 helloText.innerHTML += ', Welcome to my website!';
 
-window.addEventListener('resize', () => {
-    console.log('test')
+async function getData() {
+    try {
+        const response = await fetch('projects.json');
+        if (!response.ok) {
+            throw new Error('Failed to fetch');
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching:', error);
+        throw error;
+    }
+}
+
+let gameProjectsCount = 0;
+getData()
+    .then(data => {
+        const gameProjects = data.filter(project => project.project === 'solo');
+        gameProjectsCount = gameProjects.length;
+        console.log(`Number of game projects: ${gameProjectsCount}`);
+    })
+    .catch(error => {
+        console.error('Error fetching:', error);
+    });
+
+function resize() {
     if (window.innerWidth < 500) {
-        document.getElementById('MyOwnProjects').height = '1800px';
+        const num = gameProjectsCount * 450 + 10;
+        document.getElementById('MyOwnProjects').height = num;
     } else {
         document.getElementById('MyOwnProjects').height = '450px';
     }
+}
+
+window.addEventListener('resize', () => {
+    resize()
 });
+resize()
