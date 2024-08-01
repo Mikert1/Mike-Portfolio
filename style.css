@@ -276,7 +276,8 @@ button:active {
 .cards {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: start !important;
+    gap: 30px;
 }
 .card {
     display: flex;
@@ -286,6 +287,15 @@ button:active {
     border-radius: 10px;
     margin-bottom: 30px;
 }
+
+.brandCard {
+    width: 40%;
+}
+
+.brandImg {
+    width: 100%;
+}
+
 .card-img {
     width: 100%;
 }

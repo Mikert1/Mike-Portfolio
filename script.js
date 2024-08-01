@@ -29,6 +29,7 @@ getData()
         const gameProjects = data.filter(project => project.project === 'solo');
         gameProjectsCount = gameProjects.length;
         console.log(`Number of game projects: ${gameProjectsCount}`);
+        resize()
     })
     .catch(error => {
         console.error('Error fetching:', error);
@@ -46,4 +47,3 @@ function resize() {
 window.addEventListener('resize', () => {
     resize()
 });
-resize()
