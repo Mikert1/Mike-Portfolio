@@ -168,11 +168,45 @@ button:active {
     animation: ruined 10s infinite;
 }
 
+
+/* imported from my own so called "bootstrap" */
 .flex {
     display: flex;
-    justify-content: center;
     align-items: center;
 }
+
+.flex-sa {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.flex-sb {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.col {
+    flex-direction: column;
+}
+
+.w100 {
+    width: 100%;
+}
+
+.h100 {
+    height: 100%;
+}
+.w50 {
+    width: 50%;
+}
+
+.fit {
+    object-fit: contain;
+}
+
+/* end */
 
 .plan {
     display: flex;
@@ -290,10 +324,6 @@ button:active {
 
 .brandCard {
     width: 40%;
-}
-
-.brandImg {
-    width: 100%;
 }
 
 .card-img {
@@ -565,6 +595,10 @@ a:hover {
     #projectDisplay .image div div img {
         padding: 0px;
         width: 100%;
+    }
+
+    .mo-col {
+        flex-direction: column;
     }
 }
 
