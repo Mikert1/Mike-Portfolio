@@ -181,6 +181,11 @@ button:active {
     align-items: center;
 }
 
+.flex-center {
+    display: flex;
+    justify-content: center;
+}
+
 .flex-sb {
     display: flex;
     justify-content: space-between;
@@ -337,10 +342,10 @@ footer {
     margin-top: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
     background-color: rgb(32, 32, 32);
-    height: 200px;
+    height: 150px;
 }
 .navbar-object {
     height: 80px;
