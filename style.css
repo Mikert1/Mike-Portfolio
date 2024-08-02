@@ -206,6 +206,10 @@ button:active {
     object-fit: contain;
 }
 
+.m0 {
+    margin: 0;
+}
+
 /* end */
 
 .plan {
@@ -311,7 +315,7 @@ button:active {
     display: flex;
     flex-wrap: wrap;
     justify-content: start !important;
-    gap: 30px;
+    gap: 2%;
 }
 .card {
     display: flex;
