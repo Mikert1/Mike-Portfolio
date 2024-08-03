@@ -35,6 +35,8 @@ if (params.id) {
 const title = document.getElementById('title');
 const description = document.getElementById('description');
 const platforms = document.getElementById('platforms');
+const date = document.getElementById('date');
+const lang = document.getElementById('lang');
 const version = document.getElementById('version');
 const mainImage = document.getElementById('main-image');
 const image1 = document.getElementById('image1');
@@ -70,6 +72,8 @@ getData()
                 }
             }
         }
+        date.textContent = data[params.id].date;
+        lang.innerHTML = lang.innerHTML + data[params.id].lang;
         for (let i = 0; i < data[params.id].images.length; i++) {
             const div = document.createElement('div');
             let img = document.createElement('img');
