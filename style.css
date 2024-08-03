@@ -74,10 +74,6 @@ section {
     padding-right: 10%;
 }
 
-.gap {
-    gap: 10px;
-}
-
 button {
     gap: 5px;
     background-color: rgb(62, 62, 62);
@@ -101,15 +97,6 @@ button:active {
 #buttons {
     display: flex;
     gap: 20px;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    background-color: rgb(32, 32, 32);
-    padding: 10px;
-    border-radius: 10px;
 }
 
 @keyframes beta {
@@ -221,20 +208,27 @@ button:active {
     justify-content: end;
 }
 
+.gap {
+    gap: 10px;
+}
+
 /* end */
 
-.plan {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 10px;
+/* objects */
+object {
+    width: 100%;
 }
 
-.title {
-    font-size: 2em;
-    margin-top: 10px;
-    margin-bottom: 10px;
+.navbar-object {
+    height: 80px;
 }
+
+.footer-object {
+    height: 300px;
+    margin-top: auto;
+}
+
+/* end */
 
 #introduction {
     height: 100%;
@@ -343,9 +337,6 @@ button:active {
     width: 40%;
 }
 
-.card-img {
-    width: 100%;
-}
 footer {
     margin-top: auto;
     display: flex;
@@ -370,125 +361,6 @@ footer .copy {
     gap: 10px;
 }
 
-.navbar-object {
-    height: 80px;
-}
-.footer-object {
-    margin-top: auto;
-}
-.social-icons {
-    margin-top: 5px;
-    display: flex;
-    justify-content: center;
-    min-width: 20%;
-}
-.social-icons div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-.multipleIcons {
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-}
-
-.platform {
-    width: 32px;
-    height: 32px;
-    image-rendering: optimizeQuality;
-}
-
-.selectedPlatform {
-    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(240deg);
-}
-
-.server-info {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.ranks-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.ranks-info div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.skin3d {
-    height: 300px;
-}
-
-object {
-    width: 100%;
-}
-
-iframe {
-    width: 100%;
-    height: 500px;
-}
-
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.ranks {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    background-color: rgb(32, 32, 32);
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-}
-
-.rank  {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgb(51, 51, 51);
-    padding: 10px;
-    width: 300px;
-    border: #2e2e2e 1px solid;
-    border-radius: 10px;
-    margin: 10px;
-}
-.rank p {
-    width: 100%;
-    margin: 0;
-}
-
-.rank hr {
-    width: 100%;
-    margin: 10px;
-}
-
-.rank-image {
-    width: 100px;
-}
-
-.terms {
-    opacity: 0.05;
-}
-
-.terms p {
-    margin: 0;
-}
 
 a {
     color: rgb(255, 255, 255);
@@ -497,21 +369,6 @@ a {
 
 a:hover {
     color: rgb(0, 255, 255);
-}
-
-.grayBar {
-    background-color: rgb(70, 70, 70);
-    border-radius: 5px;
-    height: 10px;
-    width: 100%;
-}
-
-.green {
-    background-color: rgb(0, 172, 0);
-    border-radius: 5px;
-    height: 10px;
-    width: 90%;
-    animation: green 2s;
 }
 
 #projects {
@@ -581,11 +438,6 @@ a:hover {
 
 #projects .info h4 {
     color: rgb(134, 134, 134);
-}
-
-@keyframes green {
-    0% { width: 0%; }
-    100% { width: 90%; }
 }
 
 @media (max-width: 1033px) {
