@@ -75,7 +75,7 @@ section {
 }
 
 .gap {
-    padding-top: 20px;
+    gap: 10px;
 }
 
 button {
@@ -184,6 +184,7 @@ button:active {
 .flex-center {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .flex-sb {
@@ -215,6 +216,11 @@ button:active {
     margin: 0;
 }
 
+.flex-end {
+    display: flex;
+    justify-content: end;
+}
+
 /* end */
 
 .plan {
@@ -235,11 +241,13 @@ button:active {
 }
 
 #projectDisplay {
+    margin-top: 20px;
     display: flex;
     background-color: rgb(32, 32, 32);
     border-radius: 10px;
     width: 100%;
     height: auto;
+    margin-bottom: 20px;
 }
 #projectDisplay .image {
     width: 60%;
@@ -343,10 +351,25 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: end;
-    align-items: center;
     background-color: rgb(32, 32, 32);
-    height: 150px;
+    height: 300px;
 }
+footer .body {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    width: 100%;
+    padding: 10px;
+
+}
+
+footer .copy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
 .navbar-object {
     height: 80px;
 }
@@ -468,7 +491,7 @@ iframe {
 }
 
 a {
-    color: rgb(15, 15, 15);
+    color: rgb(255, 255, 255);
     text-decoration: none;
 }
 
