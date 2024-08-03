@@ -7,7 +7,7 @@ if (hr < 12) {
 } else {
     helloText.innerHTML = 'A very Good Evening';
 }
-helloText.innerHTML += ', Welcome to my website!';
+helloText.innerHTML += ', I am Mike and Welcome to my website!';
 
 async function getData() {
     try {
