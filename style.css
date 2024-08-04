@@ -383,6 +383,10 @@ footer .body {
 
 }
 
+footer .body .img {
+    width: 400px;
+}
+
 footer .copy {
     display: flex;
     justify-content: center;
@@ -536,6 +540,29 @@ a:hover {
     .mo-col {
         flex-direction: column;
     }
+
+    .mo-inv {
+        display: none;
+    }
+
+    footer .body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 0px;
+    }
+
+    footer .body .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    footer .body .img {
+        width: 80%;
+    }
 }
 
 @media (max-width: 400px) {
@@ -570,5 +597,11 @@ a:hover {
     section {
         padding-left: 0%;
         padding-right: 0%;
+    }
+    footer {
+        height: 250px;
+    }
+    .footer-object {
+        height: 250px;
     }
 }
