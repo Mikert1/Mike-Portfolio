@@ -57,7 +57,7 @@
         "date": "2024-02-29",
         "link": "https://mb-elektro.nl/",
         "repository": "https://github.com/Mikert1/MB-Elektro",
-        "images": [""]
+        "images": ["https://github.com/user-attachments/assets/97aff625-6129-4452-b25d-64c3b772ed29"]
     },
     {
         "id": 5,
@@ -66,12 +66,12 @@
         "project": "team",
         "lang": "JavaScript, PHP",
         "platforms": ["mobile", "desktop"],
-        "description": "This is a project where i made the Javascript and PHP part. The styling is not made by me. The website was for a school client to leurn us how to work with a client",
+        "description": "This is a project where i made the Javascript and PHP part. The website was for a school client to leurn us how to work with a real client",
         "status": "Done",
         "date": "2024-05-22",
         "link": "http://85.10.148.52/index.html",
         "repository": "https://github.com/Mikert1/My-Education-Lifestyle",
-        "images": [""]
+        "images": ["https://github.com/user-attachments/assets/5a990812-ecba-46a5-8e7e-09824d244c65", "https://github.com/user-attachments/assets/19feaa58-70e9-42f3-a3c4-abbbf95b68bc", "https://github.com/user-attachments/assets/712418fd-75a7-4231-90f1-972e56b960a6", "https://github.com/user-attachments/assets/9fa66548-93ca-45e8-a6cc-57aa90aa710b", "https://github.com/user-attachments/assets/ff417469-1434-4399-a4c4-72d389960df9"]
     },
     {
         "id": 6,
@@ -80,11 +80,11 @@
         "project": "5day",
         "lang": "JavaScript",
         "platforms": ["mobile", "desktop"],
-        "description": "A 5 day project to test our skills. This was halveway our first year of school. I made the javascript with someone else.",
+        "description": "This is a School project halve way trough the first year. We made this in a week time with a team of 3.",
         "status": "Done",
         "date": "2024-02-12",
         "link": "https://mikert1.github.io/One-Punch-Man-Leaderboard",
         "repository": "https://github.com/Mikert1/One-Punch-Man-Leaderboard",
-        "images": [""]
+        "images": ["https://github.com/user-attachments/assets/ea54b985-0815-4857-b8f8-d135e1d5992c"]
     }
 ]
