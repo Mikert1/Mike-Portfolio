@@ -180,6 +180,11 @@ button:active {
     align-items: center;
 }
 
+.flex-jc-center {
+    display: flex;
+    justify-content: center;
+}
+
 .col {
     flex-direction: column;
 }
@@ -405,6 +410,8 @@ a:hover {
     color: rgb(0, 255, 255);
 }
 
+
+
 #projects {
     display: flex;
     flex-wrap: nowrap;
@@ -412,12 +419,25 @@ a:hover {
     gap: 30px;
 }
 
+
 #projects .project,
 #projects .image {
     width: 400px;
     background-color: rgb(32, 32, 32);
     border-radius: 10px;
 }
+
+#projects .project {
+    box-shadow: rgb(0, 0, 0) 0px 0px 10px;
+    transition: box-shadow 0.1s ease, transform 0.1s ease;
+    transform: translateY(0);
+}
+
+#projects .project:hover {
+    box-shadow: rgb(0, 0, 0) 3px 3px 20px;
+    transform: translateY(-5px);
+}
+
 
 #projects .image {
     height: 200px;

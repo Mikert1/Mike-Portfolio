@@ -46,7 +46,7 @@ function resize() {
         document.getElementById('myOwnProjects').height = num;
         document.getElementById('schoolProjects').height = num2;
     } else {
-        document.getElementById('myOwnProjects').height = '450px';
+        document.getElementById('myOwnProjects').height = '500px';
         document.getElementById('schoolProjects').height = '450px';
     }
 }
