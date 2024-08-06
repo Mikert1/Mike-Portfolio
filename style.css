@@ -209,6 +209,7 @@ button:active {
 }
 
 .gap {
+    display: flex;
     gap: 10px;
 }
 
