@@ -23,12 +23,16 @@ async function getData() {
     }
 }
 
-let gameProjectsCount = 0;
+let myOwnProjectsCount = 0;
+let schoolProjectsCount = 0;
 getData()
     .then(data => {
         const gameProjects = data.filter(project => project.project === 'solo');
-        gameProjectsCount = gameProjects.length;
-        console.log(`Number of game projects: ${gameProjectsCount}`);
+        myOwnProjectsCount = gameProjects.length;
+        console.log(`Number of game projects: ${myOwnProjectsCount}`);
+        const schoolProjects = data.filter(project => project.project === 'school');
+        schoolProjectsCount = schoolProjects.length;
+
         resize()
     })
     .catch(error => {
@@ -37,10 +41,13 @@ getData()
 
 function resize() {
     if (window.innerWidth < 500) {
-        const num = gameProjectsCount * 450 + 10;
-        document.getElementById('MyOwnProjects').height = num;
+        const num = myOwnProjectsCount * 450 + 10;
+        const num2 = schoolProjectsCount * 450 + 10;
+        document.getElementById('myOwnProjects').height = num;
+        document.getElementById('schoolProjects').height = num2;
     } else {
-        document.getElementById('MyOwnProjects').height = '450px';
+        document.getElementById('myOwnProjects').height = '450px';
+        document.getElementById('schoolProjects').height = '450px';
     }
 }
 

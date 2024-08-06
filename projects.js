@@ -52,7 +52,7 @@ getData()
         title.textContent = data[params.id].name;
         description.textContent = data[params.id].description;
         if (data[params.id].platforms) {
-            const size = 32;
+            const size = 20;
             for (let i = 0; i < data[params.id].platforms.length; i++) {
                 platforms.innerHTML = platforms.innerHTML + `<img src="assets/img/svg/${data[params.id].platforms[i]}.svg" height="${size}" width="${size}" alt="${data[params.id].platforms[i]}">`;
             }
