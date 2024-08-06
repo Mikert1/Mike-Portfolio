@@ -446,13 +446,13 @@ a:hover {
 #projects .image {
     width: 400px;
     background-color: rgb(32, 32, 32);
-    border-radius: 10px;
 }
 
 #projects .project {
     box-shadow: rgb(0, 0, 0) 0px 0px 10px;
     transition: box-shadow 0.1s ease, transform 0.1s ease;
     transform: translateY(0);
+    border-radius: 10px;
 }
 
 #projects .project:hover {
@@ -463,6 +463,8 @@ a:hover {
 
 #projects .image {
     height: 200px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 #projects .head,
@@ -475,7 +477,7 @@ a:hover {
 #projects .body {
     padding: 10px;
     width: 380px;
-    height: 200px;
+    height: 150px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -488,8 +490,9 @@ a:hover {
 }
 
 #projects .body div svg {
-    min-width: 20px;
-    min-height: 20px;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
 }
 
 #projects .body p,
@@ -514,6 +517,23 @@ a:hover {
 
 #projects .info h4 {
     color: rgb(134, 134, 134);
+}
+
+#projects .footer {
+    background-color: rgb(39, 39, 39);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 50px;
+}
+
+#projects .footer a {
+    width: 100%;
+    height: 100%;
+}
+
+#projects .footer svg {
+    width: 15px;
+    height: 15px;
 }
 
 @media (max-width: 1033px) {
