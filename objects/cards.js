@@ -22,8 +22,11 @@ getData()
     const filteredData = data.filter(project => project.project == projectType);
     filteredData.sort((a, b) => new Date(b.date) - new Date(a.date));
     filteredData.forEach(project => {
+        const shortedName = project.name.length > 20 ? project.name.slice(0, 20) + '...' : project.name;
         const clone = template.content.cloneNode(true);
-        clone.querySelector('.name').innerHTML = '<span>' + project.name + ' · ' + project.type + '</span>';
+        clone.querySelector('.name').innerHTML = '<span>' + shortedName + '</span> · ' + project.type;
+        clone.querySelector('.status').textContent = project.status;
+        clone.querySelector('.status').classList.add(`status${project.status}`);
         clone.querySelector('h2').innerHTML = '<span>' + project.lang + '</span>';
         const description = project.description.length > 90 ? project.description.slice(0, 90) + '...' : project.description;
         clone.querySelector('.description').textContent = description;
@@ -32,7 +35,7 @@ getData()
         const timeDifference = Math.abs(currentDate - projectDate);
         const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
 
-        clone.querySelector('.date').innerHTML = `Created <span>${daysDifference}</span> days ago | <span>${project.status}</span>`;
+        clone.querySelector('.date').innerHTML = `Created <span>${daysDifference}</span> days ago`;
         clone.querySelector('.button').addEventListener('click', () => {
             top.location.href = `../project.html?id=${project.id}`;
         });
