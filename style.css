@@ -1,11 +1,12 @@
 html {
-    background-color: rgb(44, 44, 44);
+    background-color: rgb(26, 26, 26);
     color: white;
     padding: 0;
     height: 100%;
 }
 
 body {
+    background-color: rgb(31, 31, 31);
     margin: 0;
     padding: 0;
     min-height: 100%;
@@ -34,7 +35,7 @@ body {
 
 nav {
     display: flex;
-    background-color: rgb(32, 32, 32);
+    background-color: rgb(26, 26, 26);
     height: 80px;
 }
 
@@ -277,6 +278,7 @@ embed {
     width: 100%;
     height: auto;
     margin-bottom: 20px;
+    box-shadow: rgb(0, 0, 0) 0px 0px 10px;
 }
 #projectDisplay .image {
     width: 60%;
@@ -287,6 +289,7 @@ embed {
     width: 100%;
     height: 83%;
     border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     object-fit: contain;
     image-rendering: optimizeQuality;
 }
@@ -377,7 +380,7 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: end;
-    background-color: rgb(32, 32, 32);
+    background-color: rgb(26, 26, 26);
     height: 300px;
 }
 footer .body {
@@ -520,7 +523,7 @@ a:hover {
 }
 
 #projects .footer {
-    background-color: rgb(39, 39, 39);
+    background-color: rgb(26, 26, 26);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     height: 50px;
