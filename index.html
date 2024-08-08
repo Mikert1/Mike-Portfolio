@@ -13,10 +13,31 @@
             <object data="objects/navbar.html" class="navbar-object"></object>
         </header>
         <section>
+            <h1 id="welcome"></h1>
             <div id="profile">
                 <div class="left">
-                    <h1 id="welcome"></h1>
-                    <p></p>
+                    <div class="flipCard flex-center">
+                        <div class="flipCard-side front">
+                            <div class="content">
+                                <div>
+                                    <!-- <img src="assets/img/mike.jpg" alt="Profile picture" class="profile-image"> -->
+                                    <h1 class="m0">Mike Balvert</h1>
+                                    <h2 class="m0 mt6 title">Front-End Developer</h2>
+                                </div>
+                                <button onclick="flipCard()">
+                                    FLIP IT
+                                </button>
+                            </div>
+                        </div>
+                        <div class="flipCard-side back">
+                            <div class="content">
+                                <h2 class="m0">Contact</h2>
+                                <button onclick="flipBack()">
+                                    FLIP IT
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="right">
                     <embed src="https://jandee.vercel.app/mikert1">

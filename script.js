@@ -23,6 +23,20 @@ async function getData() {
     }
 }
 
+function flipCard() {
+    const cardFront = document.querySelector('.flipCard-side.front');
+    const cardBack = document.querySelector('.flipCard-side.back');
+    cardFront.style.transform = 'rotateY(180deg)';
+    cardBack.style.transform = 'rotateY(0deg)';
+}
+
+function flipBack() {
+    const cardFront = document.querySelector('.flipCard-side.front');
+    const cardBack = document.querySelector('.flipCard-side.back');
+    cardFront.style.transform = 'rotateY(0deg)';
+    cardBack.style.transform = 'rotateY(180deg)';
+}
+
 let myOwnProjectsCount = 0;
 let schoolProjectsCount = 0;
 getData()
@@ -40,13 +54,13 @@ getData()
     });
 
 function resize() {
-    if (window.innerWidth < 500) {
+    if (window.innerWidth <= 500) {
         const num = myOwnProjectsCount * 450 + 10;
         const num2 = schoolProjectsCount * 450 + 10;
         document.getElementById('myOwnProjects').height = num;
         document.getElementById('schoolProjects').height = num2;
     } else {
-        document.getElementById('myOwnProjects').height = '500px';
+        document.getElementById('myOwnProjects').height = '450px';
         document.getElementById('schoolProjects').height = '450px';
     }
 }
