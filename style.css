@@ -248,6 +248,33 @@ embed {
 
 /* end */
 
+.title {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: -20px;
+    margin-bottom: -30px;
+}
+
+.title .svgDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    background-image: radial-gradient(circle, #00ffff88, #00ffff44, #00000000, #00000000);
+}
+
+.title svg {
+    width: 30px;
+    height: 30px;
+}
+
 #profile {
     display: flex;
     width: 100%;
@@ -547,7 +574,7 @@ a:hover {
     height: 15px;
 }
 
-.title {
+.functionTitle {
     background: linear-gradient(43deg, #00ffff 0%, #1100ff 100%);
     color: transparent;
     -webkit-background-clip: text;
