@@ -7,7 +7,7 @@ if (hr < 12) {
 } else {
     helloText.innerHTML = 'A very Good Evening';
 }
-helloText.innerHTML += ', I am Mike and Welcome to my website!';
+helloText.innerHTML += ', Welcome to my website!';
 
 async function getData() {
     try {
@@ -23,18 +23,15 @@ async function getData() {
     }
 }
 
-function flipCard() {
-    const cardFront = document.querySelector('.flipCard-side.front');
-    const cardBack = document.querySelector('.flipCard-side.back');
-    cardFront.style.transform = 'rotateY(180deg)';
-    cardBack.style.transform = 'rotateY(0deg)';
-}
-
-function flipBack() {
-    const cardFront = document.querySelector('.flipCard-side.front');
-    const cardBack = document.querySelector('.flipCard-side.back');
-    cardFront.style.transform = 'rotateY(0deg)';
-    cardBack.style.transform = 'rotateY(180deg)';
+function flipCard(side) {
+    const card = document.querySelector('.flipCard');
+    if (side === 'front') {
+        card.classList.remove('flipped');
+        const text = document.getElementById('helpingText');
+        text.innerHTML = '';
+    } else {
+        card.classList.add('flipped');
+    }
 }
 
 let myOwnProjectsCount = 0;

@@ -1,5 +1,5 @@
 html {
-    background-color: rgb(26, 26, 26);
+    background-color: #1a1a1a;
     color: white;
     padding: 0;
     height: 100%;
@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    background-color: rgb(31, 31, 31);
+    background-color: #1f1f1f;
     margin: 0;
     padding: 0;
     min-height: 100%;
@@ -37,7 +37,7 @@ body {
 
 nav {
     display: flex;
-    background-color: rgb(26, 26, 26);
+    background-color: #1a1a1a;
     height: 80px;
 }
 
@@ -279,12 +279,12 @@ embed {
 #projectDisplay {
     margin-top: 20px;
     display: flex;
-    background-color: rgb(32, 32, 32);
+    background-color: #202020;
     border-radius: 10px;
     width: 100%;
     height: auto;
     margin-bottom: 20px;
-    box-shadow: rgb(0, 0, 0) 0px 0px 10px;
+    box-shadow: #000000 0px 0px 10px;
 }
 #projectDisplay .image {
     width: 60%;
@@ -557,34 +557,44 @@ a:hover {
 /* card flip */
 
 
-.flipCard {
-    perspective: 150rem;
-    position: relative;
-    width: 400px;
-    height: 300px;
-    box-shadow: none;
-    background: none;
-  }
+    .flipCard {
+        perspective: 150rem;
+        position: relative;
+        width: 400px;
+        height: 300px;
+        box-shadow: none;
+        background: none;
+    }
   
-  .flipCard-side {
-      border-radius: 15px;
-      transition: all 0.8s ease;
-      backface-visibility: hidden;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      color: white;
+    .flipCard-side {
+        border-radius: 15px;
+        transition: all 0.8s ease;
+        backface-visibility: hidden;
+        background-color: #1f1f1f;
+        border: 3px solid #1a1a1a;
+        box-shadow: 0 1rem 2rem #00000033;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: white;
     }
     
     .flipCard-side.back {
-        transform: rotateY(-180deg);
-        background-color: #292929;
+        transform: rotateY(180deg);
     }
     
     .flipCard-side.front {
-        background-color: #292929;
+        transform: rotateY(0deg);
+    }
+
+    .flipCard.flipped .flipCard-side.front {
+        transform: rotateY(-180deg);
+    }
+    
+    .flipCard.flipped .flipCard-side.back {
+        transform: rotateY(0deg);
     }
     
     .flipCard-side .content {

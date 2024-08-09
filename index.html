@@ -18,23 +18,18 @@
                 <div class="left">
                     <div class="flipCard flex-center">
                         <div class="flipCard-side front">
-                            <div class="content">
+                            <div class="content" onclick="flipCard()">
                                 <div>
                                     <!-- <img src="assets/img/mike.jpg" alt="Profile picture" class="profile-image"> -->
                                     <h1 class="m0">Mike Balvert</h1>
                                     <h2 class="m0 mt6 title">Front-End Developer</h2>
                                 </div>
-                                <button onclick="flipCard()">
-                                    FLIP IT
-                                </button>
+                                <p id="helpingText" class="m0 flex-center" style="color: #868686;">* Click me *</p>
                             </div>
                         </div>
                         <div class="flipCard-side back">
-                            <div class="content">
+                            <div class="content" onclick="flipCard('front')">
                                 <h2 class="m0">Contact</h2>
-                                <button onclick="flipBack()">
-                                    FLIP IT
-                                </button>
                             </div>
                         </div>
                     </div>
