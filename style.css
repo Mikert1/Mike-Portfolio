@@ -267,7 +267,7 @@ embed {
     align-items: center;
     width: 70px;
     height: 70px;
-    background-image: radial-gradient(circle, #00ffff88, #00ffff44, #00000000, #00000000);
+    background-image: radial-gradient(circle, #00ffff44, #00ffff22, #00ffff11, #00000000, #00000000);
 }
 
 .title svg {
