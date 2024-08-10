@@ -225,6 +225,24 @@ button:active {
     gap: 10px;
 }
 
+    /* grays */
+    .gray1 {
+        color: #4a4a4a;
+    }
+    .gray2 {
+        color: #5a5a5a;
+    }
+    .gray3 {
+        color: #696969
+    }
+    .gray4 {
+        color: #7a7a7a;
+    }
+    .gray5 {
+        color: #8b8b8b;
+    }
+    /* end */
+
 /* end */
 
 /* objects */
@@ -574,8 +592,34 @@ a:hover {
     height: 15px;
 }
 
+#programs {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: start;
+    height: 150px;
+    gap: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#programs .program {
+    min-width: 400px;
+    padding: 10px;
+    background-color: rgb(32, 32, 32);
+    border-radius: 10px;
+    box-shadow: rgb(0, 0, 0) 0px 0px 10px;
+    transition: box-shadow 0.1s ease, transform 0.1s ease;
+    transform: translateY(0);
+}
+
+#programs .program:hover {
+    box-shadow: rgb(0, 0, 0) 3px 3px 20px;
+    transform: translateY(-5px);
+}
+
 .functionTitle {
-    background: linear-gradient(43deg, #00ffff 0%, #1100ff 100%);
+    background: linear-gradient(43deg, #00ffff 0%, #0000ff 100%);
     color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
