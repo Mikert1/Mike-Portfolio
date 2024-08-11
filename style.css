@@ -618,6 +618,19 @@ a:hover {
     transform: translateY(-5px);
 }
 
+#programs .program .bar {
+    height: 10px;
+    width: 100%;
+    background-color: rgb(73, 73, 73);
+    border-radius: 10px;
+}
+
+#programs .program .bar .progress {
+    height: 100%;
+    border-radius: 10px;
+    opacity: 50%;
+}
+
 .functionTitle {
     background: linear-gradient(43deg, #00ffff 0%, #0000ff 100%);
     color: transparent;

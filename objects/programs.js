@@ -21,6 +21,12 @@ getData()
         clone.querySelector('.image').src = "../assets/img/svg/" + program.name + ".svg";
         clone.querySelector('.name').textContent = program.name;
         clone.querySelector('.description').textContent = program.description;
+        if (!program.bar) {
+            clone.querySelector('.bar').style.display = 'none';
+        } else {
+            clone.querySelector('.progress').style.width = program.bar.progress + '%';
+            clone.querySelector('.progress').style.backgroundColor = program.bar.color;
+        }
         document.getElementById('programs').appendChild(clone);
     });
 });

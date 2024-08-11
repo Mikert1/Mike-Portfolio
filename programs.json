@@ -2,16 +2,31 @@
     {
         "name": "Visual Studio Code",
         "description": "A editor for code. This is where i make my websites and games.",
+        "bar": {
+            "progress": 80,
+            "color": "green",
+            "text": "Very Good"
+        },
         "id": 1
     },
     {
         "name": "Paint.net",
         "description": "A image editor. Special good for pixel details.",
+        "bar": {
+            "progress": 100,
+            "color": "aqua",
+            "text": "Profesionaly"
+        },
         "id": 2
     },
     {
         "name": "LÖVE",
-        "description": "A game engine. I use this to power the games that I make.",
+        "description": "A game framework. I use this to power the games that I make.",
+        "bar": {
+            "progress": 90,
+            "color": "#00ff99",
+            "text": "Profesionaly"
+        },
         "id": 3
     },
     {
