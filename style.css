@@ -619,7 +619,7 @@ a:hover {
 }
 
 #programs .program .bar {
-    height: 10px;
+    height: 15px;
     width: 100%;
     background-color: rgb(73, 73, 73);
     border-radius: 10px;
@@ -628,7 +628,11 @@ a:hover {
 #programs .program .bar .progress {
     height: 100%;
     border-radius: 10px;
-    opacity: 50%;
+}
+
+#programs .program .bar .progressText {
+    color: rgb(255, 255, 255);
+    font-size: 0.8em;
 }
 
 .functionTitle {
