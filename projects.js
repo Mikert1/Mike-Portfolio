@@ -92,25 +92,23 @@ getData()
                 .then(data => {
                     const svg = document.getElementById('svg');
                     svg.innerHTML = data;
-
-
                 });
             download.querySelector('h2').innerHTML = 'Download';
             download.href = data[params.id].releases;
-            buttons.appendChild(download);
             version.innerHTML = version.innerHTML + '<p>' + data[params.id].versionPrefix + '<span>' + data[params.id].version + '</span>' + data[params.id].versionSuffix + '</p>';
         } else if (data[params.id].type === 'Website') {
-            const link = document.createElement('img');
-            link.src = 'assets/img/buttons/visit.png';
-            link.addEventListener('click', () => {
-                window.open(data[params.id].link);
-            });
-            buttons.appendChild(link);
-            version.innerHTML = ""
+            const link = document.getElementById('mainButton');
+            link.querySelector('h2').innerHTML = 'Visit Website';
+            link.href = data[params.id].link;
+            fetch('assets/img/svg/arrow.svg')
+                .then(response => response.text())
+                .then(data => {
+                    const svg = document.getElementById('svg');
+                    svg.innerHTML = data;
+                });
         }
         const source = document.getElementById('source');
         source.href = data[params.id].repository;
-        buttons.appendChild(source);
     })
     .then(() => {
         const subImages = document.querySelectorAll('.sub-images div img');
