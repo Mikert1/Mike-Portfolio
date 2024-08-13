@@ -52,9 +52,14 @@ getData()
         title.textContent = data[params.id].name;
         description.textContent = data[params.id].description;
         if (data[params.id].platforms) {
-            const size = 20;
             for (let i = 0; i < data[params.id].platforms.length; i++) {
-                platforms.innerHTML = platforms.innerHTML + `<img src="assets/img/svg/${data[params.id].platforms[i]}.svg" height="${size}" width="${size}" alt="${data[params.id].platforms[i]}">`;
+                fetch(`assets/img/svg/${data[params.id].platforms[i]}.svg`)
+                .then(response => response.text())
+                .then(data => {
+                    const div = document.createElement('div');
+                    div.innerHTML = data;
+                    platforms.appendChild(div);
+                });
             }
         }
         date.textContent = data[params.id].date;
@@ -71,11 +76,27 @@ getData()
         }
         mainImage.src = data[params.id].images[0];
         if (data[params.id].type === 'Game') {
-            const download = document.createElement('img');
-            download.src = 'assets/img/buttons/download.png';
-            download.addEventListener('click', () => {
-                window.open(data[params.id].releases);
-            });
+            const download = document.getElementById('mainButton');
+            let osName = window.navigator.platform;
+            if (osName.includes('Win')) {
+                osName = 'assets/img/svg/windows.svg';
+            } else if (osName.includes('Mac')) {
+                osName = 'assets/img/svg/mac.svg';
+            } else if (osName.includes('Linux')) {
+                osName = 'assets/img/svg/linux.svg';
+            } else {
+                osName = 'assets/img/svg/download.svg';
+            }
+            fetch(osName)
+                .then(response => response.text())
+                .then(data => {
+                    const svg = document.getElementById('svg');
+                    svg.innerHTML = data;
+
+
+                });
+            download.querySelector('h2').innerHTML = 'Download';
+            download.href = data[params.id].releases;
             buttons.appendChild(download);
             version.innerHTML = version.innerHTML + '<p>' + data[params.id].versionPrefix + '<span>' + data[params.id].version + '</span>' + data[params.id].versionSuffix + '</p>';
         } else if (data[params.id].type === 'Website') {
@@ -87,11 +108,8 @@ getData()
             buttons.appendChild(link);
             version.innerHTML = ""
         }
-        const source = document.createElement('img');
-        source.src = 'assets/img/buttons/github.png';
-        source.addEventListener('click', () => {
-            window.open(data[params.id].repository);
-        });
+        const source = document.getElementById('source');
+        source.href = data[params.id].repository;
         buttons.appendChild(source);
     })
     .then(() => {

@@ -177,6 +177,11 @@ button:active {
     align-items: center;
 }
 
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
 .flex-sb {
     display: flex;
     justify-content: space-between;
@@ -186,6 +191,11 @@ button:active {
 .flex-jc-center {
     display: flex;
     justify-content: center;
+}
+
+.flex-ai-center {
+    display: flex;
+    align-items: center;
 }
 
 .col {
@@ -265,6 +275,12 @@ embed {
 }
 
 /* end */
+
+#platforms svg {
+    color: white;
+    width: 20px;
+    height: 20px;
+}
 
 .title {
     display: flex;
