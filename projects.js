@@ -64,7 +64,14 @@ getData()
             }
         }
         date.textContent = data[params.id].date;
-        lang.innerHTML = lang.innerHTML + data[params.id].lang;
+        const langEntries = Object.keys(data[params.id].lang);
+        langEntries.forEach((n, index) => {
+            const dot = index < langEntries.length - 1 ? ', ' : ' ';
+            const span = document.createElement('span');
+            span.textContent = n;
+            lang.appendChild(span);
+            lang.innerHTML += dot;
+        });
         for (let i = 0; i < data[params.id].images.length; i++) {
             const div = document.createElement('div');
             let img = document.createElement('img');

@@ -27,7 +27,14 @@ getData()
         clone.querySelector('.name').innerHTML = '<span>' + shortedName + '</span> · ' + project.type;
         clone.querySelector('.status').textContent = project.status;
         clone.querySelector('.status').classList.add(`status${project.status}`);
-        clone.querySelector('h2').innerHTML = '<span>' + project.lang + '</span>';
+        const langEntries = Object.keys(project.lang);
+        langEntries.forEach((n, index) => {
+            const dot = index < langEntries.length - 1 ? ', ' : ' ';
+            const span = document.createElement('span');
+            span.textContent = n;
+            clone.querySelector('h2').appendChild(span);
+            clone.querySelector('h2').innerHTML += dot;
+        });
         const description = project.description.length > 90 ? project.description.slice(0, 90) + '...' : project.description;
         clone.querySelector('.description').textContent = description;
         const currentDate = new Date();  
