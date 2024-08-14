@@ -4,8 +4,15 @@
         "name": "Ruined",
         "type": "Game",
         "project": "solo",
-        "lang": "Lua",
-        "description": "“Ruined” the game is a hobby project that i started so i could learn Game Development. In early versions the code might not be perfect but i will try to improve every aspect of my game as i grow in skills.",
+
+        "lang": 
+        {
+            "lua": {
+                "Lines": 5570,
+                "files": 29
+            }
+        },
+        "description": "“Ruined” the game is a hobby project that I started so I could learn Game Development. In early versions the code might not be perfect but I will try to improve every aspect of my game as I grow in skills.",
         "platforms": ["windows", "mac", "linux"],
         "versionType": "alpha",
         "versionPrefix": "Pre-Alpha ",
@@ -13,6 +20,8 @@
         "versionSuffix": " (Stable)",
         "status": "Active",
         "date": "2022-11-30",
+        "people": ["Mikert1"],
+
         "releases": "https://github.com/Mikert1/Ruined/releases/tag/v1.5-early-developer-beta",
         "repository": "https://github.com/Mikert1/Ruined",
         "images": ["https://github.com/Mikert1/Ruined/assets/73882306/b35ce5a7-e065-462e-8beb-51ac57dd84d1", "https://github.com/Mikert1/Ruined/assets/73882306/1ef52b0c-8240-489a-a191-458290eeaa21", "https://github.com/Mikert1/Ruined/assets/73882306/ec4af4f6-0ac1-460c-8bae-5d015817904d", "https://github.com/Mikert1/Ruined/assets/73882306/eef28b86-3676-42fc-b7ba-cc05ba1171a6", "https://github.com/Mikert1/Ruined/assets/73882306/adea97ac-11a2-4c1b-b628-0f0edf4c7494"]
@@ -22,11 +31,22 @@
         "name": "Mikert Video",
         "type": "Website",
         "project": "solo",
-        "lang": "HTML, CSS, JavaScript",
+
+        "lang": 
+        {
+            "HTML": {
+            },
+            "CSS": {
+            },
+            "JavaScript": {
+            }
+        },
         "platforms": ["mobile", "desktop"],
         "description": "A website that has inspiration from Rotten Tomatoes, IMDb and Netflix.",
         "status": "Active",
         "date": "2024-07-04",
+        "people": ["Mikert1"],
+
         "link": "https://mikert1.github.io/Mikert-Video/",
         "repository": "https://github.com/Mikert1/Mikert-Video",
         "images": ["https://github.com/user-attachments/assets/33084fdd-bc6e-40f1-a522-5751bc1b2e52", "https://github.com/user-attachments/assets/98da2ad1-5314-4735-b9ec-f7a1a31e7505", "https://github.com/user-attachments/assets/73c79512-2347-4e28-ae84-cfe8a9f08059", "https://github.com/user-attachments/assets/4beb8aaf-6810-4786-a410-c299a669c8a2", "https://github.com/user-attachments/assets/3de39682-375a-488f-9fcc-17f49ef4da5d"]
@@ -36,11 +56,22 @@
         "name": "Mikert Food Menu",
         "type": "Website",
         "project": "school",
-        "lang": "HTML, CSS, JavaScript",
+
+        "lang": 
+        {
+            "HTML": {
+            },
+            "CSS": {
+            },
+            "JavaScript": {
+            }
+        },
         "platforms": ["mobile", "desktop"],
-        "description": "A website that has a food menu. I made this as my end project for the first year of school.",
+        "description": "A website that has a food menu. although I was halveway trouh the year, I made this as my end project for the first year of school. I passed.",
         "status": "Done",
         "date": "2024-02-08",
+        "people": ["Mikert1"],
+
         "link": "https://mikert1.github.io/Mikert-food-menu/",
         "repository": "https://github.com/Mikert1/Mikert-food-menu",
         "images": ["https://github.com/user-attachments/assets/f9ed3a5a-93a2-4cec-ad9c-b8ff540769be"]
@@ -50,11 +81,20 @@
         "name": "MB Elektro- & BeveiligingsTechniek",
         "type": "Website",
         "project": "solo",
-        "lang": "HTML, CSS",
+
+        "lang": 
+        {
+            "HTML": {
+            },
+            "CSS": {
+            }
+        },
         "platforms": ["mobile", "desktop"],
-        "description": "A website that i made for a client. The website is for a company that installs electrical and security systems.",
+        "description": "A website that I made for a client. The website is for a company that installs electrical and security systems.",
         "status": "InActive",
         "date": "2024-02-29",
+        "people": ["Mikert1"],
+
         "link": "https://mb-elektro.nl/",
         "repository": "https://github.com/Mikert1/MB-Elektro",
         "images": ["https://github.com/user-attachments/assets/97aff625-6129-4452-b25d-64c3b772ed29"]
@@ -64,11 +104,20 @@
         "name": "My Lifestyle Education",
         "type": "Website",
         "project": "school",
-        "lang": "JavaScript, PHP",
+
+        "lang": 
+        {
+            "JavaScript": {
+            },
+            "PHP": {
+            }
+        },
         "platforms": ["mobile", "desktop"],
-        "description": "This is a project where i made the Javascript and PHP part. The website was for a school client to leurn us how to work with a real client",
+        "description": "This is a project where I made the Javascript and PHP part. The website was for a school client to leurn us how to work with a real client",
         "status": "Done",
         "date": "2024-05-22",
+        "people": ["Mikert1", "Danielo923", "Mikast14"],
+
         "link": "http://85.10.148.52/index.html",
         "repository": "https://github.com/Mikert1/My-Education-Lifestyle",
         "images": ["https://github.com/user-attachments/assets/5a990812-ecba-46a5-8e7e-09824d244c65", "https://github.com/user-attachments/assets/19feaa58-70e9-42f3-a3c4-abbbf95b68bc", "https://github.com/user-attachments/assets/712418fd-75a7-4231-90f1-972e56b960a6", "https://github.com/user-attachments/assets/9fa66548-93ca-45e8-a6cc-57aa90aa710b", "https://github.com/user-attachments/assets/ff417469-1434-4399-a4c4-72d389960df9"]
@@ -78,11 +127,18 @@
         "name": "One Punch Man Leaderboard",
         "type": "Website",
         "project": "school",
-        "lang": "JavaScript",
+
+        "lang":
+        {
+            "JavaScript": {
+            }
+        },
         "platforms": ["mobile", "desktop"],
-        "description": "This is a School project halve way trough the first year. We made this in a week time with a team of 3.",
+        "description": "This is a School project with a challange, the challange was that it must be completed within 5 days. We made this with a team of 3.",
         "status": "Done",
         "date": "2024-02-12",
+        "people": ["Mikert1", "Danielo923", "Mikast14"],
+
         "link": "https://mikert1.github.io/One-Punch-Man-Leaderboard",
         "repository": "https://github.com/Mikert1/One-Punch-Man-Leaderboard",
         "images": ["https://github.com/user-attachments/assets/ea54b985-0815-4857-b8f8-d135e1d5992c"]

@@ -38,6 +38,7 @@ const platforms = document.getElementById('platforms');
 const date = document.getElementById('date');
 const lang = document.getElementById('lang');
 const version = document.getElementById('version');
+
 const mainImage = document.getElementById('main-image');
 const image1 = document.getElementById('image1');
 const image2 = document.getElementById('image2');
@@ -100,6 +101,7 @@ getData()
             const link = document.getElementById('mainButton');
             link.querySelector('h2').innerHTML = 'Visit Website';
             link.href = data[params.id].link;
+            version.innerHTML = "";
             fetch('assets/img/svg/arrow.svg')
                 .then(response => response.text())
                 .then(data => {
