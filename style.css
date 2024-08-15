@@ -185,7 +185,6 @@ button:active {
 .flex-sb {
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
 .flex-jc-center {
@@ -211,6 +210,10 @@ button:active {
 }
 .w50 {
     width: 50%;
+}
+
+.w40 {
+    width: 40%;
 }
 
 .fit {
@@ -387,11 +390,9 @@ embed {
     margin-left: 0px;
 }
 
+
+
 #projectDisplay .info {
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     padding: 10px;
 }
 
@@ -830,6 +831,9 @@ a:hover {
 
     footer .body .img {
         width: 80%;
+    }
+    .mo-w100 {
+        width: 100%;
     }
 }
 
