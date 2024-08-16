@@ -9,7 +9,7 @@
         {
             "lua": {
                 "Lines": 5570,
-                "files": 29
+                "Files": 29
             }
         },
         "description": "“Ruined” the game is a hobby project that I started so I could learn Game Development. In early versions the code might not be perfect but I will try to improve every aspect of my game as I grow in skills.",

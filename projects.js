@@ -39,6 +39,8 @@ const date = document.getElementById('date');
 const lang = document.getElementById('lang');
 const version = document.getElementById('version');
 const contributors = document.getElementById('contributors');
+const moreLang = document.getElementById('moreLang');
+const moreContributors = document.getElementById('moreContributors');
 
 const mainImage = document.getElementById('main-image');
 const image1 = document.getElementById('image1');
@@ -72,6 +74,19 @@ getData()
             span.textContent = n;
             lang.appendChild(span);
             lang.innerHTML += dot;
+            if (data[params.id].lang[n].Lines) {
+                const p = document.createElement('p');
+                p.classList.add('m0');
+                p.textContent = data[params.id].lang[n].Lines + ' lines';
+                span.appendChild(p);
+            }
+            if (data[params.id].lang[n].Files) {
+                const p = document.createElement('p');
+                p.classList.add('m0');
+                p.textContent = data[params.id].lang[n].Files + ' files';
+                span.appendChild(p);
+            }
+            moreLang.appendChild(span);
         });
         for (let i = 0; i < data[params.id].images.length; i++) {
             const div = document.createElement('div');

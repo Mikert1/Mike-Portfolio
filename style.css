@@ -162,7 +162,6 @@ button:active {
 /* imported from my own so called "bootstrap" */
 .flex {
     display: flex;
-    align-items: center;
 }
 
 .flex-sa {
@@ -221,7 +220,7 @@ button:active {
 }
 
 .m0 {
-    margin: 0;
+    margin: 0 !important;
 }
 
 .mt6 {

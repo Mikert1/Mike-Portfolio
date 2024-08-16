@@ -26,9 +26,9 @@ getData()
 
         if (daysSince >= 365) {
             const yearsSince = Math.floor(daysSince / 365);
-            clone.querySelector('.time').textContent = 'Useing it for ' + yearsSince + ' year' + (yearsSince > 1 ? 's' : '') + '+';
+            clone.querySelector('.time').textContent = yearsSince + ' year' + (yearsSince > 1 ? 's' : '') + '+ experience';
         } else {
-            clone.querySelector('.time').textContent = 'Useing it for ' + daysSince + ' days';
+            clone.querySelector('.time').textContent = daysSince + ' days experience';
         }
         clone.querySelector('.description').textContent = program.description;
         if (!program.bar) {
