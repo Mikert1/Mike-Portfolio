@@ -75,14 +75,12 @@ getData()
             lang.appendChild(span);
             lang.innerHTML += dot;
             if (data[params.id].lang[n].Lines) {
-                const p = document.createElement('p');
-                p.classList.add('m0');
+                const p = document.createElement('p'); p.classList.add('m0');
                 p.textContent = data[params.id].lang[n].Lines + ' lines';
                 span.appendChild(p);
             }
             if (data[params.id].lang[n].Files) {
-                const p = document.createElement('p');
-                p.classList.add('m0');
+                const p = document.createElement('p'); p.classList.add('m0');
                 p.textContent = data[params.id].lang[n].Files + ' files';
                 span.appendChild(p);
             }

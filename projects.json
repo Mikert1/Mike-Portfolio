@@ -39,10 +39,13 @@
         "lang": 
         {
             "HTML": {
+                "Files": 4
             },
             "CSS": {
+                "Files": 1
             },
             "JavaScript": {
+                "Files": 2
             }
         },
         "platforms": ["mobile", "desktop"],
@@ -69,10 +72,13 @@
         "lang": 
         {
             "HTML": {
+                "Files": 6
             },
             "CSS": {
+                "Files": 1
             },
             "JavaScript": {
+                "Files": 4
             }
         },
         "platforms": ["mobile", "desktop"],
@@ -94,16 +100,21 @@
         "lang": 
         {
             "HTML": {
+                "Files": 3
             },
             "CSS": {
+                "Files": 1
             }
         },
         "platforms": ["mobile", "desktop"],
         "description": "A website that I made for a client. The website is for a company that installs electrical and security systems.",
         "status": "InActive",
         "date": "2024-02-29",
-        "contributors": ["Mikert1"],
-
+        "contributors": {
+            "Mikert1": {
+                "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4"
+            }
+        },
         "link": "https://mb-elektro.nl/",
         "repository": "https://github.com/Mikert1/MB-Elektro",
         "images": ["https://github.com/user-attachments/assets/97aff625-6129-4452-b25d-64c3b772ed29"]
@@ -116,9 +127,17 @@
 
         "lang": 
         {
+            "HTML": {
+                "Files": 12
+            },
+            "CSS": {
+                "Files": 1
+            },
             "JavaScript": {
+                "Files": 8
             },
             "PHP": {
+                "Files": 4
             }
         },
         "platforms": ["mobile", "desktop"],
@@ -128,13 +147,16 @@
         "contributors":
         {
             "Mikert1": {
-                "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4"
+                "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4",
+                "team": "Javacript & PHP"
             },
             "Danielo923": {
-                "image": "https://avatars.githubusercontent.com/u/149661189?s=64&v=4"
+                "image": "https://avatars.githubusercontent.com/u/149661189?s=64&v=4",
+                "team":"Javacript"
             },
             "Mikast14": {
-                "image": "https://avatars.githubusercontent.com/u/149662121?s=64&v=4"
+                "image": "https://avatars.githubusercontent.com/u/149662121?s=64&v=4",
+                "team":"HTML & CSS"
             }
         },
 
@@ -150,7 +172,14 @@
 
         "lang":
         {
+            "HTML": {
+                "Files": 3
+            },
+            "CSS": {
+                "Files": 3
+            },
             "JavaScript": {
+                "Files": 3
             }
         },
         "platforms": ["mobile", "desktop"],
