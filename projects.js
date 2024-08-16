@@ -38,6 +38,7 @@ const platforms = document.getElementById('platforms');
 const date = document.getElementById('date');
 const lang = document.getElementById('lang');
 const version = document.getElementById('version');
+const contributors = document.getElementById('contributors');
 
 const mainImage = document.getElementById('main-image');
 const image1 = document.getElementById('image1');
@@ -116,6 +117,12 @@ getData()
                     svg.innerHTML = data;
                 });
         }
+        const contributorEntries = Object.keys(data[params.id].contributors);
+        contributorEntries.forEach((n, index) => {
+            const img = document.createElement('img');
+            img.src = data[params.id].contributors[n].image;
+            contributors.appendChild(img);
+        });
         const source = document.getElementById('source');
         source.href = data[params.id].repository;
     })

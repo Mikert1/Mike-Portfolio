@@ -20,7 +20,11 @@
         "versionSuffix": " (Stable)",
         "status": "Active",
         "date": "2022-11-30",
-        "people": ["Mikert1"],
+        "contributors": {
+            "Mikert1": {
+                "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4"
+            }
+        },
 
         "releases": "https://github.com/Mikert1/Ruined/releases/tag/v1.5-early-developer-beta",
         "repository": "https://github.com/Mikert1/Ruined",
@@ -45,7 +49,12 @@
         "description": "A website that has inspiration from Rotten Tomatoes, IMDb and Netflix.",
         "status": "Active",
         "date": "2024-07-04",
-        "people": ["Mikert1"],
+        "contributors":
+        {
+            "Mikert1": {
+                "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4"
+            }
+        },
 
         "link": "https://mikert1.github.io/Mikert-Video/",
         "repository": "https://github.com/Mikert1/Mikert-Video",
@@ -70,7 +79,7 @@
         "description": "A website that has a food menu. although I was halveway trouh the year, I made this as my end project for the first year of school. I passed.",
         "status": "Done",
         "date": "2024-02-08",
-        "people": ["Mikert1"],
+        "contributors": ["Mikert1"],
 
         "link": "https://mikert1.github.io/Mikert-food-menu/",
         "repository": "https://github.com/Mikert1/Mikert-food-menu",
@@ -93,7 +102,7 @@
         "description": "A website that I made for a client. The website is for a company that installs electrical and security systems.",
         "status": "InActive",
         "date": "2024-02-29",
-        "people": ["Mikert1"],
+        "contributors": ["Mikert1"],
 
         "link": "https://mb-elektro.nl/",
         "repository": "https://github.com/Mikert1/MB-Elektro",
@@ -116,7 +125,18 @@
         "description": "This is a project where I made the Javascript and PHP part. The website was for a school client to leurn us how to work with a real client",
         "status": "Done",
         "date": "2024-05-22",
-        "people": ["Mikert1", "Danielo923", "Mikast14"],
+        "contributors":
+        {
+            "Mikert1": {
+                "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4"
+            },
+            "Danielo923": {
+                "image": "https://avatars.githubusercontent.com/u/149661189?s=64&v=4"
+            },
+            "Mikast14": {
+                "image": "https://avatars.githubusercontent.com/u/149662121?s=64&v=4"
+            }
+        },
 
         "link": "http://85.10.148.52/index.html",
         "repository": "https://github.com/Mikert1/My-Education-Lifestyle",
@@ -137,7 +157,18 @@
         "description": "This is a School project with a challange, the challange was that it must be completed within 5 days. We made this with a team of 3.",
         "status": "Done",
         "date": "2024-02-12",
-        "people": ["Mikert1", "Danielo923", "Mikast14"],
+        "contributors": 
+        {
+            "Mikert1": {
+                "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4"
+            },
+            "Danielo923": {
+                "image": "https://avatars.githubusercontent.com/u/149661189?s=64&v=4"
+            },
+            "Mikast14": {
+                "image": "https://avatars.githubusercontent.com/u/149662121?s=64&v=4"
+            }
+        },
 
         "link": "https://mikert1.github.io/One-Punch-Man-Leaderboard",
         "repository": "https://github.com/Mikert1/One-Punch-Man-Leaderboard",

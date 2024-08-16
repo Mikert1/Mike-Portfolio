@@ -418,6 +418,16 @@ embed {
     color: rgb(236, 236, 236);
 }
 
+#contributors img {
+    background-color: #1a1a1a;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    image-rendering: optimizeQuality;
+    margin-right: -10px;
+}
+
 @media (max-width: calc(1400px + 20vw)) {
     #projectDisplay {
         width: 1200px;

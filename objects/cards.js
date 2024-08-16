@@ -37,7 +37,7 @@ getData()
         });
         const description = project.description.length > 90 ? project.description.slice(0, 90) + '...' : project.description;
         clone.querySelector('.description').textContent = description;
-        const currentDate = new Date();  
+        const currentDate = new Date();
         const projectDate = new Date(project.date);
         const timeDifference = Math.abs(currentDate - projectDate);
         const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
