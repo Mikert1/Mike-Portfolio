@@ -201,6 +201,10 @@ button:active {
     align-items: center;
 }
 
+.mx-w45 {
+    max-width: 45%;
+}
+
 .col {
     flex-direction: column;
 }
@@ -212,6 +216,11 @@ button:active {
 .h100 {
     height: 100%;
 }
+
+.ha {
+    height: auto !important;
+}
+
 .w50 {
     width: 50%;
 }
@@ -235,6 +244,10 @@ button:active {
 .flex-end {
     display: flex;
     justify-content: end;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
 }
 
 .gap {

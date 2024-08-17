@@ -144,7 +144,7 @@ getData()
             innerDiv.innerHTML += n;
             div.appendChild(innerDiv);
             if (data[params.id].contributors[n].role) {
-                div.innerHTML += ' - ' + data[params.id].contributors[n].role
+                div.innerHTML += ' - ' + data[params.id].contributors[n].role;
             }
             moreContributors.appendChild(div);
         });
