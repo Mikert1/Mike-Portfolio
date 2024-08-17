@@ -191,6 +191,11 @@ button:active {
     justify-content: center;
 }
 
+.flex-ai-start {
+    display: flex;
+    align-items: start;
+}
+
 .flex-ai-center {
     display: flex;
     align-items: center;
@@ -427,6 +432,15 @@ embed {
     margin-right: -10px;
 }
 
+#moreContributors img {
+    background-color: #1a1a1a;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    image-rendering: optimizeQuality;
+}
+
 @media (max-width: calc(1400px + 20vw)) {
     #projectDisplay {
         width: 1200px;
@@ -452,13 +466,9 @@ embed {
     }
     #projectDisplay .image {
         width: 100%;
-        
     }
     #projectDisplay .info {
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
         padding: 10px;
     }
     #projectDisplay .image div div img {

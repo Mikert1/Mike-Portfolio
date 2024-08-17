@@ -85,7 +85,11 @@
         "description": "A website that has a food menu. although I was halveway trouh the year, I made this as my end project for the first year of school. I passed.",
         "status": "Done",
         "date": "2024-02-08",
-        "contributors": ["Mikert1"],
+        "contributors": {
+            "Mikert1": {
+                "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4"
+            }
+        },
 
         "link": "https://mikert1.github.io/Mikert-food-menu/",
         "repository": "https://github.com/Mikert1/Mikert-food-menu",
@@ -148,15 +152,15 @@
         {
             "Mikert1": {
                 "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4",
-                "team": "Javacript & PHP"
+                "role": "Javacript & PHP"
             },
             "Danielo923": {
                 "image": "https://avatars.githubusercontent.com/u/149661189?s=64&v=4",
-                "team":"Javacript"
+                "role":"Javacript"
             },
             "Mikast14": {
                 "image": "https://avatars.githubusercontent.com/u/149662121?s=64&v=4",
-                "team":"HTML & CSS"
+                "role":"HTML & CSS"
             }
         },
 
@@ -189,13 +193,16 @@
         "contributors": 
         {
             "Mikert1": {
-                "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4"
+                "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4",
+                "role": "Javacript"
             },
             "Danielo923": {
-                "image": "https://avatars.githubusercontent.com/u/149661189?s=64&v=4"
+                "image": "https://avatars.githubusercontent.com/u/149661189?s=64&v=4",
+                "role":"Javacript"
             },
             "Mikast14": {
-                "image": "https://avatars.githubusercontent.com/u/149662121?s=64&v=4"
+                "image": "https://avatars.githubusercontent.com/u/149662121?s=64&v=4",
+                "role":"HTML & CSS"
             }
         },
 

@@ -135,6 +135,18 @@ getData()
             const img = document.createElement('img');
             img.src = data[params.id].contributors[n].image;
             contributors.appendChild(img);
+
+            const div = document.createElement('div');
+            const innerDiv = document.createElement('div'); innerDiv.classList.add('flex-ai-center', 'gap');
+            const img2 = document.createElement('img'); 
+            img2.src = data[params.id].contributors[n].image;
+            innerDiv.appendChild(img2);
+            innerDiv.innerHTML += n;
+            div.appendChild(innerDiv);
+            if (data[params.id].contributors[n].role) {
+                div.innerHTML += ' - ' + data[params.id].contributors[n].role
+            }
+            moreContributors.appendChild(div);
         });
         const source = document.getElementById('source');
         source.href = data[params.id].repository;
