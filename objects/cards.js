@@ -22,7 +22,7 @@ getData()
     const filteredData = data.filter(project => project.project == projectType);
     filteredData.sort((a, b) => new Date(b.date) - new Date(a.date));
     filteredData.forEach(project => {
-        const shortedName = project.name.length > 20 ? project.name.slice(0, 20) + '...' : project.name;
+        const shortedName = project.name.length > 25 ? project.name.slice(0, 25) + '...' : project.name;
         const clone = template.content.cloneNode(true);
         clone.querySelector('.name').innerHTML = '<span>' + shortedName + '</span> · ' + project.type;
         clone.querySelector('.status').textContent = project.status;
@@ -43,6 +43,9 @@ getData()
         const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
 
         clone.querySelector('.date').innerHTML = `Created <span>${daysDifference}</span> days ago`;
+        clone.querySelector('.team').textContent = project.contributors;
+        const contributorsLength = Object.keys(project.contributors).length;
+        clone.querySelector('.team').textContent = contributorsLength > 1 ? `${contributorsLength} contributors` : `Solo project`;
         clone.querySelector('.link').href = `../project.html?id=${project.id}`
         clone.querySelector('img').src = `${project.images[0]}`;
         document.getElementById('projects').appendChild(clone);

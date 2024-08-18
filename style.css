@@ -635,8 +635,6 @@ a:hover {
 }
 
 #projects .body div svg {
-    width: 20px;
-    height: 20px;
     flex-shrink: 0;
 }
 
@@ -650,6 +648,10 @@ a:hover {
 
 #projects .body span {
     color: rgb(236, 236, 236);
+}
+
+#projects .dubbleDisplay div:first-child {
+    min-width: 50%;
 }
 
 #projects .info {
