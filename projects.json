@@ -209,5 +209,37 @@
         "link": "https://mikert1.github.io/One-Punch-Man-Leaderboard",
         "repository": "https://github.com/Mikert1/One-Punch-Man-Leaderboard",
         "images": ["https://github.com/user-attachments/assets/ea54b985-0815-4857-b8f8-d135e1d5992c"]
+    },
+    {
+        "id": 7,
+        "name": "Mikert.com",
+        "type": "Website",
+        "project": "solo",
+
+        "lang": 
+        {
+            "HTML": {
+                "Files": 7
+            },
+            "CSS": {
+                "Files": 1
+            },
+            "JavaScript": {
+                "Files": 4
+            }
+        },
+        "platforms": ["mobile", "desktop"],
+        "description": "This is my personal website. I made this to show my projects and to show my skills.",
+        "status": "Active",
+        "date": "2024-05-22",
+        "contributors": {
+            "Mikert1": {
+                "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4"
+            }
+        },
+
+        "link": "https://mikert1.github.io/",
+        "repository": "https://github.com/Mikert1/Mikert-Website",
+        "images": [""]
     }
 ]

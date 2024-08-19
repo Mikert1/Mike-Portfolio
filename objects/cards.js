@@ -45,7 +45,7 @@ getData()
         clone.querySelector('.date').innerHTML = `Created <span>${daysDifference}</span> days ago`;
         clone.querySelector('.team').textContent = project.contributors;
         const contributorsLength = Object.keys(project.contributors).length;
-        clone.querySelector('.team').textContent = contributorsLength > 1 ? `${contributorsLength} contributors` : `Solo project`;
+        clone.querySelector('.team').innerHTML = contributorsLength > 1 ? `Team of <span>${contributorsLength}</span>` : `<span>Solo</span> project`;
         clone.querySelector('.link').href = `../project.html?id=${project.id}`
         clone.querySelector('img').src = `${project.images[0]}`;
         document.getElementById('projects').appendChild(clone);
