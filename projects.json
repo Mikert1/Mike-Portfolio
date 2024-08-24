@@ -229,7 +229,7 @@
             }
         },
         "platforms": ["mobile", "desktop"],
-        "description": "This is my personal website. I made this to show my projects and to show my skills.",
+        "description": "This is my personal website. I use it as a portfolio and to show my projects.",
         "status": "Active",
         "date": "2024-05-22",
         "contributors": {
@@ -238,7 +238,7 @@
             }
         },
 
-        "link": "https://mikert1.github.io/",
+        "link": "https://mikert.com/",
         "repository": "https://github.com/Mikert1/Mikert-Website",
         "images": [""]
     }
