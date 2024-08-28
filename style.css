@@ -733,9 +733,12 @@ a:hover {
     color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
+    flex-shrink: 1;
 }
 
 .background-image {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     width: 100%;
     height: 120px;
 }
@@ -796,7 +799,7 @@ a:hover {
         transform: rotateY(0deg);
     }
     
-    .flipCard-side .content {
+    .flipCard-side .content div {
         width: 95%;
         height: 95%;
         padding-left: 2.5%;
@@ -806,6 +809,10 @@ a:hover {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+    }
+
+    .flipCard-side .content p {
+        margin-top: auto;
     }
     
     /* end */
