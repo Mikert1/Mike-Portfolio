@@ -554,24 +554,24 @@ a:hover {
 }
 
 .statusInActive {
-    color: #421919 !important;
-    background-color: #F9BDBD;
+    color: #adadad !important;
+    border: 1px solid #adadad;
     border-radius: 50px;
     padding-left: 5px;
     padding-right: 5px;
 }
 
 .statusDone {
-    color: #214219 !important;
-    background-color: #BDF9BD;
+    color: #BDF9BD !important;
+    border: 1px solid #BDF9BD;
     border-radius: 50px;
     padding-left: 5px;
     padding-right: 5px;
 }
 
 .statusActive {
-    color: #193f42 !important;
-    background-color: #bdf9f9;
+    color: #bdf9f9 !important;
+    border: 1px solid #bdf9f9;
     border-radius: 50px;
     padding-left: 5px;
     padding-right: 5px;
@@ -794,14 +794,17 @@ a:hover {
     .flipCard.flipped .flipCard-side.front {
         transform: rotateY(-180deg);
     }
-    
+
     .flipCard.flipped .flipCard-side.back {
         transform: rotateY(0deg);
+    }
+
+    .flipCard .content {
+        height: 100%;
     }
     
     .flipCard-side .content div {
         width: 95%;
-        height: 95%;
         padding-left: 2.5%;
         padding-right: 2.5%;
         padding-top: 1.5%;
