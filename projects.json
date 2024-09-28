@@ -241,5 +241,37 @@
         "link": "https://mikert.com/",
         "repository": "https://github.com/Mikert1/Mikert-Website",
         "images": [""]
+    },
+    {
+        "id": 8,
+        "name": "Browser Home",
+        "type": "Website",
+        "project": "solo",
+
+        "lang": 
+        {
+            "HTML": {
+                "Files": 1
+            },
+            "CSS": {
+                "Files": 1
+            },
+            "JavaScript": {
+                "Files": 1
+            }
+        },
+        "platforms": ["mobile", "desktop"],
+        "description": "This is a website is a homepage for your browser. The plan is that you can customize it to your liking.",
+        "status": "Active",
+        "date": "2024-09-18",
+        "contributors": {
+            "Mikert1": {
+                "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4"
+            }
+        },
+
+        "link": "https://mikert1.github.io/brower-home/",
+        "repository": "https://github.com/Mikert1/brower-home",
+        "images": ["../assets/projects/Browser Home/1.png"]
     }
 ]
