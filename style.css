@@ -375,9 +375,10 @@ embed {
 
 #main-image {
     width: 100%;
-    height: auto;
+    height: 480px;
     border-top-left-radius: 10px;
-    object-fit: contain;
+    object-fit: cover;
+    object-position: top;
     image-rendering: optimizeQuality;
 }
 
@@ -399,7 +400,7 @@ embed {
 #projectDisplay .image div div img {
     margin-left: 5px;
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
     image-rendering: optimizeQuality;
 }
 
@@ -459,12 +460,18 @@ embed {
         width: 1200px;
         height: 518px;
     }
+    #projectDisplay #main-image {
+        height: 430px;
+    }
 }
 
 @media (max-width: calc(1200px + 20vw)) {
     #projectDisplay {
         width: 1000px;
         height: 433px;
+    }
+    #projectDisplay #main-image {
+        height: 360px;
     }
 }
 
