@@ -484,8 +484,10 @@ embed {
         width: 100%;
         height: 100%;
     }
-    #projectDisplay .image {
+    #projectDisplay #main-image {
         width: 100%;
+        height: 45%;
+        margin-bottom: 5px;
     }
     #projectDisplay .info {
         width: 100%;
