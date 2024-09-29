@@ -61,7 +61,7 @@
 
         "link": "https://mikert1.github.io/Mikert-Video/",
         "repository": "https://github.com/Mikert1/Mikert-Video",
-        "images": ["https://github.com/user-attachments/assets/33084fdd-bc6e-40f1-a522-5751bc1b2e52", "https://github.com/user-attachments/assets/98da2ad1-5314-4735-b9ec-f7a1a31e7505", "https://github.com/user-attachments/assets/73c79512-2347-4e28-ae84-cfe8a9f08059", "https://github.com/user-attachments/assets/4beb8aaf-6810-4786-a410-c299a669c8a2", "https://github.com/user-attachments/assets/3de39682-375a-488f-9fcc-17f49ef4da5d"]
+        "images": ["../assets/projects/Mikert Video/1.png", "https://github.com/user-attachments/assets/98da2ad1-5314-4735-b9ec-f7a1a31e7505", "https://github.com/user-attachments/assets/73c79512-2347-4e28-ae84-cfe8a9f08059", "https://github.com/user-attachments/assets/4beb8aaf-6810-4786-a410-c299a669c8a2", "https://github.com/user-attachments/assets/3de39682-375a-488f-9fcc-17f49ef4da5d"]
     },
     {
         "id": 3,
@@ -208,7 +208,7 @@
 
         "link": "https://mikert1.github.io/One-Punch-Man-Leaderboard",
         "repository": "https://github.com/Mikert1/One-Punch-Man-Leaderboard",
-        "images": ["https://github.com/user-attachments/assets/ea54b985-0815-4857-b8f8-d135e1d5992c"]
+        "images": ["../assets/projects/One Punch Man Leaderboard/1.png"]
     },
     {
         "id": 7,
