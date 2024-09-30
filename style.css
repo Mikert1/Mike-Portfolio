@@ -571,16 +571,16 @@ a:hover {
 }
 
 .statusDone {
-    color: #BDF9BD !important;
-    border: 1px solid #BDF9BD;
+    color: #4fff4f !important;
+    border: 1px solid #4fff4f;
     border-radius: 50px;
     padding-left: 5px;
     padding-right: 5px;
 }
 
 .statusActive {
-    color: #bdf9f9 !important;
-    border: 1px solid #bdf9f9;
+    color: #44ffff !important;
+    border: 1px solid #44ffff;
     border-radius: 50px;
     padding-left: 5px;
     padding-right: 5px;
