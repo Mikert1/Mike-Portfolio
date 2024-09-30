@@ -93,7 +93,7 @@
 
         "link": "https://mikert1.github.io/Mikert-food-menu/",
         "repository": "https://github.com/Mikert1/Mikert-food-menu",
-        "images": ["https://github.com/user-attachments/assets/f9ed3a5a-93a2-4cec-ad9c-b8ff540769be"]
+        "images": ["../assets/projects/Mikert Food Menu/1.png"]
     },
     {
         "id": 4,
@@ -121,7 +121,7 @@
         },
         "link": "https://mb-elektro.nl/",
         "repository": "https://github.com/Mikert1/MB-Elektro",
-        "images": ["https://github.com/user-attachments/assets/97aff625-6129-4452-b25d-64c3b772ed29"]
+        "images": ["../assets/projects/MB Elektro- & BeveiligingsTechniek/1.png"]
     },
     {
         "id": 5,
