@@ -44,7 +44,7 @@ getData()
 
         if (daysDifference >= 730) {
             const yearsSince = Math.floor(daysDifference / 365);
-            clone.querySelector('.date').textContent = ' Created ' + yearsSince + ' year' + (yearsSince > 1 ? 's' : '') + '+ ago';
+            clone.querySelector('.date').textContent = ' Created ' + yearsSince + ' years+ ago';
         } else {
             clone.querySelector('.date').textContent = ' Created ' + daysDifference + ' days ago';
         }
