@@ -1,0 +1,18 @@
+[
+    {
+        "name": "HTML",
+        "description": "HTML is the standard markup language for Websites and Web Applications."
+    },
+    {
+        "name": "CSS",
+        "description": "CSS is a style sheet language used for desinging websites with HTML."
+    },
+    {
+        "name": "JavaScript",
+        "description": "JavaScript makes websites interactive. It can be used to create games, APIs, and more."
+    },
+    {
+        "name": "Lua",
+        "description": "Lua is a lightweight, this makes it perfect for game development."
+    }
+]

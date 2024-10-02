@@ -996,7 +996,7 @@ a:hover {
 
 @media (max-width: 550px) {
     .flipCard {
-        width: 100%;
+        width: 100vw;
         height: 54.545vw;
     }
 }
