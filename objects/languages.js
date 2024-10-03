@@ -19,7 +19,7 @@ getData()
     data.forEach(Langs => {
         const clone = template.content.cloneNode(true);
         clone.querySelector('.name').textContent = Langs.name;
-        // clone.querySelector('.image').src = Langs.image;
+        clone.querySelector('.image').src = `../assets/img/languages/${Langs.name}.png`;
         document.getElementById('languages').appendChild(clone);
     });
 });
