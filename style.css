@@ -730,13 +730,12 @@ a:hover {
 
 #languages .language .image {
     position: absolute;
-    top: 0px;
+    top: 25px;
     margin-left: -10px;
     border-bottom-left-radius: 10px;
     width: auto;
-    height: 100%;
-    object-fit: cover;
-    object-position: left bottom;
+    height: calc(100% - 25px);
+    opacity: 0.3;
 }
 
 #programs .program:hover {
