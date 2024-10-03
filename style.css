@@ -730,11 +730,11 @@ a:hover {
 
 #languages .language .image {
     position: absolute;
-    top: 25px;
+    top: 30px;
     margin-left: -10px;
     border-bottom-left-radius: 10px;
     width: auto;
-    height: calc(100% - 25px);
+    height: calc(100% - 30px);
     opacity: 0.3;
 }
 
@@ -968,7 +968,8 @@ a:hover {
         width: 94%;
     }
 
-    #programs {
+    #programs,
+    #languages {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
@@ -979,7 +980,8 @@ a:hover {
         gap: 30px;
     }
 
-    #programs .program {
+    #programs .program,
+    #languages .language {
         width: calc(100% - 40px);
         height: 100px;
         padding: 10px;

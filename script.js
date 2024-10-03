@@ -22,9 +22,24 @@ async function getProjects() {
         throw error;
     }
 }
+
 async function getPrograms() {
     try {
         const response = await fetch('projects.json');
+        if (!response.ok) {
+            throw new Error('Failed to fetch');
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching:', error);
+        throw error;
+    }
+}
+
+async function getLanguages() {
+    try {
+        const response = await fetch('languages.json');
         if (!response.ok) {
             throw new Error('Failed to fetch');
         }
@@ -50,10 +65,20 @@ function flipCard(side) {
 let myOwnProjectsCount = 0;
 let schoolProjectsCount = 0;
 let programsCount = 0;
+let languagesCount = 0;
 getPrograms()
     .then(data => {
         programsCount = data.length;
         console.log(`Number of programs: ${programsCount}`);
+    })
+    .catch(error => {
+        console.error('Error fetching:', error);
+    });
+
+getLanguages()
+    .then(data => {
+        languagesCount = data.length;
+        console.log(`Number of languages: ${languagesCount}`);
     })
     .catch(error => {
         console.error('Error fetching:', error);
@@ -78,13 +103,16 @@ function resize() {
         const num = myOwnProjectsCount * 450 + 10;
         const num2 = schoolProjectsCount * 450 + 10;
         const num3 = programsCount * 100 + 10;
+        const num4 = languagesCount * 150 + 10;
         document.getElementById('myOwnProjects').height = num;
         document.getElementById('schoolProjects').height = num2;
         document.getElementById('programs-object').height = num3;
+        document.getElementById('languages-object').height = num4;
     } else {
         document.getElementById('myOwnProjects').height = '450px';
         document.getElementById('schoolProjects').height = '450px';
         document.getElementById('programs-object').height = '150px';
+        document.getElementById('languages-object').height = '150px';
     }
 }
 
