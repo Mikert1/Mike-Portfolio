@@ -699,7 +699,8 @@ a:hover {
     height: 15px;
 }
 
-#programs {
+#programs,
+#languages {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
@@ -714,7 +715,8 @@ a:hover {
     color: rgb(156, 156, 156);
 }
 
-#programs .program {
+#programs .program,
+#languages .language {
     width: 400px;
     height: 100px;
     flex-shrink: 0;
