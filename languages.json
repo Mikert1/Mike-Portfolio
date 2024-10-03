@@ -12,6 +12,10 @@
         "description": "JavaScript makes websites interactive. It can be used to create games, APIs, and more."
     },
     {
+        "name": "PHP",
+        "description": "PHP makes websites dynamic. It can be used to create databases, APIs, and more."
+    },
+    {
         "name": "Lua",
         "description": "Lua is a lightweight, this makes it perfect for game development."
     }
