@@ -734,6 +734,40 @@ a:hover {
 }
 
 #languages .language {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* button */
+
+#languages .language .buttons {
+    display: flex;
+    gap: 10px;
+    margin-left: 160px;
+}
+#languages .language .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: rgb(32, 32, 32);
+    border-radius: 10px;
+    box-shadow: rgb(0, 0, 0) 0px 0px 10px;
+    transition: box-shadow 0.1s ease, transform 0.1s ease;
+    transform: translateY(0);
+    width: 120px;
+    height: 40px;
+}
+#languages .language .button img {
+    height: 36px;
+    object-fit: cover;
+    object-position: center;
+    image-rendering: optimizeQuality;
+}
+
+#languages .language {
     height: 250px;
 }
 
@@ -993,7 +1027,6 @@ a:hover {
     #programs .program,
     #languages .language {
         width: calc(100% - 40px);
-        height: 100px;
         padding: 10px;
         background-color: rgb(32, 32, 32);
         border-radius: 10px;
