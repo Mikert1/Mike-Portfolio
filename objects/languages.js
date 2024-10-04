@@ -21,6 +21,17 @@ getData()
         clone.querySelector('.name').textContent = Langs.name;
         clone.querySelector('.image').src = `../assets/img/languages/${Langs.name}.png`;
         clone.querySelector('.description').textContent = Langs.description;
+        const currentDate = new Date();
+        const projectDate = new Date(Langs.since);
+        const timeDifference = Math.abs(currentDate - projectDate);
+        const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+
+        if (daysDifference >= 730) {
+            const yearsSince = Math.floor(daysDifference / 365);
+            clone.querySelector('.experience').textContent = yearsSince + ' year' + '+ experience';
+        } else {
+            clone.querySelector('.experience').textContent = daysDifference + ' days experience';
+        }
         document.getElementById('languages').appendChild(clone);
     });
 });

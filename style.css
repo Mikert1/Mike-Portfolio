@@ -757,7 +757,6 @@ a:hover {
     box-shadow: rgb(0, 0, 0) 0px 0px 10px;
     transition: box-shadow 0.1s ease, transform 0.1s ease;
     transform: translateY(0);
-    width: 120px;
     height: 40px;
 }
 #languages .language .button img {
