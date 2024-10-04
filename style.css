@@ -711,6 +711,10 @@ a:hover {
     margin-right: 10px;
 }
 
+#languages {
+    height: 300px;
+}
+
 #programs .description {
     color: rgb(156, 156, 156);
 }
@@ -728,14 +732,19 @@ a:hover {
     transform: translateY(0);
 }
 
+#languages .language {
+    height: 250px;
+}
+
 #languages .language .image {
     position: absolute;
-    top: 30px;
+    top: 180px;
     margin-left: -10px;
     border-bottom-left-radius: 10px;
     width: auto;
-    height: calc(100% - 30px);
-    opacity: 0.3;
+    height: 90px;
+    opacity: 0.5;
+    image-rendering: optimizeQuality;
 }
 
 #programs .program:hover {
