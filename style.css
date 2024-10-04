@@ -715,7 +715,8 @@ a:hover {
     height: 300px;
 }
 
-#programs .description {
+#programs .description,
+#languages .description {
     color: rgb(156, 156, 156);
 }
 
