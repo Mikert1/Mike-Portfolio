@@ -12,10 +12,100 @@
     {
         "id": 2,
         "type": "sub",
-        "name": "Certificate 2",
-        "description": "Description 2",
-        "organization": "Organization 2",
-        "date": "2024-09-18",
-        "part_of": "HTML"
+        "name": "Command line",
+        "description": "A trail about the terminal.",
+        "organization": "Bit Academy",
+        "date": "2023-09-20",
+        "part_of": "None"
+    },
+    {
+        "id": 3,
+        "type": "sub",
+        "name": "HTML/CSS Beginner ",
+        "description": "The basics of HTML and CSS.",
+        "organization": "Bit Academy",
+        "date": "2023-09-27",
+        "part_of": ["HTML", "CSS"]
+    },
+    {
+        "id": 4,
+        "type": "sub",
+        "name": "JavaScript Beginner",
+        "description": "Introduction to JavaScript.",
+        "organization": "Bit Academy",
+        "date": "2023-10-18",
+        "part_of": "JavaScript"
+    },
+    {
+        "id": 5,
+        "type": "sub",
+        "name": "HTML/CSS Advanced ",
+        "description": "Advanced Front-end development.",
+        "organization": "Bit Academy",
+        "date": "2023-11-06",
+        "part_of": ["HTML", "CSS"]
+    },
+    {
+        "id": 6,
+        "type": "sub",
+        "name": "JavaScript Novice",
+        "description": "Advanced JavaScript.",
+        "organization": "Bit Academy",
+        "date": "2023-12-15",
+        "part_of": "JavaScript"
+    },
+    {
+        "id": 7,
+        "type": "sub",
+        "name": "Scrum",
+        "description": "completed scrum module.",
+        "organization": "Bit Academy",
+        "date": "2024-01-19",
+        "part_of": ["HTML", "CSS", "JavaScript"]
+    },
+    {
+        "id": 8,
+        "type": "sub",
+        "name": "Python voor Analisten",
+        "description": "Python for Analysts module.",
+        "organization": "Bit Academy",
+        "date": "2024-01-19",
+        "part_of": "Python"
+    },
+    {
+        "id": 9,
+        "type": "sub",
+        "name": "Bootstrap",
+        "description": "Bootstrap module.",
+        "organization": "Bit Academy",
+        "date": "2024-02-02",
+        "part_of": ["HTML", "CSS"]
+    },
+    {
+        "id": 10,
+        "type": "sub",
+        "name": "PHP Beginner",
+        "description": "Introduction to PHP.",
+        "organization": "Bit Academy",
+        "date": "2024-03-25",
+        "part_of": "PHP"
+    },
+    {
+        "id": 11,
+        "type": "sub",
+        "name": "PHP Novice",
+        "description": "Advanced PHP.",
+        "organization": "Bit Academy",
+        "date": "2024-04-10",
+        "part_of": "PHP"
+    },
+    {
+        "id": 12,
+        "type": "sub",
+        "name": "PHP Web",
+        "description": "PHP for Web development.",
+        "organization": "Bit Academy",
+        "date": "2024-04-26",
+        "part_of": "PHP"
     }
 ]
