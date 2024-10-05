@@ -16,30 +16,42 @@ async function getData(file) {
 
 
 
-getData("languages")
-.then(data => {
+getData("languages").then(data => {
     data.forEach(Langs => {
         getData("certificates").then(certificates => {
-            const clone = template.content.cloneNode(true);
-            clone.querySelector('.name').textContent = Langs.name;
-            clone.querySelector('.image').src = `../assets/img/languages/${Langs.name}.png`;
-            clone.querySelector('.description').textContent = Langs.description;
-            const currentDate = new Date();
-            const projectDate = new Date(Langs.since);
-            const timeDifference = Math.abs(currentDate - projectDate);
-            const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+            getData("projects").then(projects => {
+                const clone = template.content.cloneNode(true);
+                clone.querySelector('.name').textContent = Langs.name;
+                clone.querySelector('.image').src = `../assets/img/languages/${Langs.name}.png`;
+                clone.querySelector('.description').textContent = Langs.description;
+                const currentDate = new Date();
+                const projectDate = new Date(Langs.since);
+                const timeDifference = Math.abs(currentDate - projectDate);
+                const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
 
-            if (daysDifference >= 730) {
-                const yearsSince = Math.floor(daysDifference / 365);
-                clone.querySelector('.experience').textContent = yearsSince + ' year' + '+ experience';
-            } else {
-                clone.querySelector('.experience').textContent = daysDifference + ' days experience';
-            }
+                if (daysDifference >= 730) {
+                    const yearsSince = Math.floor(daysDifference / 365);
+                    clone.querySelector('.experience').textContent = yearsSince + ' year' + '+ experience';
+                } else {
+                    clone.querySelector('.experience').textContent = daysDifference + ' days experience';
+                }
 
-            const langCertificates = certificates.filter(cert => cert.part_of.includes(Langs.name));
-            clone.querySelector('.certificates').textContent = langCertificates.length + ' certificates';
-            
-            document.getElementById('languages').appendChild(clone);
+                const langCertificates = certificates.filter(cert => cert.part_of.includes(Langs.name));
+                clone.querySelector('.certificates').textContent = langCertificates.length + ' certificates';
+                
+                let LangProjects = [];
+                for (let i = 0; i < projects.length; i++) {
+                    const langEntries = Object.keys(projects[i].lang);
+                    langEntries.forEach((n) => {
+                        if (Langs.name == n) {
+                            LangProjects.push(n);
+                        }
+                    });
+                }
+                clone.querySelector('.projects').textContent = LangProjects.length + ' projects';
+
+                document.getElementById('languages').appendChild(clone);
+            });
         });
     });
 });
