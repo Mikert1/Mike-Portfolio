@@ -22,13 +22,14 @@ getData()
         clone.querySelector('.name').textContent = program.name;
         const sinceDate = new Date(program.since);
         const currentDate = new Date();
-        const daysSince = Math.floor((currentDate - sinceDate) / (1000 * 60 * 60 * 24));
+        const daysDifference = Math.floor((currentDate - sinceDate) / (1000 * 60 * 60 * 24));
 
-        if (daysSince >= 365) {
-            const yearsSince = Math.floor(daysSince / 365);
-            clone.querySelector('.time').textContent = yearsSince + ' year' + (yearsSince > 1 ? 's' : '') + '+ experience';
+        const timeElement = clone.querySelector('.time');
+        if (daysDifference >= 365) {
+            const yearsSince = Math.floor(daysDifference / 365);
+            timeElement.innerHTML = `<span>${yearsSince}</span>+ year${yearsSince > 1 ? 's' : ''} experience`;
         } else {
-            clone.querySelector('.time').textContent = daysSince + ' days experience';
+            timeElement.innerHTML = `<span>${daysDifference}</span> days experience`;
         }
         clone.querySelector('.description').textContent = program.description;
         if (!program.bar) {

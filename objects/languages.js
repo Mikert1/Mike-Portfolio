@@ -29,15 +29,16 @@ getData("languages").then(data => {
                 const timeDifference = Math.abs(currentDate - projectDate);
                 const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
 
+                const experienceElement = clone.querySelector('.experience');
                 if (daysDifference >= 730) {
                     const yearsSince = Math.floor(daysDifference / 365);
-                    clone.querySelector('.experience').textContent = yearsSince + ' year' + '+ experience';
+                    experienceElement.innerHTML = `<span>${yearsSince}</span>+ year experience`;
                 } else {
-                    clone.querySelector('.experience').textContent = daysDifference + ' days experience';
+                    experienceElement.innerHTML = `<span>${daysDifference}</span> days experience`;
                 }
 
                 const langCertificates = certificates.filter(cert => cert.part_of.includes(Langs.name));
-                clone.querySelector('.certificates').textContent = langCertificates.length + ' certificates';
+                clone.querySelector('.certificates').textContent = langCertificates.length;
                 
                 let LangProjects = [];
                 for (let i = 0; i < projects.length; i++) {
@@ -48,7 +49,7 @@ getData("languages").then(data => {
                         }
                     });
                 }
-                clone.querySelector('.projects').textContent = LangProjects.length + ' projects';
+                clone.querySelector('.projects').textContent = LangProjects.length;
 
                 document.getElementById('languages').appendChild(clone);
             });

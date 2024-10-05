@@ -720,9 +720,14 @@ a:hover {
     height: 300px;
 }
 
-#programs .description,
-#languages .description {
+#programs p,
+#languages p {
     color: rgb(156, 156, 156);
+}
+
+#programs span,
+#languages span {
+    color: rgb(255, 255, 255);
 }
 
 #programs .program,
@@ -748,10 +753,6 @@ a:hover {
     width: 20px;
     height: 20px;
     object-fit: contain;
-}
-
-#languages .language .certificates {
-    color: rgb(156, 156, 156);
 }
 
 /* button */
