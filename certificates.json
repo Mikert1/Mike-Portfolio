@@ -1,0 +1,21 @@
+[
+    {
+        "id": 1,
+        "type": "main",
+        "name": "Front-end Rookie",
+        "description": "Completion of first year Front-end development.",
+        "organization": "Bit Academy",
+        "date": "2024-03-22",
+        "part_of": ["HTML", "CSS", "JavaScript"],
+        "sub": [2, 3]
+    },
+    {
+        "id": 2,
+        "type": "sub",
+        "name": "Certificate 2",
+        "description": "Description 2",
+        "organization": "Organization 2",
+        "date": "2024-09-18",
+        "part_of": "HTML"
+    }
+]
