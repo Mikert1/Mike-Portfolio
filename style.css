@@ -739,6 +739,16 @@ a:hover {
     justify-content: space-between;
 }
 
+#languages .language .icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+#languages .language .certificates {
+    color: rgb(156, 156, 156);
+}
+
 /* button */
 
 #languages .language .buttons {
