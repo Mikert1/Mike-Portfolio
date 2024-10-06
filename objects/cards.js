@@ -42,11 +42,12 @@ getData()
         const timeDifference = Math.abs(currentDate - projectDate);
         const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
 
+        const createdElement = clone.querySelector('.date');
         if (daysDifference >= 730) {
             const yearsSince = Math.floor(daysDifference / 365);
-            clone.querySelector('.date').textContent = ' Created ' + yearsSince + ' years+ ago';
+            createdElement.innerHTML = `Created <span>${yearsSince}</span>+ years ago`;
         } else {
-            clone.querySelector('.date').textContent = ' Created ' + daysDifference + ' days ago';
+            createdElement.innerHTML = `Created <span>${daysDifference}</span> days ago`;
         }
         clone.querySelector('.team').textContent = project.contributors;
         const contributorsLength = Object.keys(project.contributors).length;
