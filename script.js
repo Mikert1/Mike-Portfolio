@@ -103,7 +103,7 @@ function resize() {
         const num = myOwnProjectsCount * 450 + 10;
         const num2 = schoolProjectsCount * 450 + 10;
         const num3 = programsCount * 100 + 10;
-        const num4 = languagesCount * 300 + 10;
+        const num4 = languagesCount * 230 + 10;
         document.getElementById('myOwnProjects').height = num;
         document.getElementById('schoolProjects').height = num2;
         document.getElementById('programs-object').height = num3;
@@ -112,7 +112,7 @@ function resize() {
         document.getElementById('myOwnProjects').height = '450px';
         document.getElementById('schoolProjects').height = '450px';
         document.getElementById('programs-object').height = '150px';
-        document.getElementById('languages-object').height = '300px';
+        document.getElementById('languages-object').height = '230px';
     }
 }
 

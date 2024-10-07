@@ -21,7 +21,7 @@
     },
     {
         "name": "Lua",
-        "description": "Lua is a lightweight, this makes it perfect for game development.",
+        "description": "Lua is a lightweight language, this makes it perfect for game development.",
         "since": "2022-11-30"
     }
 ]

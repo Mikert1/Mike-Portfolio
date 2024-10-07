@@ -717,7 +717,7 @@ a:hover {
 }
 
 #languages {
-    height: 300px;
+    height: 230px;
 }
 
 #programs p,
@@ -747,6 +747,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 180px;
 }
 
 #languages .language .icon {
@@ -782,13 +783,9 @@ a:hover {
     image-rendering: optimizeQuality;
 }
 
-#languages .language {
-    height: 250px;
-}
-
 #languages .language .image {
     position: absolute;
-    top: 180px;
+    top: 110px;
     margin-left: -10px;
     border-bottom-left-radius: 10px;
     width: auto;
@@ -797,7 +794,8 @@ a:hover {
     image-rendering: optimizeQuality;
 }
 
-#programs .program:hover {
+#programs .program:hover,
+#languages .language:hover {
     box-shadow: rgb(0, 0, 0) 3px 3px 20px;
     transform: translateY(-5px);
 }
