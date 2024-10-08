@@ -1,6 +1,6 @@
 async function getData() {
     try {
-        const response = await fetch('projects.json');
+        const response = await fetch('../projects.json');
         if (!response.ok) {
             throw new Error('Failed to fetch');
         }
@@ -57,7 +57,7 @@ getData()
         description.textContent = data[params.id].description;
         if (data[params.id].platforms) {
             for (let i = 0; i < data[params.id].platforms.length; i++) {
-                fetch(`assets/img/svg/${data[params.id].platforms[i]}.svg`)
+                fetch(`../assets/img/svg/${data[params.id].platforms[i]}.svg`)
                 .then(response => response.text())
                 .then(data => {
                     const div = document.createElement('div');
@@ -101,13 +101,13 @@ getData()
             const download = document.getElementById('mainButton');
             let osName = window.navigator.platform;
             if (osName.includes('Win')) {
-                osName = 'assets/img/svg/windows.svg';
+                osName = '../assets/img/svg/windows.svg';
             } else if (osName.includes('Mac')) {
-                osName = 'assets/img/svg/mac.svg';
+                osName = '../assets/img/svg/mac.svg';
             } else if (osName.includes('Linux')) {
-                osName = 'assets/img/svg/linux.svg';
+                osName = '../assets/img/svg/linux.svg';
             } else {
-                osName = 'assets/img/svg/download.svg';
+                osName = '../assets/img/svg/download.svg';
             }
             fetch(osName)
                 .then(response => response.text())
@@ -123,7 +123,7 @@ getData()
             link.querySelector('h2').innerHTML = 'Visit Website';
             link.href = data[params.id].link;
             version.innerHTML = "";
-            fetch('assets/img/svg/arrow.svg')
+            fetch('../assets/img/svg/arrow.svg')
                 .then(response => response.text())
                 .then(data => {
                     const svg = document.getElementById('svg');
