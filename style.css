@@ -4,6 +4,7 @@ html {
     padding: 0;
     height: 100%;
     width: 100%;
+    scrollbar-color: #00000000;
 }
 
 body {
