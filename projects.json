@@ -27,8 +27,7 @@
         },
 
         "releases": "https://github.com/Mikert1/Ruined/releases/tag/v1.5-early-developer-beta",
-        "repository": "https://github.com/Mikert1/Ruined",
-        "images": ["https://github.com/Mikert1/Ruined/assets/73882306/b35ce5a7-e065-462e-8beb-51ac57dd84d1", "https://github.com/Mikert1/Ruined/assets/73882306/1ef52b0c-8240-489a-a191-458290eeaa21", "https://github.com/Mikert1/Ruined/assets/73882306/ec4af4f6-0ac1-460c-8bae-5d015817904d", "https://github.com/Mikert1/Ruined/assets/73882306/eef28b86-3676-42fc-b7ba-cc05ba1171a6", "https://github.com/Mikert1/Ruined/assets/73882306/adea97ac-11a2-4c1b-b628-0f0edf4c7494"]
+        "repository": "https://github.com/Mikert1/Ruined"
     },
     {
         "id": 2,
@@ -60,8 +59,7 @@
         },
 
         "link": "https://mikert1.github.io/Mikert-Video/",
-        "repository": "https://github.com/Mikert1/Mikert-Video",
-        "images": ["../assets/projects/Mikert Video/1.png", "https://github.com/user-attachments/assets/98da2ad1-5314-4735-b9ec-f7a1a31e7505", "https://github.com/user-attachments/assets/73c79512-2347-4e28-ae84-cfe8a9f08059", "https://github.com/user-attachments/assets/4beb8aaf-6810-4786-a410-c299a669c8a2", "https://github.com/user-attachments/assets/3de39682-375a-488f-9fcc-17f49ef4da5d"]
+        "repository": "https://github.com/Mikert1/Mikert-Video"
     },
     {
         "id": 3,
@@ -92,8 +90,7 @@
         },
 
         "link": "https://mikert1.github.io/Mikert-food-menu/",
-        "repository": "https://github.com/Mikert1/Mikert-food-menu",
-        "images": ["../assets/projects/Mikert Food Menu/1.png"]
+        "repository": "https://github.com/Mikert1/Mikert-food-menu"
     },
     {
         "id": 4,
@@ -120,8 +117,7 @@
             }
         },
         "link": "https://mb-elektro.nl/",
-        "repository": "https://github.com/Mikert1/MB-Elektro",
-        "images": ["../assets/projects/MB Elektro- & BeveiligingsTechniek/1.png"]
+        "repository": "https://github.com/Mikert1/MB-Elektro"
     },
     {
         "id": 5,
@@ -165,8 +161,7 @@
         },
 
         "link": "http://85.10.148.52/index.html",
-        "repository": "https://github.com/Mikert1/My-Education-Lifestyle",
-        "images": ["../assets/projects/My Lifestyle Education/1.png", "https://github.com/user-attachments/assets/19feaa58-70e9-42f3-a3c4-abbbf95b68bc", "https://github.com/user-attachments/assets/712418fd-75a7-4231-90f1-972e56b960a6", "https://github.com/user-attachments/assets/9fa66548-93ca-45e8-a6cc-57aa90aa710b", "https://github.com/user-attachments/assets/ff417469-1434-4399-a4c4-72d389960df9"]
+        "repository": "https://github.com/Mikert1/My-Education-Lifestyle"
     },
     {
         "id": 6,
@@ -207,8 +202,7 @@
         },
 
         "link": "https://mikert1.github.io/One-Punch-Man-Leaderboard",
-        "repository": "https://github.com/Mikert1/One-Punch-Man-Leaderboard",
-        "images": ["../assets/projects/One Punch Man Leaderboard/1.png"]
+        "repository": "https://github.com/Mikert1/One-Punch-Man-Leaderboard"
     },
     {
         "id": 7,
@@ -239,8 +233,7 @@
         },
 
         "link": "https://mikert.com/",
-        "repository": "https://github.com/Mikert1/Mikert-Website",
-        "images": [""]
+        "repository": "https://github.com/Mikert1/Mikert-Website"
     },
     {
         "id": 8,
@@ -271,7 +264,6 @@
         },
 
         "link": "https://mikert1.github.io/brower-home/",
-        "repository": "https://github.com/Mikert1/brower-home",
-        "images": ["../assets/projects/Browser Home/1.png"]
+        "repository": "https://github.com/Mikert1/brower-home"
     }
 ]
