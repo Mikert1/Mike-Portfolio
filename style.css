@@ -165,6 +165,11 @@ button:active {
     display: flex;
 }
 
+.margin {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
 .flex-sa {
     display: flex;
     justify-content: space-around;
@@ -1048,7 +1053,10 @@ a:hover {
         transition: box-shadow 0.1s ease, transform 0.1s ease;
         transform: translateY(0);
     }
-
+    .margin {
+        padding-left: 0%;
+        padding-right: 0%;
+    }
     section {
         padding-left: 0%;
         padding-right: 0%;
