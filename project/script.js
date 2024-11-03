@@ -53,11 +53,12 @@ const buttons = document.getElementById('buttons');
 getData()
     .then(data => {
         console.log(data);
-        title.textContent = data[params.id].name;
-        description.textContent = data[params.id].description;
-        if (data[params.id].platforms) {
-            for (let i = 0; i < data[params.id].platforms.length; i++) {
-                fetch(`../assets/img/svg/${data[params.id].platforms[i]}.svg`)
+        const project = data[params.id];
+        title.textContent = project.name;
+        description.textContent = project.description;
+        if (project.platforms) {
+            for (let i = 0; i < project.platforms.length; i++) {
+                fetch(`../assets/img/svg/${project.platforms[i]}.svg`)
                 .then(response => response.text())
                 .then(data => {
                     const div = document.createElement('div');
@@ -66,38 +67,37 @@ getData()
                 });
             }
         }
-        date.textContent = data[params.id].date;
-        const langEntries = Object.keys(data[params.id].lang);
+        date.textContent = project.date;
+        const langEntries = Object.keys(project.lang);
         langEntries.forEach((n, index) => {
             const dot = index < langEntries.length - 1 ? ', ' : ' ';
             const span = document.createElement('span');
             span.textContent = n;
             lang.appendChild(span);
             lang.innerHTML += dot;
-            if (data[params.id].lang[n].Lines) {
+            if (project.lang[n].Lines) {
                 const p = document.createElement('p'); p.classList.add('m0');
-                p.textContent = data[params.id].lang[n].Lines + ' lines';
+                p.textContent = project.lang[n].Lines + ' lines';
                 span.appendChild(p);
             }
-            if (data[params.id].lang[n].Files) {
+            if (project.lang[n].Files) {
                 const p = document.createElement('p'); p.classList.add('m0');
-                p.textContent = data[params.id].lang[n].Files + ' files';
+                p.textContent = project.lang[n].Files + ' files';
                 span.appendChild(p);
             }
             moreLang.appendChild(span);
         });
-        for (let i = 0; i < data[params.id].images.length; i++) {
+        for (let i = 0; i < 5; i++) {
             const div = document.createElement('div');
             let img = document.createElement('img');
-            img.src = data[params.id].images[i];
-            img.alt = data[params.id].name;
+            img.src = `../assets/projects/${project.name}/${i + 1}.png`;
             img.id = `image${i + 1}`;
             div.appendChild(img);
             document.querySelector('.sub-images').appendChild(div);
-            document.title = "Mikert.com | " + data[params.id].name;
+            document.title = "Mikert.com | " + project.name;
         }
-        mainImage.src = data[params.id].images[0];
-        if (data[params.id].type === 'Game') {
+        mainImage.src = `../assets/projects/${project.name}/1.png`;
+        if (project.type === 'Game') {
             const download = document.getElementById('mainButton');
             let osName = window.navigator.platform;
             if (osName.includes('Win')) {
@@ -116,12 +116,12 @@ getData()
                     svg.innerHTML = data;
                 });
             download.querySelector('h2').innerHTML = 'Download';
-            download.href = data[params.id].releases;
-            version.innerHTML = version.innerHTML + '<p>' + data[params.id].versionPrefix + '<span>' + data[params.id].version + '</span>' + data[params.id].versionSuffix + '</p>';
-        } else if (data[params.id].type === 'Website') {
+            download.href = project.releases;
+            version.innerHTML = version.innerHTML + '<p>' + project.versionPrefix + '<span>' + project.version + '</span>' + project.versionSuffix + '</p>';
+        } else if (project.type === 'Website') {
             const link = document.getElementById('mainButton');
             link.querySelector('h2').innerHTML = 'Visit Website';
-            link.href = data[params.id].link;
+            link.href = project.link;
             version.innerHTML = "";
             fetch('../assets/img/svg/arrow.svg')
                 .then(response => response.text())
@@ -130,26 +130,26 @@ getData()
                     svg.innerHTML = data;
                 });
         }
-        const contributorEntries = Object.keys(data[params.id].contributors);
+        const contributorEntries = Object.keys(project.contributors);
         contributorEntries.forEach((n, index) => {
             const img = document.createElement('img');
-            img.src = data[params.id].contributors[n].image;
+            img.src = project.contributors[n].image;
             contributors.appendChild(img);
 
             const div = document.createElement('div');
             const innerDiv = document.createElement('div'); innerDiv.classList.add('flex-ai-center', 'gap');
             const img2 = document.createElement('img'); 
-            img2.src = data[params.id].contributors[n].image;
+            img2.src = project.contributors[n].image;
             innerDiv.appendChild(img2);
             innerDiv.innerHTML += n;
             div.appendChild(innerDiv);
-            if (data[params.id].contributors[n].role) {
-                div.innerHTML += ' - ' + data[params.id].contributors[n].role;
+            if (project.contributors[n].role) {
+                div.innerHTML += ' - ' + project.contributors[n].role;
             }
             moreContributors.appendChild(div);
         });
         const source = document.getElementById('source');
-        source.href = data[params.id].repository;
+        source.href = project.repository;
     })
     .then(() => {
         const subImages = document.querySelectorAll('.sub-images div img');
