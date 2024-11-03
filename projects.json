@@ -32,7 +32,7 @@
     },
     {
         "id": 2,
-        "name": "Mikert Video",
+        "name": "Cryonium Library",
         "type": "Website",
         "project": "solo",
 
@@ -50,7 +50,7 @@
         },
         "platforms": ["mobile", "desktop"],
         "description": "A website that has inspiration from Rotten Tomatoes, IMDb and Netflix.",
-        "status": "InActive",
+        "status": "Active",
         "date": "2024-07-04",
         "contributors":
         {

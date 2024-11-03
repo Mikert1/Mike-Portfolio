@@ -1071,3 +1071,7 @@ a:hover {
         height: 54.545vw;
     }
 }
+
+::-webkit-scrollbar-track {
+    background: #00000000;
+  }

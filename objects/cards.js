@@ -53,7 +53,7 @@ getData()
         const contributorsLength = Object.keys(project.contributors).length;
         clone.querySelector('.team').innerHTML = contributorsLength > 1 ? `Team of <span>${contributorsLength}</span>` : `<span>Solo</span> project`;
         clone.querySelector('.link').href = `/project/?id=${project.id}`;
-        clone.querySelector('img').src = `${project.images[0]}`;
+        clone.querySelector('img').src = `../assets/projects/${project.name}/1.png`;
         document.getElementById('projects').appendChild(clone);
     });
 });
