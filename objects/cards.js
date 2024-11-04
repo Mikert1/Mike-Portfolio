@@ -57,3 +57,12 @@ getData()
         document.getElementById('projects').appendChild(clone);
     });
 });
+
+const next = document.getElementById('next');
+next.addEventListener('click', () => {
+    window.scrollBy({
+        top: window.innerHeight,
+        left: 430,
+        behavior: 'smooth'
+    });
+});
