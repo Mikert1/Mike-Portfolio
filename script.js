@@ -100,8 +100,8 @@ function resize() {
     } else {
         document.getElementById('myOwnProjects').height = '450px';
         document.getElementById('schoolProjects').height = '450px';
-        document.getElementById('programs-object').height = '150px';
-        document.getElementById('languages-object').height = '230px';
+        document.getElementById('programs-object').height = '170px';
+        document.getElementById('languages-object').height = '250px';
     }
 }
 

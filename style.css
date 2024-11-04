@@ -1098,5 +1098,5 @@ a:hover {
 }
 
 ::-webkit-scrollbar-track {
-    background: #00000000;
+    background: rgba(red, green, blue, 00);
   }

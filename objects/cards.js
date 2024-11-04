@@ -61,7 +61,7 @@ getData()
 const next = document.getElementById('next');
 next.addEventListener('click', () => {
     window.scrollBy({
-        top: window.innerHeight,
+        top: 0,
         left: 430,
         behavior: 'smooth'
     });
@@ -69,7 +69,7 @@ next.addEventListener('click', () => {
 const prev = document.getElementById('prev');
 prev.addEventListener('click', () => {
     window.scrollBy({
-        top: -window.innerHeight,
+        top: 0,
         left: -430,
         behavior: 'smooth'
     });
