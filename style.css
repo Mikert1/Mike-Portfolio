@@ -1,3 +1,23 @@
+/* cryonium bootstrap */
+.d-f { display: flex; }
+.jc-s { justify-content: start; }
+.jc-c { justify-content: center; }
+.jc-sb { justify-content: space-between; }
+.jc-sa { justify-content: space-around; }
+.ai-s { align-items: start; }
+.ai-c { align-items: center;}
+.ai-sb { align-items: space-between; }
+.ai-sa { align-items: space-around; }
+.fd-c { flex-direction: column; }
+.fd-r { flex-direction: row; }
+.m-0 { margin: 0 !important; }
+.g-5 { gap: 5px; }
+.g-10 { gap: 10px; }
+.rounded { border-radius: 800px; }
+.gray2 { color: rgb(122, 122, 122); }
+.td-u { text-decoration: underline; }
+/*  */
+
 html {
     background-color: #1f1f1f;
     color: white;
@@ -161,45 +181,10 @@ button:active {
 
 
 /* imported from my own so called "bootstrap" */
-.flex {
-    display: flex;
-}
 
 .margin {
     padding-left: 10%;
     padding-right: 10%;
-}
-
-.flex-sa {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.flex-column {
-    display: flex;
-    flex-direction: column;
-}
-
-.flex-sb {
-    display: flex;
-    justify-content: space-between;
-}
-
-.flex-jc-center {
-    display: flex;
-    justify-content: center;
-}
-
-.flex-ai-start {
-    display: flex;
-    align-items: start;
 }
 
 .flex-ai-center {
@@ -1001,13 +986,20 @@ a:hover {
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
     #projects {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         gap: 30px;
     }
+    .margin {
+        padding-left: 0%;
+        padding-right: 0%;
+    }
+}
+
+@media (max-width: 400px) {
 
     #projects .project,
     #projects .image {
@@ -1052,10 +1044,6 @@ a:hover {
         box-shadow: rgb(0, 0, 0) 0px 0px 10px;
         transition: box-shadow 0.1s ease, transform 0.1s ease;
         transform: translateY(0);
-    }
-    .margin {
-        padding-left: 0%;
-        padding-right: 0%;
     }
     section {
         padding-left: 0%;
