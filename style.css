@@ -909,11 +909,9 @@ a:hover {
     
     /* end */
 
-    .nextArrow {
+    .arrow {
         position: fixed;
         z-index: 2;
-        top: 50%;
-        right: 20px;
         transform: translateY(-50%);
         width: 50px;
         height: 50px;
@@ -925,8 +923,19 @@ a:hover {
         transition: border-color 0.2s ease;
     }
 
-    .nextArrow:hover {
+    .arrow:hover {
         border-color: #009999;
+    }
+
+    #prev {
+        top: 50%;
+        left: 30px;
+        display: none;
+    }
+
+    #next {
+        top: 50%;
+        right: 30px;
     }
     
 @media (max-width: 1033px) {

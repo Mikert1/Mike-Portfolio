@@ -66,3 +66,18 @@ next.addEventListener('click', () => {
         behavior: 'smooth'
     });
 });
+const prev = document.getElementById('prev');
+prev.addEventListener('click', () => {
+    window.scrollBy({
+        top: -window.innerHeight,
+        left: -430,
+        behavior: 'smooth'
+    });
+});
+window.addEventListener('scroll', () => {
+    if (window.scrollX < 100) {
+        prev.style.display = 'none';
+    } else {
+        prev.style.display = 'block';
+    }
+});
