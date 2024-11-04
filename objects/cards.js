@@ -78,6 +78,6 @@ window.addEventListener('scroll', () => {
     if (window.scrollX < 100) {
         prev.style.display = 'none';
     } else {
-        prev.style.display = 'block';
+        prev.style.display = 'flex';
     }
 });
