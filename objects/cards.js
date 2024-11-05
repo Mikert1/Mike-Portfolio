@@ -17,11 +17,14 @@ async function getData() {
 const urlParams = new URLSearchParams(window.location.search);
 let projectType = urlParams.get('project');
 
+let cardAmount = 0;
+
 getData()
 .then(data => {
     const filteredData = data.filter(project => project.project == projectType);
     filteredData.sort((a, b) => new Date(b.date) - new Date(a.date));
     filteredData.forEach(project => {
+        cardAmount++;
         const shortedName = project.name.length > 25 ? project.name.slice(0, 25) + '...' : project.name;
         const clone = template.content.cloneNode(true);
         clone.querySelector('.name').innerHTML = '<span>' + shortedName + '</span> · ' + project.type;
@@ -79,5 +82,10 @@ window.addEventListener('scroll', () => {
         prev.style.display = 'none';
     } else {
         prev.style.display = 'flex';
+    }
+    if (window.scrollX + 859 > cardAmount * 430) {
+        next.style.display = 'none';
+    } else {
+        next.style.display = 'flex';
     }
 });
