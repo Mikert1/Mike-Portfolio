@@ -63,17 +63,21 @@ getData()
 
 const next = document.getElementById('next');
 next.addEventListener('click', () => {
-    window.scrollBy({
+    let scrollX = Math.ceil(window.scrollX / 430) * 430;
+    console.log(scrollX)
+    window.scrollTo({
         top: 0,
-        left: 430,
+        left: scrollX + 430,
         behavior: 'smooth'
     });
 });
 const prev = document.getElementById('prev');
 prev.addEventListener('click', () => {
-    window.scrollBy({
+    let scrollX = Math.ceil(window.scrollX / 430) * 430;
+    console.log(scrollX)
+    window.scrollTo({
         top: 0,
-        left: -430,
+        left: scrollX - 430,
         behavior: 'smooth'
     });
 });
