@@ -1026,6 +1026,9 @@ a:hover {
         padding-left: 0%;
         padding-right: 0%;
     }
+    .arrow {
+        display: none;
+    }
 }
 
 @media (max-width: 400px) {
