@@ -16,6 +16,8 @@
 .rounded { border-radius: 800px; }
 .gray2 { color: rgb(122, 122, 122); }
 .td-u { text-decoration: underline; }
+.w-100 { width: 100%; }
+.h-100 { height: 100%; }
 /*  */
 
 html {
@@ -25,6 +27,15 @@ html {
     height: 100%;
     width: 100%;
     scrollbar-color: #00000000;
+}
+
+.button1 {
+    background-color: #1a1a1a;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
 }
 
 body {
@@ -323,12 +334,13 @@ embed {
 #profile {
     display: flex;
     width: 100%;
+    height: 100%;
     gap: 10px;
 }
 
 #profile .left {
     display: flex;
-    width: calc(100% - 550px);
+    width: 30%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -337,7 +349,8 @@ embed {
 
 #profile .right {
     display: flex;
-    width: 550px;
+    width: 70%;
+    height: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -816,21 +829,26 @@ a:hover {
     flex-shrink: 1;
 }
 
-.background-image {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+.projects-image {
+    background-image: url("assets/img/projects.png");
+    background-size: cover;
+    background-position: center;
     width: 100%;
-    height: 120px;
+    height: 100%;
+}
+
+.profile-card {
+    width: 25vw;
+    height: 13.5vw;
 }
 
 .profile-image {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     image-rendering: auto;
     background-color: #1a1a1a;
     padding: 5px;
     margin-left: 10px;
-    margin-top: -70px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -843,73 +861,6 @@ a:hover {
     gap: 20px;
     height: 80vh;
 }
-
-/* card flip */
-
-
-    .flipCard {
-        perspective: 150rem;
-        position: relative;
-        margin-left: 10px;
-        margin-right: 10px;
-        width: 550px;
-        height: 300px;
-        box-shadow: none;
-        background: none;
-    }
-  
-    .flipCard-side {
-        border-radius: 15px;
-        transition: transform 0.8s ease;
-        backface-visibility: hidden;
-        background-color: #1f1f1f;
-        border: 3px solid #1a1a1a;
-        box-shadow: 0 1rem 2rem #00000033;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: calc(100% - 6px);
-        height: 100%;
-        color: white;
-    }
-    
-    .flipCard-side.back {
-        transform: rotateY(180deg);
-    }
-    
-    .flipCard-side.front {
-        transform: rotateY(0deg);
-    }
-
-    .flipCard.flipped .flipCard-side.front {
-        transform: rotateY(-180deg);
-    }
-
-    .flipCard.flipped .flipCard-side.back {
-        transform: rotateY(0deg);
-    }
-
-    .flipCard .content {
-        height: 100%;
-    }
-    
-    .flipCard-side .content div {
-        width: 95%;
-        padding-left: 2.5%;
-        padding-right: 2.5%;
-        padding-top: 1.5%;
-        padding-bottom: 1.5%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    .flipCard-side .content p {
-        margin-top: auto;
-    }
-    
-    /* end */
-
     .arrow {
         position: fixed;
         z-index: 2;
@@ -961,6 +912,10 @@ a:hover {
         justify-content: center;
         align-items: center;
         gap: 10px;
+    }
+    .profile-card {
+        width: 40vw;
+        height: 21.5vw;
     }
     embed {
         width: 100%;
@@ -1029,6 +984,10 @@ a:hover {
     }
     .arrow {
         display: none;
+    }
+    .profile-card {
+        width: 80vw;
+        height: 43vw;
     }
 }
 

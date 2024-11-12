@@ -21,31 +21,28 @@
         <section id="homepage">
             <div id="profile">
                 <div class="left">
+                    <img src="assets/img/pfp.jpg" class="profile-image" width="170px">
+                    <h1 class="m0">Mike Balvert</h1>
+                    <h2 class="m0 mt6 functionTitle">Front-End Developer</h2>
                 </div>
                 <div class="right">
-                    <div class="flipCard">
-                        <div class="flipCard-side front">
-                            <div class="content" onclick="flipCard()">
-                                <img src="assets/img/background.png" class="background-image">
-                                <div>
-                                    <img src="assets/img/pfp.jpg" class="profile-image">
-                                    <h1 class="m0">Mike Balvert</h1>
-                                    <h2 class="m0 mt6 functionTitle">Front-End Developer</h2>
-                                </div>
-                                <p id="helpingText" class="m0 d-f jc-c" style="color: #868686;">* Click me *</p>
+                    <div class="d-f jc-c ai-c mo-col w-100 h-100">
+                        <div class="profile-card">
+                            <div class="projects-image d-f ai-c jc-c">
+                                <a href="index.html#projectCards">
+                                    <button class="button1">View Projects</button>
+                                </a>
                             </div>
                         </div>
-                        <div class="flipCard-side back">
-                            <div class="content" onclick="flipCard('front')">
-                                <h2 class="m0">Contact</h2>
-                                <embed style="pointer-events: none;" src="https://jandee.vercel.app/mikert1">
-                            </div>
+                        <div class="profile-card">
+
                         </div>
                     </div>
                 </div>
             </div>
             </section>
             <section>
+            <div id="projectCards">
             <div class="title">
                 <div class="svgDiv">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journal-code" viewBox="0 0 16 16">
@@ -61,6 +58,7 @@
             <object data="objects/cards.html?project=solo" id="myOwnProjects" height="450px" type=""></object>
             <h2 class="m0 margin mt6">School:</h2>
             <object data="objects/cards.html?project=school" id="schoolProjects" height="450px" type=""></object>
+            </div>
             <section>
             <div class="title">
                 <div class="svgDiv">
