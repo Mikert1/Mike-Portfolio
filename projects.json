@@ -18,7 +18,7 @@
         "versionPrefix": "Pre-Alpha ",
         "version": "1.5",
         "versionSuffix": " (Stable)",
-        "status": "InActive",
+        "status": "Active",
         "date": "2022-11-30",
         "contributors": {
             "Mikert1": {
@@ -49,7 +49,7 @@
         },
         "platforms": ["mobile", "desktop"],
         "description": "A website that has inspiration from Rotten Tomatoes, IMDb and Netflix.",
-        "status": "Active",
+        "status": "InActive",
         "date": "2024-07-04",
         "contributors":
         {

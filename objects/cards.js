@@ -60,27 +60,38 @@ getData()
         document.getElementById('projects').appendChild(clone);
     });
 });
-
 const next = document.getElementById('next');
-next.addEventListener('click', () => {
-    let scrollX = Math.ceil(window.scrollX / 430) * 430;
-    console.log(scrollX)
-    window.scrollTo({
-        top: 0,
-        left: scrollX + 430,
-        behavior: 'smooth'
-    });
-});
 const prev = document.getElementById('prev');
-prev.addEventListener('click', () => {
-    let scrollX = Math.ceil(window.scrollX / 430) * 430;
-    console.log(scrollX)
+const cardWidth = 430;
+
+next.addEventListener('click', () => {
+    let currentScrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+    
+    let nextScrollX = Math.ceil(currentScrollX / cardWidth) * cardWidth + cardWidth;
+    
     window.scrollTo({
         top: 0,
-        left: scrollX - 430,
+        left: nextScrollX,
         behavior: 'smooth'
     });
 });
+
+prev.addEventListener('click', () => {
+    let currentScrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+
+    let prevScrollX = Math.floor(currentScrollX / cardWidth) * cardWidth - cardWidth;
+    
+    if (prevScrollX < 0) {
+        prevScrollX = 0;
+    }
+
+    window.scrollTo({
+        top: 0,
+        left: prevScrollX,
+        behavior: 'smooth'
+    });
+});
+
 window.addEventListener('scroll', () => {
     if (window.scrollX < 100) {
         prev.style.display = 'none';
