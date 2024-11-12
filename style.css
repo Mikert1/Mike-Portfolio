@@ -826,6 +826,7 @@ a:hover {
 .profile-image {
     width: 100px;
     height: 100px;
+    image-rendering: auto;
     background-color: #1a1a1a;
     padding: 5px;
     margin-left: 10px;
