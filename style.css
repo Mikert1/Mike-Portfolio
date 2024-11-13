@@ -602,6 +602,7 @@ a:hover {
 
 #projects .project,
 #projects .image {
+    image-rendering: auto;
     width: 400px;
     background-color: rgb(29, 29, 29);
 }

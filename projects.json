@@ -265,5 +265,45 @@
 
         "link": "https://mikert1.github.io/brower-home/",
         "repository": "https://github.com/Mikert1/brower-home"
+    },
+    {
+        "id": 9,
+        "name": "Game of life",
+        "type": "Website",
+        "project": "school",
+        "lang": 
+        {
+            "HTML": {
+                "Files": 1
+            },
+            "CSS": {
+                "Files": 1
+            },
+            "JavaScript": {
+                "Files": 1
+            }
+        },
+        "platforms": ["mobile", "desktop"],
+        "description": "A 5 day school project where we had to make a game of life. We could choose how we wanted to make it. We choose a game-website. Objective: clear the screen by running it and clicking on the cells.",
+        "status": "Done",
+        "date": "2024-09-09",
+        "contributors": 
+        {
+            "Mike Balvert": {
+                "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4",
+                "role": "Javascript"
+            },
+            "Danielo923": {
+                "image": "https://avatars.githubusercontent.com/u/149661189?s=64&v=4",
+                "role":"Javascript"
+            },
+            "Mika Stengewis": {
+                "image": "https://avatars.githubusercontent.com/u/149662121?s=64&v=4",
+                "role":"HTML & CSS"
+            }
+        },
+
+        "link": "https://mikert1.github.io/game-of-life/",
+        "repository": "https://github.com/Mikert1/game-of-life"
     }
 ]
