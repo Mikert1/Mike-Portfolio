@@ -21,7 +21,7 @@
         "status": "Active",
         "date": "2022-11-30",
         "contributors": {
-            "Mikert1": {
+            "Mike Balvert": {
                 "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4"
             }
         },
@@ -53,7 +53,7 @@
         "date": "2024-07-04",
         "contributors":
         {
-            "Mikert1": {
+            "Mike Balvert": {
                 "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4"
             }
         },
@@ -84,7 +84,7 @@
         "status": "Done",
         "date": "2024-02-08",
         "contributors": {
-            "Mikert1": {
+            "Mike Balvert": {
                 "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4"
             }
         },
@@ -112,7 +112,7 @@
         "status": "InActive",
         "date": "2024-02-29",
         "contributors": {
-            "Mikert1": {
+            "Mike Balvert": {
                 "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4"
             }
         },
@@ -146,7 +146,7 @@
         "date": "2024-05-22",
         "contributors":
         {
-            "Mikert1": {
+            "Mike Balvert": {
                 "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4",
                 "role": "Javascript & PHP"
             },
@@ -154,7 +154,7 @@
                 "image": "https://avatars.githubusercontent.com/u/149661189?s=64&v=4",
                 "role":"Javascript"
             },
-            "Mikast14": {
+            "Mika Stengewis": {
                 "image": "https://avatars.githubusercontent.com/u/149662121?s=64&v=4",
                 "role":"HTML & CSS"
             }
@@ -187,7 +187,7 @@
         "date": "2024-02-12",
         "contributors": 
         {
-            "Mikert1": {
+            "Mike Balvert": {
                 "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4",
                 "role": "Javascript"
             },
@@ -195,7 +195,7 @@
                 "image": "https://avatars.githubusercontent.com/u/149661189?s=64&v=4",
                 "role":"Javascript"
             },
-            "Mikast14": {
+            "Mika Stengewis": {
                 "image": "https://avatars.githubusercontent.com/u/149662121?s=64&v=4",
                 "role":"HTML & CSS"
             }
@@ -227,7 +227,7 @@
         "status": "Active",
         "date": "2024-05-22",
         "contributors": {
-            "Mikert1": {
+            "Mike Balvert": {
                 "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4"
             }
         },
@@ -255,10 +255,10 @@
         },
         "platforms": ["mobile", "desktop"],
         "description": "This website is a homepage for your browser. The plan is that you can customize it to your liking.",
-        "status": "Active",
+        "status": "InActive",
         "date": "2024-09-18",
         "contributors": {
-            "Mikert1": {
+            "Mike Balvert": {
                 "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4"
             }
         },
