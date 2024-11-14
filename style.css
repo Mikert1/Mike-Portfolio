@@ -832,6 +832,7 @@ a:hover {
 
 .projects-image {
     background-image: url("assets/img/projects.png");
+    image-rendering: auto;
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -840,6 +841,16 @@ a:hover {
 
 .github-image {
     background-image: url("assets/img/github.png");
+    image-rendering: auto;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+.linkedin-image {
+    background-image: url("assets/img/linkedin.png");
+    image-rendering: auto;
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -868,7 +879,7 @@ a:hover {
     justify-content: center;
     align-items: center;
     gap: 20px;
-    height: 80vh;
+    min-height: 80vh;
 }
     .arrow {
         position: fixed;
