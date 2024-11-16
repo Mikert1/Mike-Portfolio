@@ -15,44 +15,44 @@ async function getData(file) {
 }
 
 
-
-getData("languages").then(data => {
+async function load() {
+    const certificates = await getData("certificates")
+    const projects = await getData("projects")
+    const data = await getData("languages")
     data.forEach(Langs => {
-        getData("certificates").then(certificates => {
-            getData("projects").then(projects => {
-                const clone = template.content.cloneNode(true);
-                clone.querySelector('.name').textContent = Langs.name;
-                clone.querySelector('.image').src = `../assets/img/languages/${Langs.name}.png`;
-                clone.querySelector('.description').textContent = Langs.description;
-                const currentDate = new Date();
-                const projectDate = new Date(Langs.since);
-                const timeDifference = Math.abs(currentDate - projectDate);
-                const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+        const clone = template.content.cloneNode(true);
+        clone.querySelector('.name').textContent = Langs.name;
+        clone.querySelector('.image').src = `../assets/img/languages/${Langs.name}.png`;
+        clone.querySelector('.description').textContent = Langs.description;
+        const currentDate = new Date();
+        const projectDate = new Date(Langs.since);
+        const timeDifference = Math.abs(currentDate - projectDate);
+        const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
 
-                const experienceElement = clone.querySelector('.experience');
-                if (daysDifference >= 730) {
-                    const yearsSince = Math.floor(daysDifference / 365);
-                    experienceElement.innerHTML = `<span>${yearsSince}</span>+ year experience`;
-                } else {
-                    experienceElement.innerHTML = `<span>${daysDifference}</span> days experience`;
+        const experienceElement = clone.querySelector('.experience');
+        if (daysDifference >= 730) {
+            const yearsSince = Math.floor(daysDifference / 365);
+            experienceElement.innerHTML = `<span>${yearsSince}</span>+ year experience`;
+        } else {
+            experienceElement.innerHTML = `<span>${daysDifference}</span> days experience`;
+        }
+
+        const langCertificates = certificates.filter(cert => cert.part_of.includes(Langs.name));
+        clone.querySelector('.certificates').textContent = langCertificates.length;
+        
+        let LangProjects = [];
+        for (let i = 0; i < projects.length; i++) {
+            const langEntries = Object.keys(projects[i].lang);
+            langEntries.forEach((n) => {
+                if (Langs.name == n) {
+                    LangProjects.push(n);
                 }
-
-                const langCertificates = certificates.filter(cert => cert.part_of.includes(Langs.name));
-                clone.querySelector('.certificates').textContent = langCertificates.length;
-                
-                let LangProjects = [];
-                for (let i = 0; i < projects.length; i++) {
-                    const langEntries = Object.keys(projects[i].lang);
-                    langEntries.forEach((n) => {
-                        if (Langs.name == n) {
-                            LangProjects.push(n);
-                        }
-                    });
-                }
-                clone.querySelector('.projects').textContent = LangProjects.length;
-
-                document.getElementById('languages').appendChild(clone);
             });
-        });
+        }
+        clone.querySelector('.projects').textContent = LangProjects.length;
+
+        document.getElementById('languages').appendChild(clone);
     });
-});
+}
+
+load();
