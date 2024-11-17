@@ -6,8 +6,30 @@
     <title>Mikert.com | Programs Object</title>
     <link rel="stylesheet" href="../style.css">
     <script src="programs.js" defer></script>
+    <style>
+        ::-webkit-scrollbar {display: none;}
+        * {scrollbar-width: none;}
+        body {
+            overflow: hidden;
+            width: 300%;
+        }
+        html {
+            width: auto;
+        }
+        @media (max-width: 500px) {
+            body {
+                overflow: auto;
+                width: 100%;
+            }
+        }
+    </style>
 </head>
-<body>
+<body class="margin">
+    <div class="d-f jc-c ai-c arrow" id="prev">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cyan" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+          </svg>
+    </div>
     <div id="programs">
         <template id="template">
             <div class="program">
@@ -26,6 +48,11 @@
                 </div>
             </div>
         </template>
+    </div>
+    <div class="jc-c ai-c arrow" id="next">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cyan" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+        </svg>
     </div>
 </body>
 </html>
