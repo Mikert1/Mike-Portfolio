@@ -134,6 +134,10 @@ button:active {
     gap: 20px;
 }
 
+.huge {
+    width: 500%;
+}
+
 @keyframes beta {
     0% { color: rgb(0, 225, 0); }
     7% { color: #2F2F2F; }
@@ -194,8 +198,8 @@ button:active {
 /* imported from my own so called "bootstrap" */
 
 .margin {
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 10vw;
+    padding-right: 10vw;
 }
 
 .flex-ai-center {
