@@ -14,12 +14,14 @@ async function getData(file) {
     }
 }
 
+let cardAmount = 1;
 
 async function load() {
     const certificates = await getData("certificates")
     const projects = await getData("projects")
     const data = await getData("languages")
     data.forEach(Langs => {
+        cardAmount++;
         const clone = template.content.cloneNode(true);
         clone.querySelector('.name').textContent = Langs.name;
         clone.querySelector('.image').src = `../assets/img/languages/${Langs.name}.png`;

@@ -14,9 +14,12 @@ async function getData() {
     }
 }
 
+let cardAmount = 1;
+
 getData()
 .then(data => {
     data.forEach(program => {
+        cardAmount++;
         const clone = template.content.cloneNode(true);
         clone.querySelector('.image').src = "../assets/img/svg/" + program.name + ".svg";
         clone.querySelector('.name').textContent = program.name;
