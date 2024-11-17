@@ -675,11 +675,11 @@ a:hover {
     color: rgb(236, 236, 236);
 }
 
-.dubbleDisplay {
+.doubleDisplay {
     display: flex;
 }
 
-.dubbleDisplay div {
+.doubleDisplay div {
     width: 50%;
     flex-grow: 0;
 }
