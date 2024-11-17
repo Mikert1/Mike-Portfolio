@@ -1013,6 +1013,29 @@ a:hover {
         width: 80vw;
         height: 43vw;
     }
+
+    #programs,
+    #languages {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        margin-top: 15px;
+        height: auto;
+        gap: 30px;
+    }
+
+    #programs .program,
+    #languages .language {
+        width: calc(80%);
+        padding: 10px;
+        background-color: rgb(32, 32, 32);
+        border-radius: 10px;
+        box-shadow: rgb(0, 0, 0) 0px 0px 10px;
+        transition: box-shadow 0.1s ease, transform 0.1s ease;
+        transform: translateY(0);
+    }
 }
 
 @media (max-width: 400px) {
@@ -1039,28 +1062,6 @@ a:hover {
         width: 94%;
     }
 
-    #programs,
-    #languages {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-        margin-top: 15px;
-        height: auto;
-        gap: 30px;
-    }
-
-    #programs .program,
-    #languages .language {
-        width: calc(100% - 40px);
-        padding: 10px;
-        background-color: rgb(32, 32, 32);
-        border-radius: 10px;
-        box-shadow: rgb(0, 0, 0) 0px 0px 10px;
-        transition: box-shadow 0.1s ease, transform 0.1s ease;
-        transform: translateY(0);
-    }
     section {
         padding-left: 0%;
         padding-right: 0%;
