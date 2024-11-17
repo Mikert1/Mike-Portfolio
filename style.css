@@ -570,7 +570,7 @@ a:hover {
     color: rgb(0, 255, 255);
 }
 
-.statusInActive {
+.statusInactive {
     color: #adadad !important;
     border: 1px solid #adadad;
     border-radius: 50px;

@@ -49,7 +49,7 @@
         },
         "platforms": ["mobile", "desktop"],
         "description": "A website that has inspiration from Rotten Tomatoes, IMDb and Netflix.",
-        "status": "InActive",
+        "status": "Inactive",
         "date": "2024-07-04",
         "contributors":
         {
@@ -80,7 +80,7 @@
             }
         },
         "platforms": ["mobile", "desktop"],
-        "description": "A website that has a food menu. although I was halveway trouh the year, I made this as my end project for the first year of school. I passed.",
+        "description": "A website that has a food menu. although I was halfway through the year, I made this as my end project for the first year of school. I passed.",
         "status": "Done",
         "date": "2024-02-08",
         "contributors": {
@@ -109,7 +109,7 @@
         },
         "platforms": ["mobile", "desktop"],
         "description": "A website that I made for a client. The website is for a company that installs electrical and security systems.",
-        "status": "InActive",
+        "status": "Inactive",
         "date": "2024-02-29",
         "contributors": {
             "Mike Balvert": {
@@ -141,7 +141,7 @@
             }
         },
         "platforms": ["mobile", "desktop"],
-        "description": "This is a project where I made the Javascript and PHP part. The website was for a school client to leurn us how to work with a real client",
+        "description": "This is a project where I made the Javascript and PHP part. The website was for a school client to teach us how to work with a real client",
         "status": "Done",
         "date": "2024-05-22",
         "contributors":
@@ -182,7 +182,7 @@
             }
         },
         "platforms": ["mobile", "desktop"],
-        "description": "This is a School project with a challange, the challange was that it must be completed within 5 days. We made this with a team of 3.",
+        "description": "This is a School project with a challenge, the challenge was that it must be completed within 5 days. We made this with a team of 3.",
         "status": "Done",
         "date": "2024-02-12",
         "contributors": 
@@ -255,7 +255,7 @@
         },
         "platforms": ["mobile", "desktop"],
         "description": "This website is a homepage for your browser. The plan is that you can customize it to your liking.",
-        "status": "InActive",
+        "status": "Inactive",
         "date": "2024-09-18",
         "contributors": {
             "Mike Balvert": {
