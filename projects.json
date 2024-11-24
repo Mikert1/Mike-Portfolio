@@ -305,5 +305,45 @@
 
         "link": "https://mikert1.github.io/game-of-life/",
         "repository": "https://github.com/Mikert1/game-of-life"
+    },
+    {
+        "id": 10,
+        "name": "HelpGPT",
+        "type": "Website",
+        "project": "school",
+
+        "lang": 
+        {
+            "HTML": {
+                "Files": 1
+            },
+            "CSS": {
+                "Files": 1
+            },
+            "JavaScript": {
+                "Files": 1
+            }
+        },
+        "platforms": ["desktop"],
+        "description": "A 5 day school project where we had to make a website that can help you make prompts for ChatGPT. It uses docker and when installed but also works without it.",
+        "status": "Done",
+        "date": "2024-11-18",
+        "contributors": {
+            "Mike Balvert": {
+                "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4",
+                "role": "Javascript & Docker"
+            },
+            "Danielo923": {
+                "image": "https://avatars.githubusercontent.com/u/149661189?s=64&v=4",
+                "role":"Javascript"
+            },
+            "Mika Stengewis": {
+                "image": "https://avatars.githubusercontent.com/u/149662121?s=64&v=4",
+                "role":"HTML & CSS"
+            }
+        },
+
+        "link": "https://mikert1.github.io/HelpGPT/",
+        "repository": "https://github.com/Mikert1/HelpGPT"
     }
 ]
