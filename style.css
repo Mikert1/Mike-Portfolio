@@ -344,25 +344,28 @@ embed {
 
 #profile .left {
     display: flex;
-    width: 20%;
+    width: 70%;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     gap: 10px;
 }
 
-#profile .middle {
-    display: flex;
-    width: 60%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+#profile .left h1 {
+    font-size: 4em;
+}
+
+#profile .left h2 {
+    font-size: 6em;
+}
+
+#profile .left p {
+    font-size: 1.3em;
+    width: 50%;
+    color: rgb(156, 156, 156);
 }
 
 #profile .right {
     display: flex;
-    width: 20%;
+    width: 30%;
     height: 100%;
     flex-direction: column;
     justify-content: center;
@@ -835,8 +838,12 @@ a:hover {
     font-size: 0.8em;
 }
 
+.functionTitleDiv {
+    display: flex;
+}
+
 .functionTitle {
-    background: linear-gradient(43deg, #00ffff 0%, #0000ff 100%);
+    background: linear-gradient(60deg, #0000ff 0%, #00ffff 100%);
     color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
@@ -922,6 +929,18 @@ a:hover {
         top: 50%;
         right: 30px;
     }
+
+@media (max-width: 1500px) {
+    #profile .left h1 {
+        font-size: 3em;
+    }
+    #profile .left h2 {
+        font-size: 4em;
+    }
+    #profile .left p {
+        font-size: 1em;
+    }
+}
     
 @media (max-width: 1033px) {
     #profile {
@@ -939,14 +958,15 @@ a:hover {
         align-items: center;
         gap: 10px;
     }
-    #profile .middle {
-        display: flex;
-        order: 1;
-        width: 100%;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
+    #profile .left h1 {
+        font-size: 2em;
+    }
+    #profile .left h2 {
+        font-size: 3em;
+    }
+    #profile .left p {
+        font-size: 0.8em;
+        width: 70%;
     }
     #profile .right {
         display: flex;
@@ -1016,6 +1036,17 @@ a:hover {
 }
 
 @media (max-width: 500px) {
+
+    #profile .left h1 {
+        font-size: 1.5em;
+    }
+    #profile .left h2 {
+        font-size: 2em;
+    }
+    #profile .left p {
+        font-size: 0.8em;
+        width: 90%;
+    }
     #projects {
         display: flex;
         flex-wrap: wrap;
