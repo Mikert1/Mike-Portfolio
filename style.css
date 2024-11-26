@@ -617,8 +617,7 @@ a:hover {
 }
 
 
-#projects .project,
-#projects .image {
+#projects .project{
     image-rendering: auto;
     width: 400px;
     background-color: rgb(29, 29, 29);
@@ -638,12 +637,18 @@ a:hover {
 
 
 #projects .image {
+    image-rendering: auto;
+    width: 400px;
     height: 200px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
     object-fit: cover;
     object-position: top;
     transition: object-position 1.5s ease;
+}
+
+#projects .head {
+    height: 200px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 #projects .project:hover .image {
