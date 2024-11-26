@@ -421,6 +421,7 @@ embed {
     margin-left: 5px;
     width: 100%;
     object-fit: cover;
+    object-position: top;
     image-rendering: optimizeQuality;
 }
 
@@ -642,11 +643,11 @@ a:hover {
     border-top-right-radius: 10px;
     object-fit: cover;
     object-position: top;
-    transition: object-position 0.5s ease;
+    transition: object-position 1.5s ease;
 }
 
 #projects .project:hover .image {
-    object-position: center;
+    object-position: bottom;
 }
 
 #projects .head,
