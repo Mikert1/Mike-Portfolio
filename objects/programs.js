@@ -40,8 +40,7 @@ getData()
         } else {
             clone.querySelector('.progress').style.width = program.bar.progress + '%';
             clone.querySelector('.progress').style.backgroundColor = program.bar.color;
-            clone.querySelector('.progressText').textContent = program.bar.text;
-            clone.querySelector('.progressText').style.color = program.bar.textColor;
+            clone.querySelector('.amount').innerHTML = `<span>${program.bar.progress}</span>%`;
         }
         document.getElementById('programs').appendChild(clone);
     });

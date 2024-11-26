@@ -1,36 +1,30 @@
 [
     {
         "name": "Visual Studio Code",
-        "description": "Visual Studio Code is a code editor. This is where i make my websites and games.",
+        "description": "Code Editor",
         "bar": {
             "progress": 90,
-            "color": "#BDF9BD",
-            "textColor": "#214219",
-            "text": "professionally"
+            "color": "#BDF9BD"
         },
         "since": "2022-11-30",
         "id": 1
     },
     {
         "name": "Paint.net",
-        "description": "Paint.NET is image and photo editing software. Especially good for pixel details.",
+        "description": "PixelEditor/PhotoEditor",
         "bar": {
             "progress": 100,
-            "color": "#bdf9f9",
-            "textColor": "#193f42",
-            "text": "professionally"
+            "color": "#bdf9f9"
         },
         "since": "2022-01-14",
         "id": 2
     },
     {
         "name": "LÖVE",
-        "description": "LÖVE is an *awesome* framework you can use to make 2D games in Lua.",
+        "description": "Game Engine",
         "bar": {
             "progress": 90,
-            "color": "#BDF9BD",
-            "textColor": "#214219",
-            "text": "professionally"
+            "color": "#BDF9BD"
         },
         "since": "2022-11-30",
         "id": 3
