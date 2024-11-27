@@ -653,7 +653,7 @@ a:hover {
     border-top-right-radius: 10px;
 }
 
-#projects .project:hover .image {
+#projects .hover .image {
     object-position: bottom;
 }
 

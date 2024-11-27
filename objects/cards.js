@@ -63,6 +63,21 @@ getData()
         } else {
             clone.querySelector('img').src = `../assets/projects/${project.name}/1.png`;
         }
+        let projectCard = clone.querySelector('.project');
+        let intervalId;
+
+        projectCard.addEventListener('mouseenter', () => {
+            projectCard.classList.add('hover');
+
+            intervalId = setInterval(() => {
+                projectCard.classList.remove('hover');
+            }, 2000);
+        });
+
+        projectCard.addEventListener('mouseleave', () => {
+            projectCard.classList.remove('hover');
+            clearInterval(intervalId);
+        });
         document.getElementById('projects').appendChild(clone);
     });
 });

@@ -120,7 +120,7 @@ getData()
             version.innerHTML = version.innerHTML + '<p>' + project.versionPrefix + '<span>' + project.version + '</span>' + project.versionSuffix + '</p>';
         } else if (project.type === 'Website') {
             const link = document.getElementById('mainButton');
-            link.querySelector('h2').innerHTML = 'Visit Website';
+            link.querySelector('h2').innerHTML = 'Visit';
             link.href = project.link;
             version.innerHTML = "";
             fetch('../assets/img/svg/arrow.svg')
