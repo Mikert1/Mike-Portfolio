@@ -51,10 +51,25 @@ const image4 = document.getElementById('image4');
 const image5 = document.getElementById('image5');
 const buttons = document.getElementById('buttons');
 
-getData()
-    .then(data => {
-        console.log(data);
-        const project = data[params.id];
+let data;
+
+async function getWebsiteStatus(url) {
+    try {
+        const response = await fetch(url);
+        if (response.status >= 200 && response.status < 300) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch (error) {
+        console.error('Error fetching:', error);
+        return false;
+    }
+}
+
+async function setProject() {
+    data = await getData();
+    const project = data[params.id];
         title.textContent = project.name;
         description.textContent = project.description;
         if (project.platforms) {
@@ -68,9 +83,20 @@ getData()
                 });
             }
         }
-        let statusImg = document.createElement('img');
-        statusImg.src = `${project.link}/assets/img/status.png`;
-        status.appendChild(statusImg);
+        if (project.type === 'Website') {
+            const output = await getWebsiteStatus(project.link);
+            const spanElement = document.createElement('span');
+            if (output == true) {
+                spanElement.textContent = 'Online';
+                spanElement.classList.add('statusDone');
+            } else {
+                spanElement.textContent = 'Offline';
+                spanElement.classList.add('statusInactive');
+            }
+            status.appendChild(spanElement);
+        } else {
+            status.style.display = 'none';
+        }
         date.textContent = project.date;
         const langEntries = Object.keys(project.lang);
         langEntries.forEach((n, index) => {
@@ -154,12 +180,12 @@ getData()
         });
         const source = document.getElementById('source');
         source.href = project.repository;
-    })
-    .then(() => {
         const subImages = document.querySelectorAll('.sub-images div img');
         subImages.forEach((image) => {
             image.addEventListener('click', (e) => {
                 document.getElementById('main-image').src = e.target.src;
             });
         });
-    });
+}
+
+setProject();
