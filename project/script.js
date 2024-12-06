@@ -35,6 +35,7 @@ if (params.id) {
 const title = document.getElementById('title');
 const description = document.getElementById('description');
 const platforms = document.getElementById('platforms');
+const status = document.getElementById('status');
 const date = document.getElementById('date');
 const lang = document.getElementById('lang');
 const version = document.getElementById('version');
@@ -67,6 +68,9 @@ getData()
                 });
             }
         }
+        let statusImg = document.createElement('img');
+        statusImg.src = `${project.link}/assets/img/status.png`;
+        status.appendChild(statusImg);
         date.textContent = project.date;
         const langEntries = Object.keys(project.lang);
         langEntries.forEach((n, index) => {
