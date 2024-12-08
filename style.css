@@ -109,29 +109,26 @@ section {
     padding-right: 10%;
 }
 
-button {
-    gap: 5px;
-    background-color: rgb(62, 62, 62);
-    border-color: rgb(15, 15, 15);
-    color: rgb(15, 15, 15);
+.primaryButton {
+    background-color: #00a9b8;
+    color: aliceblue;
+    border: none;
     border-radius: 5px;
     padding: 10px;
     cursor: pointer;
 }
 
-button:hover {
-    border-color: rgb(0, 255, 255);
-    color: rgb(0, 225, 255);
+.primaryButton:hover {
+    background-color: #00bdce;
 }
 
-button:active {
-    border-color: rgb(0, 128, 128);
-    color: rgb(0, 128, 128);
-}
-
-#buttons {
-    display: flex;
-    gap: 20px;
+.secondaryButton {
+    background-color: #252525;
+    color: aliceblue;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .huge {
@@ -582,13 +579,6 @@ a {
 a:hover {
     color: rgb(0, 255, 255);
 }
-
-#status img {
-    width: 20px;
-    height: 20px;
-    border-radius: 10px;
-}
-
 .statusInactive {
     color: #adadad !important;
     border: 1px solid #adadad;

@@ -127,6 +127,7 @@ async function setProject() {
             document.title = "Mikert.com | " + project.name;
         }
         mainImage.src = `../assets/projects/${project.name}/1.png`;
+        const svg = document.getElementById("svg");
         if (project.type === 'Game') {
             const download = document.getElementById('mainButton');
             let osName = window.navigator.platform;
@@ -142,7 +143,6 @@ async function setProject() {
             fetch(osName)
                 .then(response => response.text())
                 .then(data => {
-                    const svg = document.getElementById('svg');
                     svg.innerHTML = data;
                 });
             download.querySelector('h2').innerHTML = 'Download';
@@ -150,15 +150,10 @@ async function setProject() {
             version.innerHTML = version.innerHTML + '<p>' + project.versionPrefix + '<span>' + project.version + '</span>' + project.versionSuffix + '</p>';
         } else if (project.type === 'Website') {
             const link = document.getElementById('mainButton');
-            link.querySelector('h2').innerHTML = 'Visit';
+            link.querySelector('h2').innerHTML = 'Visit Website';
             link.href = project.link;
             version.innerHTML = "";
-            fetch('../assets/img/svg/arrow.svg')
-                .then(response => response.text())
-                .then(data => {
-                    const svg = document.getElementById('svg');
-                    svg.innerHTML = data;
-                });
+            svg.style.display = 'none';
         }
         const contributorEntries = Object.keys(project.contributors);
         contributorEntries.forEach((n, index) => {
