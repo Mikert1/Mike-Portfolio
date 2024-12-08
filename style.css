@@ -1,25 +1,3 @@
-/* cryonium bootstrap */
-.d-f { display: flex; }
-.jc-s { justify-content: start; }
-.jc-c { justify-content: center; }
-.jc-sb { justify-content: space-between; }
-.jc-sa { justify-content: space-around; }
-.ai-s { align-items: start; }
-.ai-c { align-items: center;}
-.ai-sb { align-items: space-between; }
-.ai-sa { align-items: space-around; }
-.fd-c { flex-direction: column; }
-.fd-r { flex-direction: row; }
-.m-0 { margin: 0 !important; }
-.g-5 { gap: 5px; }
-.g-10 { gap: 10px; }
-.rounded { border-radius: 800px; }
-.gray2 { color: rgb(122, 122, 122); }
-.td-u { text-decoration: underline; }
-.w-100 { width: 100%; }
-.h-100 { height: 100%; }
-/*  */
-
 html {
     background-color: #1f1f1f;
     color: aliceblue;
@@ -122,13 +100,23 @@ section {
     background-color: #00bdce;
 }
 
+.primaryButton p {
+    font-style: bold;
+    font-size: medium;
+}
+
 .secondaryButton {
-    background-color: #252525;
+    background-color: #3a3a3a;
     color: aliceblue;
     border: none;
     border-radius: 5px;
     padding: 10px;
     cursor: pointer;
+}
+
+.secondaryButton p {
+    font-style: bold;
+    font-size: medium;
 }
 
 .huge {
@@ -257,24 +245,6 @@ section {
     display: flex;
     gap: 10px;
 }
-
-    /* grays */
-    .gray1 {
-        color: #4a4a4a;
-    }
-    .gray2 {
-        color: #5a5a5a;
-    }
-    .gray3 {
-        color: #696969
-    }
-    .gray4 {
-        color: #7a7a7a;
-    }
-    .gray5 {
-        color: #8b8b8b;
-    }
-    /* end */
 
 /* end */
 
@@ -438,12 +408,6 @@ embed {
 
 #projectDisplay .info h1 {
     margin: 0;
-}
-
-#projectDisplay .info p {
-    color: rgb(156, 156, 156);
-    margin: 0;
-    margin-top: 15px;
 }
 
 #projectDisplay .info #version p {
