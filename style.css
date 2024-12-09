@@ -97,12 +97,12 @@ section {
 }
 
 .primaryButton:hover {
-    background-color: #00bdce;
+    background-color: #00c1d3;
 }
 
 .primaryButton p {
     font-weight: bold;
-    font-size: medium;
+    font-size: 1.1em;
 }
 
 .secondaryButton {
@@ -114,9 +114,13 @@ section {
     cursor: pointer;
 }
 
+.secondaryButton:hover {
+    background-color: #4a4a4a;
+}
+
 .secondaryButton p {
     font-weight: bold;
-    font-size: medium;
+    font-size: 1.1em;
 }
 
 .huge {

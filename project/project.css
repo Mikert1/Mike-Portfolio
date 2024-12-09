@@ -11,3 +11,7 @@ main {
     object-position: top;
     image-rendering: optimizeQuality;
 }
+
+.panel .intro {
+    height: 20vh;
+}
