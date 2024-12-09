@@ -1,0 +1,13 @@
+main {
+    margin-top: 20px;
+    width: 95%;
+}
+
+#main-image {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    object-fit: cover;
+    object-position: top;
+    image-rendering: optimizeQuality;
+}
