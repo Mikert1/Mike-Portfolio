@@ -18,7 +18,7 @@
         "versionPrefix": "Pre-Alpha ",
         "version": "1.5",
         "versionSuffix": " (Stable)",
-        "status": "Active",
+        "status": "Inactive",
         "date": "2022-11-30",
         "contributors": {
             "Mike Balvert": {
@@ -49,7 +49,7 @@
         },
         "platforms": ["mobile", "desktop"],
         "description": "A website that has inspiration from Rotten Tomatoes, IMDb and Netflix.",
-        "status": "Inactive",
+        "status": "Active",
         "date": "2024-07-04",
         "contributors":
         {

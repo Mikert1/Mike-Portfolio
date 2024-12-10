@@ -11,6 +11,10 @@ main {
     image-rendering: optimizeQuality;
 }
 
+#buttons {
+    margin-bottom: 20px;
+}
+
 .main-div {
     width: calc(100% - 300px);
 }
@@ -32,6 +36,14 @@ main {
 
 .panel .intro {
     height: 250px;
+}
+
+.font-size {
+    font-size: 1.1em;
+}
+
+#contributors {
+    margin-right: 10px;
 }
 
 @media screen and (max-width: 1200px) {
