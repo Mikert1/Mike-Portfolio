@@ -12,6 +12,34 @@ main {
     image-rendering: optimizeQuality;
 }
 
+.main-div {
+    width: calc(100% - 300px);
+}
+
+.panel {
+    width: 300px;
+}
+
 .panel .intro {
     height: 20vh;
+}
+
+@media screen and (max-width: 1200px) {
+    .main-div {
+        width: calc(100% - 200px);
+    }
+    
+    .panel {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .main-div {
+        width: calc(100% - 150px);
+    }
+    
+    .panel {
+        width: 150px;
+    }
 }
