@@ -71,6 +71,8 @@ async function setProject() {
     data = await getData();
     const project = data[params.id];
         title.textContent = project.name;
+        const logo = document.getElementById('logo');
+        logo.src = `../assets/projects/${project.name}/logo.png`;
         description.textContent = project.description;
         if (project.platforms) {
             for (let i = 0; i < project.platforms.length; i++) {
