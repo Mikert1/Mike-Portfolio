@@ -1,5 +1,4 @@
 main {
-    margin-top: 20px;
     width: 95%;
 }
 
@@ -32,7 +31,7 @@ main {
 }
 
 .panel .intro {
-    height: 20vh;
+    height: 250px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -52,5 +51,12 @@ main {
     
     .panel {
         width: 150px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .panel {
+        order: -1;
+        margin-bottom: 20px;
     }
 }
