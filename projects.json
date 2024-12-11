@@ -4,7 +4,7 @@
         "name": "Ruined",
         "type": "Game",
         "project": "solo",
-
+        "stack": "Game Development",
         "lang": 
         {
             "Lua": {
@@ -34,8 +34,8 @@
         "name": "Cryonium Library",
         "type": "Website",
         "project": "solo",
-
-        "lang": 
+        "stack": "Front-end",
+        "lang":
         {
             "HTML": {
                 "Files": 4
@@ -66,7 +66,7 @@
         "name": "Mikert Food Menu",
         "type": "Website",
         "project": "school",
-
+        "stack": "Front-end",
         "lang": 
         {
             "HTML": {
@@ -97,7 +97,7 @@
         "name": "MB Elektro- & BeveiligingsTechniek",
         "type": "Website",
         "project": "solo",
-
+        "stack": "Front-end",
         "lang": 
         {
             "HTML": {
@@ -124,7 +124,7 @@
         "name": "My Lifestyle Education",
         "type": "Website",
         "project": "school",
-
+        "stack": "Full-stack",
         "lang": 
         {
             "HTML": {
@@ -168,7 +168,7 @@
         "name": "One Punch Man Leaderboard",
         "type": "Website",
         "project": "school",
-
+        "stack": "Front-end",
         "lang":
         {
             "HTML": {
@@ -209,7 +209,7 @@
         "name": "Mikert.com",
         "type": "Website",
         "project": "solo",
-
+        "stack": "Front-end",
         "lang": 
         {
             "HTML": {
@@ -240,7 +240,7 @@
         "name": "Browser Home",
         "type": "Website",
         "project": "solo",
-
+        "stack": "Front-end",
         "lang": 
         {
             "HTML": {
@@ -271,6 +271,7 @@
         "name": "Game of life",
         "type": "Website",
         "project": "school",
+        "stack": "Front-end",
         "lang": 
         {
             "HTML": {
@@ -311,7 +312,7 @@
         "name": "HelpGPT",
         "type": "Website",
         "project": "school",
-
+        "stack": "Front-end",
         "lang": 
         {
             "HTML": {

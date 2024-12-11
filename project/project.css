@@ -25,7 +25,8 @@ main {
 
 #logo {
     width: calc(100% - 40px);
-    max-height: 400px;
+    max-height: 210px;
+    object-fit: contain;
     margin-left: 20px;
     margin-right: 20px;
 }
