@@ -26,10 +26,6 @@ body {
     width: 100%;
 }
 
-img {
-    image-rendering: pixelated;
-}
-
 #welcome {
     font-size: 2em;
 }
@@ -384,7 +380,6 @@ embed {
     width: 100%;
     object-fit: cover;
     object-position: top;
-    image-rendering: optimizeQuality;
 }
 
 #projectDisplay .image div div:first-child img {
@@ -419,7 +414,6 @@ embed {
     height: 30px;
     border-radius: 50%;
     object-fit: cover;
-    image-rendering: optimizeQuality;
     margin-right: -10px;
 }
 
@@ -429,7 +423,6 @@ embed {
     height: 30px;
     border-radius: 50%;
     object-fit: cover;
-    image-rendering: optimizeQuality;
 }
 
 @media (max-width: calc(1400px + 20vw)) {
@@ -573,7 +566,6 @@ a:hover {
 
 
 #projects .project{
-    image-rendering: auto;
     width: 400px;
     background-color: rgb(29, 29, 29);
 }
@@ -592,7 +584,6 @@ a:hover {
 
 
 #projects .image {
-    image-rendering: auto;
     width: 400px;
     height: 200px;
     object-fit: cover;
@@ -764,7 +755,6 @@ a:hover {
     height: 36px;
     object-fit: cover;
     object-position: center;
-    image-rendering: optimizeQuality;
 }
 
 #languages .language .image {
@@ -775,7 +765,6 @@ a:hover {
     width: auto;
     height: 90px;
     opacity: 0.5;
-    image-rendering: optimizeQuality;
 }
 
 #programs .program:hover,
@@ -815,7 +804,6 @@ a:hover {
 
 .projects-image {
     background-image: url("assets/img/projects.png");
-    image-rendering: auto;
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -824,7 +812,6 @@ a:hover {
 
 .github-image {
     background-image: url("assets/img/github.png");
-    image-rendering: auto;
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -833,7 +820,6 @@ a:hover {
 
 .linkedin-image {
     background-image: url("assets/img/linkedin.png");
-    image-rendering: auto;
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -848,7 +834,6 @@ a:hover {
 .profile-image {
     width: 300px;
     height: 300px;
-    image-rendering: auto;
     background-color: #1a1a1a;
     padding: 5px;
     margin-left: 10px;
