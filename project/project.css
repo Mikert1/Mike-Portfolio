@@ -47,6 +47,17 @@ main {
     margin-right: 10px;
 }
 
+#platforms svg {
+    color: white;
+    width: 20px;
+    height: 20px;
+}
+
+#svg {
+    width: 20px;
+    height: 20px;
+}
+
 @media screen and (max-width: 1200px) {
     .main-div {
         width: calc(100% - 200px);
@@ -54,16 +65,6 @@ main {
     
     .panel {
         width: 200px;
-    }
-}
-
-@media screen and (max-width: 1000px) {
-    .main-div {
-        width: calc(100% - 150px);
-    }
-    
-    .panel {
-        width: 150px;
     }
 }
 

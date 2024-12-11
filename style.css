@@ -26,6 +26,11 @@ body {
     width: 100%;
 }
 
+.lockonMargin {
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
 #welcome {
     font-size: 2em;
 }
@@ -76,11 +81,6 @@ nav .navContainer {
 
 .navContainer div a img {
     height: 100%;
-}
-   
-section {
-    padding-left: 10%;
-    padding-right: 10%;
 }
 
 .primaryButton {
@@ -268,12 +268,6 @@ embed {
 }
 
 /* end */
-
-#platforms svg {
-    color: white;
-    width: 20px;
-    height: 20px;
-}
 
 .title {
     display: flex;
@@ -878,6 +872,7 @@ a:hover {
         right: 30px;
     }
 
+
 @media (max-width: 1500px) {
     #profile .left h1 {
         font-size: 3em;
@@ -1060,10 +1055,6 @@ a:hover {
         width: 94%;
     }
 
-    section {
-        padding-left: 0%;
-        padding-right: 0%;
-    }
     footer {
         height: 250px;
     }
