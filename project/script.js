@@ -96,8 +96,6 @@ async function setProject() {
             spanElement.classList.add('statusInactive');
         }
         status.appendChild(spanElement);
-    } else {
-        status.style.display = 'none';
     }
     date.textContent = project.date;
     const langEntries = Object.keys(project.lang);
@@ -143,20 +141,21 @@ async function setProject() {
             osName = '../assets/img/svg/download.svg';
         }
         fetch(osName)
-            .then(response => response.text())
-            .then(data => {
-                svg.innerHTML = data;
-            });
+        .then(response => response.text())
+        .then(data => {
+            svg.innerHTML = data;
+        });
         download.querySelector('p').innerHTML = 'Download';
         download.href = project.releases;
-        version.innerHTML = version.innerHTML + '<p>' + project.versionPrefix + '<span>' + project.version + '</span>' + project.versionSuffix + '</p>';
+        document.getElementById('4thDisplay').innerHTML = "Version";
+        status.innerHTML = '<p class="m-0">' + project.versionPrefix + '<span>' + project.version + '</span>' + project.versionSuffix + '</p>';;
     } else if (project.type === 'Website') {
         const link = document.getElementById('mainButton');
         link.querySelector('p').innerHTML = 'Visit Website';
         link.href = project.link;
         version.innerHTML = "";
         svg.style.display = 'none';
-
+        
     }
     const stack = document.getElementById('stack');
     stack.innerHTML = project.stack;
