@@ -5,9 +5,14 @@ main {
 #main-image {
     width: 100%;
     aspect-ratio: 16 / 9;
+    border-radius: 15px;
     object-fit: cover;
     object-position: top;
     image-rendering: optimizeQuality;
+}
+
+#main-image:hover {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
 }
 
 #buttons {
