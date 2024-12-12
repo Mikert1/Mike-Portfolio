@@ -177,6 +177,27 @@ async function setProject() {
         }
         moreContributors.appendChild(div);
     });
+
+    const next = document.getElementById('next');
+    const prev = document.getElementById('prev');
+    selectedImage = 1;
+
+    next.addEventListener('click', () => {
+        selectedImage++;
+        if (selectedImage > 5) {
+            selectedImage = 1;
+        }
+        mainImage.src = `../assets/projects/${project.name}/${selectedImage}.png`;
+    });
+
+    prev.addEventListener('click', () => {
+        selectedImage--;
+        if (selectedImage < 1) {
+            selectedImage = 5;
+        }
+        mainImage.src = `../assets/projects/${project.name}/${selectedImage}.png`;
+    });
+
     const source = document.getElementById('source');
     source.href = project.repository;
     const subImages = document.querySelectorAll('.sub-images div img');
