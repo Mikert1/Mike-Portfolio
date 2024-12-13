@@ -140,7 +140,7 @@ async function setProject() {
     const arrows = document.querySelectorAll('.arrow');
     arrows.forEach((arrow) => {
         console.log(arrow);
-        arrow.style.borderColor = project.color.hover;
+        arrow.style.borderColor = project.color.background;
         arrow.querySelector('svg').style.fill = project.color.background;
     });
     if (project.type === 'Game') {

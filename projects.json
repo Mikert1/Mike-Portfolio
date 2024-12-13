@@ -4,6 +4,10 @@
         "name": "Ruined",
         "type": "Game",
         "project": "solo",
+        "color": {
+            "background": "#00C1C1",
+            "hover": "#008181"
+        },
         "stack": "Game Development",
         "lang": 
         {
@@ -70,6 +74,10 @@
         "name": "Mikert Food Menu",
         "type": "Website",
         "project": "school",
+        "color": {
+            "background": "#00C1C1",
+            "hover": "#008181"
+        },
         "stack": "Front-end",
         "lang": 
         {
@@ -101,6 +109,10 @@
         "name": "MB Elektro- & BeveiligingsTechniek",
         "type": "Website",
         "project": "solo",
+        "color": {
+            "background": "#C10000",
+            "hover": "#810000"
+        },
         "stack": "Front-end",
         "lang": 
         {
@@ -128,6 +140,10 @@
         "name": "My Lifestyle Education",
         "type": "Website",
         "project": "school",
+        "color": {
+            "background": "#00C1C1",
+            "hover": "#008181"
+        },
         "stack": "Full-stack",
         "lang": 
         {
@@ -172,6 +188,10 @@
         "name": "One Punch Man Leaderboard",
         "type": "Website",
         "project": "school",
+        "color": {
+            "background": "#00C1C1",
+            "hover": "#008181"
+        },
         "stack": "Front-end",
         "lang":
         {
@@ -213,6 +233,10 @@
         "name": "Mikert.com",
         "type": "Website",
         "project": "solo",
+        "color": {
+            "background": "#00C1C1",
+            "hover": "#008181"
+        },
         "stack": "Front-end",
         "lang": 
         {
@@ -244,6 +268,10 @@
         "name": "Browser Home",
         "type": "Website",
         "project": "solo",
+        "color": {
+            "background": "#00C1C1",
+            "hover": "#008181"
+        },
         "stack": "Front-end",
         "lang": 
         {
@@ -275,6 +303,10 @@
         "name": "Game of life",
         "type": "Website",
         "project": "school",
+        "color": {
+            "background": "#00C1C1",
+            "hover": "#008181"
+        },
         "stack": "Front-end",
         "lang": 
         {
@@ -316,6 +348,10 @@
         "name": "HelpGPT",
         "type": "Website",
         "project": "school",
+        "color": {
+            "background": "#00C1C1",
+            "hover": "#008181"
+        },
         "stack": "Front-end",
         "lang": 
         {
