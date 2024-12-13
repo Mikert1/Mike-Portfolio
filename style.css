@@ -84,18 +84,12 @@ nav .navContainer {
 }
 
 .primaryButton {
-    background-color: #00a9b8;
     color: aliceblue;
     border: none;
     border-radius: 8px;
     padding: 15px;
     cursor: pointer;
 }
-
-.primaryButton:hover {
-    background-color: #00c1d3;
-}
-
 .primaryButton p {
     font-weight: bold;
     font-size: 1.1em;
@@ -111,7 +105,7 @@ nav .navContainer {
 }
 
 .secondaryButton:hover {
-    background-color: #4a4a4a;
+    background-color: #2b2b2b;
 }
 
 .secondaryButton p {

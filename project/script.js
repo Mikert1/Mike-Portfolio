@@ -128,8 +128,16 @@ async function setProject() {
     }
     mainImage.src = `../assets/projects/${project.name}/1.png`;
     const svg = document.getElementById("svg");
+    const primaryButton = document.getElementById('mainButton');
+    const primaryButtonStyle = primaryButton.querySelector(".primaryButton").style;
+    primaryButtonStyle.backgroundColor = project.color.background;
+    primaryButton.addEventListener('mouseenter', () => {
+        primaryButtonStyle.backgroundColor = project.color.hover;
+    });
+    primaryButton.addEventListener('mouseleave', () => {
+        primaryButtonStyle.backgroundColor = project.color.background;
+    });
     if (project.type === 'Game') {
-        const download = document.getElementById('mainButton');
         let osName = window.navigator.platform;
         if (osName.includes('Win')) {
             osName = '../assets/img/svg/windows.svg';
@@ -145,14 +153,13 @@ async function setProject() {
         .then(data => {
             svg.innerHTML = data;
         });
-        download.querySelector('p').innerHTML = 'Download';
-        download.href = project.releases;
+        primaryButton.querySelector('p').innerHTML = 'Download';
+        primaryButton.href = project.releases;
         document.getElementById('4thDisplay').innerHTML = "Version";
         status.innerHTML = '<p class="m-0">' + project.versionPrefix + '<span>' + project.version + '</span>' + project.versionSuffix + '</p>';;
     } else if (project.type === 'Website') {
-        const link = document.getElementById('mainButton');
-        link.querySelector('p').innerHTML = 'Visit Website';
-        link.href = project.link;
+        primaryButton.querySelector('p').innerHTML = 'Visit Website';
+        primaryButton.href = project.link;
         version.innerHTML = "";
         svg.style.display = 'none';
         

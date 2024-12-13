@@ -34,6 +34,10 @@
         "name": "Cryonium Library",
         "type": "Website",
         "project": "solo",
+        "color": {
+            "background": "#00C100",
+            "hover": "#008100"
+        },
         "stack": "Front-end",
         "lang":
         {
