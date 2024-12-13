@@ -137,6 +137,12 @@ async function setProject() {
     primaryButton.addEventListener('mouseleave', () => {
         primaryButtonStyle.backgroundColor = project.color.background;
     });
+    const arrows = document.querySelectorAll('.arrow');
+    arrows.forEach((arrow) => {
+        console.log(arrow);
+        arrow.style.borderColor = project.color.hover;
+        arrow.querySelector('svg').style.fill = project.color.background;
+    });
     if (project.type === 'Game') {
         let osName = window.navigator.platform;
         if (osName.includes('Win')) {
