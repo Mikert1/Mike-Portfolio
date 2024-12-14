@@ -219,6 +219,14 @@ async function setProject() {
             document.getElementById('main-image').src = e.target.src;
         });
     });
+
+    const note = document.getElementById('note');
+    if (project.note) {
+        note.querySelector("h2").textContent = project.note.title;
+        note.querySelector("p").textContent = project.note.description;
+    } else {
+        note.style.display = 'none';
+    }
 }
 
 setProject();

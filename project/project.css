@@ -79,6 +79,14 @@ main {
     height: 20px;
 }
 
+#note {
+    margin-top: 20px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: rgba(102, 102, 102, 0.2);
+    padding: 10px;
+}
+
 @media screen and (max-width: 1200px) {
     .main-div {
         width: calc(100% - 200px);

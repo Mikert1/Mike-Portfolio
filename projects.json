@@ -264,6 +264,10 @@
         "repository": "https://github.com/Mikert1/Mikert-Website"
     },
     {
+        "note": {
+            "title": "In Development",
+            "description": "This Project is not finished yet. We will continue this project in the future."
+        },
         "id": 8,
         "name": "Browser Home",
         "type": "Website",
