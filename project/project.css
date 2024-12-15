@@ -81,9 +81,8 @@ main {
 
 #note {
     margin-top: 20px;
-    border: 1px solid gray;
+    border: 1px solid;
     border-radius: 10px;
-    background-color: rgba(102, 102, 102, 0.2);
     padding: 10px;
 }
 

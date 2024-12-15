@@ -1,5 +1,10 @@
 [
     {
+        "note": {
+            "title": "Inactive Development",
+            "description": "This Project is not finished yet. I will continue this project in the future.",
+            "color": "#C10000"
+        },
         "id": 1,
         "name": "Ruined",
         "type": "Game",
@@ -105,6 +110,11 @@
         "repository": "https://github.com/Mikert1/Mikert-food-menu"
     },
     {
+        "note": {
+            "title": "Inactive Development",
+            "description": "This Project is not finished yet. I will continue this project in the future.",
+            "color": "#C10000"
+        },
         "id": 4,
         "name": "MB Elektro- & BeveiligingsTechniek",
         "type": "Website",
@@ -184,6 +194,11 @@
         "repository": "https://github.com/Mikert1/My-Education-Lifestyle"
     },
     {
+        "note": {
+            "title": "Deepdive Project",
+            "description": "This Project is a deepdive project. This means that this project is made in 5 days and we had to learn a new language, framework or something else to then use it in this project.",
+            "color": "#0071C1"
+        },
         "id": 6,
         "name": "One Punch Man Leaderboard",
         "type": "Website",
@@ -265,8 +280,9 @@
     },
     {
         "note": {
-            "title": "In Development",
-            "description": "This Project is not finished yet. We will continue this project in the future."
+            "title": "Inactive Development",
+            "description": "This Project is not finished yet. I will continue this project in the future.",
+            "color": "#C10000"
         },
         "id": 8,
         "name": "Browser Home",
@@ -303,6 +319,11 @@
         "repository": "https://github.com/Mikert1/browser-home"
     },
     {
+        "note": {
+            "title": "Deepdive Project",
+            "description": "This Project is a deepdive project. This means that this project is made in 5 days and we had to learn a new language, framework or something else to then use it in this project.",
+            "color": "#0071C1"
+        },
         "id": 9,
         "name": "Game of life",
         "type": "Website",
@@ -348,6 +369,11 @@
         "repository": "https://github.com/Mikert1/game-of-life"
     },
     {
+        "note": {
+            "title": "Deepdive Project",
+            "description": "This Project is a deepdive project. This means that this project is made in 5 days and we had to learn a new language, framework or something else to then use it in this project.",
+            "color": "#0071C1"
+        },
         "id": 10,
         "name": "HelpGPT",
         "type": "Website",

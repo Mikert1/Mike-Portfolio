@@ -224,6 +224,9 @@ async function setProject() {
     if (project.note) {
         note.querySelector("h2").textContent = project.note.title;
         note.querySelector("p").textContent = project.note.description;
+        note.style.borderColor = project.note.color;
+        note.style.backgroundColor = project.note.color + "11";
+
     } else {
         note.style.display = 'none';
     }
