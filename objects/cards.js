@@ -21,8 +21,9 @@ let cardAmount = 0;
 
 getData()
 .then(data => {
+    const order = [/*my own part*/ 2, 1, 7, 4, 8, /*school part*/ 5, 3, 10, 6, 9];
     const filteredData = data.filter(project => project.project == projectType);
-    filteredData.sort((a, b) => new Date(b.date) - new Date(a.date));
+    filteredData.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
     filteredData.forEach(project => {
         cardAmount++;
         const shortedName = project.name.length > 25 ? project.name.slice(0, 25) + '...' : project.name;
