@@ -51,6 +51,8 @@ const image4 = document.getElementById('image4');
 const image5 = document.getElementById('image5');
 const buttons = document.getElementById('buttons');
 
+let amountOfImages = 0;
+
 let data;
 
 async function getWebsiteStatus(url) {
@@ -117,16 +119,24 @@ async function setProject() {
         }
         moreLang.appendChild(span);
     });
-    for (let i = 0; i < 5; i++) {
-        const div = document.createElement('div');
-        let img = document.createElement('img');
+    for (let i = 0; i < 10; i++) {
+        const img = new Image();
         img.src = `../assets/projects/${project.name}/${i + 1}.png`;
-        img.id = `image${i + 1}`;
-        div.appendChild(img);
-        document.querySelector('.sub-images').appendChild(div);
-        document.title = "Mikert.com | " + project.name;
+        img.onload = () => {
+            amountOfImages++;
+            const div = document.createElement('div');
+            img.id = `image${i + 1}`;
+            div.appendChild(img);
+            document.querySelector('.sub-images').appendChild(div);
+        };
+        img.onerror = () => {
+            if (i === 0) {
+                amountOfImages = 0;
+            }
+        };
     }
     mainImage.src = `../assets/projects/${project.name}/1.png`;
+    document.title = "Mikert.com | " + project.name;
     const svg = document.getElementById("svg");
     const primaryButton = document.getElementById('mainButton');
     const primaryButtonStyle = primaryButton.querySelector(".primaryButton").style;
@@ -193,11 +203,11 @@ async function setProject() {
 
     const next = document.getElementById('next');
     const prev = document.getElementById('prev');
-    selectedImage = 1;
+    let selectedImage = 1;
 
     next.addEventListener('click', () => {
         selectedImage++;
-        if (selectedImage > 5) {
+        if (selectedImage > amountOfImages) {
             selectedImage = 1;
         }
         mainImage.src = `../assets/projects/${project.name}/${selectedImage}.png`;
@@ -206,7 +216,7 @@ async function setProject() {
     prev.addEventListener('click', () => {
         selectedImage--;
         if (selectedImage < 1) {
-            selectedImage = 5;
+            selectedImage = amountOfImages;
         }
         mainImage.src = `../assets/projects/${project.name}/${selectedImage}.png`;
     });
