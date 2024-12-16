@@ -127,6 +127,9 @@ async function setProject() {
             const div = document.createElement('div');
             img.id = `image${i + 1}`;
             div.appendChild(img);
+            div.addEventListener('click', () => {
+                mainImage.src = img.src;
+            });
             document.querySelector('.sub-images').appendChild(div);
         };
         img.onerror = () => {

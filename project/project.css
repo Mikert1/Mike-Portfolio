@@ -127,4 +127,7 @@ main {
         margin-left: 5vw;
         margin-right: 5vw;
     }
+    .image-overlay:hover {
+        opacity: 0;
+    }
 }
