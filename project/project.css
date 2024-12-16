@@ -86,7 +86,29 @@ main {
     padding: 10px;
 }
 
+.sub-images {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.sub-images img {
+    width: 100px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    opacity: 0.5;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.sub-images img:hover {
+    opacity: 1;
+}
+
 @media screen and (max-width: 1200px) {
+    main {
+        width: 100%;
+    }
     .main-div {
         width: calc(100% - 200px);
     }
@@ -100,5 +122,9 @@ main {
     .panel {
         order: -1;
         margin-bottom: 20px;
+    }
+    .m-5_800 {
+        margin-left: 5vw;
+        margin-right: 5vw;
     }
 }
