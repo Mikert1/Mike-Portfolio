@@ -7,6 +7,7 @@
         },
         "id": 1,
         "name": "Ruined",
+        "rawName": "Ruined",
         "type": "Game",
         "project": "solo",
         "color": {
@@ -41,6 +42,7 @@
     {
         "id": 2,
         "name": "Cryonium Library",
+        "rawName": "Cryonium-Library",
         "type": "Website",
         "project": "solo",
         "color": {
@@ -77,6 +79,7 @@
     {
         "id": 3,
         "name": "Mikert Food Menu",
+        "rawName": "Mikert-food-menu",
         "type": "Website",
         "project": "school",
         "color": {
@@ -117,6 +120,7 @@
         },
         "id": 4,
         "name": "MB Elektro- & BeveiligingsTechniek",
+        "rawName": "MB-Elektro",
         "type": "Website",
         "project": "solo",
         "color": {
@@ -148,6 +152,7 @@
     {
         "id": 5,
         "name": "My Lifestyle Education",
+        "rawName": "My-Education-Lifestyle",
         "type": "Website",
         "project": "school",
         "color": {
@@ -201,6 +206,7 @@
         },
         "id": 6,
         "name": "One Punch Man Leaderboard",
+        "rawName": "One-Punch-Man-Leaderboard",
         "type": "Website",
         "project": "school",
         "color": {
@@ -246,6 +252,7 @@
     {
         "id": 7,
         "name": "Mikert.com",
+        "rawName": "Mikert-Website",
         "type": "Website",
         "project": "solo",
         "color": {
@@ -286,6 +293,7 @@
         },
         "id": 8,
         "name": "Browser Home",
+        "rawName": "browser-home",
         "type": "Website",
         "project": "solo",
         "color": {
@@ -326,6 +334,7 @@
         },
         "id": 9,
         "name": "Game of life",
+        "rawName": "game-of-life",
         "type": "Website",
         "project": "school",
         "color": {
@@ -376,6 +385,7 @@
         },
         "id": 10,
         "name": "HelpGPT",
+        "rawName": "HelpGPT",
         "type": "Website",
         "project": "school",
         "color": {

@@ -19,8 +19,8 @@ async function fetchGithub(name) {
         return JSON.parse(cachedData);
     } else {
         try {
-            console.log('Fetching NEW data');
-            const response = await fetch('https://api.github.com/repos/mikert1/Cryonium-Library');
+            console.log('No Data Found in localStorage. getting from API');
+            const response = await fetch(`https://api.github.com/repos/mikert1/${name}`);
             console.log(response);
             if (!response.ok) {
                 throw new Error('Failed to fetch');
@@ -95,7 +95,7 @@ async function getWebsiteStatus(url) {
 async function setProject() {
     data = await getData();
     const project = data[params.id];
-    console.log(await fetchGithub(project.name));
+    console.log(await fetchGithub(project.rawName));
     title.textContent = project.name;
     const logo = document.getElementById('logo');
     logo.src = `../assets/projects/${project.name}/logo.png`;
