@@ -55,23 +55,21 @@ if (params.id) {
     console.log("No name provided");
 }
 
-const title = document.getElementById('title');
-const description = document.getElementById('description');
-const platforms = document.getElementById('platforms');
-const status = document.getElementById('status');
-const date = document.getElementById('date');
-const lang = document.getElementById('lang');
-const version = document.getElementById('version');
-const contributors = document.getElementById('contributors');
-const moreLang = document.getElementById('moreLang');
-const moreContributors = document.getElementById('moreContributors');
+const page = {
+    title: document.getElementById('title'),
+    description: document.getElementById('description'),
+    platforms: document.getElementById('platforms'),
+    status: document.getElementById('status'),
+    date: document.getElementById('date'),
+    lang: document.getElementById('lang'),
+    version: document.getElementById('version'),
+    contributors: document.getElementById('contributors'),
+    moreLang: document.getElementById('moreLang'),
+    moreContributors: document.getElementById('moreContributors'),
 
-const mainImage = document.getElementById('main-image');
-const image1 = document.getElementById('image1');
-const image2 = document.getElementById('image2');
-const image3 = document.getElementById('image3');
-const image4 = document.getElementById('image4');
-const image5 = document.getElementById('image5');
+    mainImage: document.getElementById('main-image'),
+}
+
 const buttons = document.getElementById('buttons');
 
 let amountOfImages = 0;
@@ -96,10 +94,10 @@ async function setProject() {
     data = await getData();
     const project = data[params.id];
     console.log(await fetchGithub(project.rawName));
-    title.textContent = project.name;
+    page.title.textContent = project.name;
     const logo = document.getElementById('logo');
     logo.src = `../assets/projects/${project.name}/logo.png`;
-    description.textContent = project.description;
+    page.description.textContent = project.description;
     if (project.platforms) {
         for (let i = 0; i < project.platforms.length; i++) {
             fetch(`../assets/img/svg/${project.platforms[i]}.svg`)
@@ -107,7 +105,7 @@ async function setProject() {
             .then(data => {
                 const div = document.createElement('div');
                 div.innerHTML = data;
-                platforms.appendChild(div);
+                page.platforms.appendChild(div);
             });
         }
     }
@@ -121,16 +119,16 @@ async function setProject() {
             spanElement.textContent = 'Offline';
             spanElement.classList.add('statusInactive');
         }
-        status.appendChild(spanElement);
+        page.status.appendChild(spanElement);
     }
-    date.textContent = project.date;
+    page.date.textContent = project.date;
     const langEntries = Object.keys(project.lang);
     langEntries.forEach((n, index) => {
         const dot = index < langEntries.length - 1 ? ', ' : ' ';
         const span = document.createElement('span');
         span.textContent = n;
-        lang.appendChild(span);
-        lang.innerHTML += dot;
+        page.lang.appendChild(span);
+        page.lang.innerHTML += dot;
         if (project.lang[n].Lines) {
             const p = document.createElement('p'); p.classList.add('m0');
             p.textContent = project.lang[n].Lines + ' lines';
@@ -141,7 +139,7 @@ async function setProject() {
             p.textContent = project.lang[n].Files + ' files';
             span.appendChild(p);
         }
-        moreLang.appendChild(span);
+        page.moreLang.appendChild(span);
     });
     for (let i = 0; i < 10; i++) {
         const img = new Image();
@@ -152,7 +150,7 @@ async function setProject() {
             img.id = `image${i + 1}`;
             div.appendChild(img);
             div.addEventListener('click', () => {
-                mainImage.src = img.src;
+                page.mainImage.src = img.src;
             });
             document.querySelector('.sub-images').appendChild(div);
         };
@@ -162,7 +160,7 @@ async function setProject() {
             }
         };
     }
-    mainImage.src = `../assets/projects/${project.name}/1.png`;
+    page.mainImage.src = `../assets/projects/${project.name}/1.png`;
     document.title = "Mikert.com | " + project.name;
     const svg = document.getElementById("svg");
     const primaryButton = document.getElementById('mainButton');
@@ -199,11 +197,11 @@ async function setProject() {
         primaryButton.querySelector('p').innerHTML = 'Download';
         primaryButton.href = project.releases;
         document.getElementById('4thDisplay').innerHTML = "Version";
-        status.innerHTML = '<p class="m-0">' + project.versionPrefix + '<span>' + project.version + '</span>' + project.versionSuffix + '</p>';;
+        page.status.innerHTML = '<p class="m-0">' + project.versionPrefix + '<span>' + project.version + '</span>' + project.versionSuffix + '</p>';;
     } else if (project.type === 'Website') {
         primaryButton.querySelector('p').innerHTML = 'Visit Website';
         primaryButton.href = project.link;
-        version.innerHTML = "";
+        page.version.innerHTML = "";
         svg.style.display = 'none';
         
     }
@@ -213,7 +211,7 @@ async function setProject() {
     contributorEntries.forEach((n, index) => {
         const img = document.createElement('img');
         img.src = project.contributors[n].image;
-        contributors.appendChild(img);
+        page.contributors.appendChild(img);
 
         const div = document.createElement('div');
         const innerDiv = document.createElement('div'); innerDiv.classList.add('flex-ai-center', 'gap');
@@ -225,7 +223,7 @@ async function setProject() {
         if (project.contributors[n].role) {
             div.innerHTML += ' - ' + project.contributors[n].role;
         }
-        moreContributors.appendChild(div);
+        page.moreContributors.appendChild(div);
     });
 
     const next = document.getElementById('next');
@@ -237,7 +235,7 @@ async function setProject() {
         if (selectedImage > amountOfImages) {
             selectedImage = 1;
         }
-        mainImage.src = `../assets/projects/${project.name}/${selectedImage}.png`;
+        page.mainImage.src = `../assets/projects/${project.name}/${selectedImage}.png`;
     });
 
     prev.addEventListener('click', () => {
@@ -245,7 +243,7 @@ async function setProject() {
         if (selectedImage < 1) {
             selectedImage = amountOfImages;
         }
-        mainImage.src = `../assets/projects/${project.name}/${selectedImage}.png`;
+        page.mainImage.src = `../assets/projects/${project.name}/${selectedImage}.png`;
     });
 
     const source = document.getElementById('source');
