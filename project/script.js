@@ -12,6 +12,29 @@ async function getData() {
     }
 }
 
+async function fetchGithub(name) {
+    const localStorageKey = `githubData-${name}`;
+    const cachedData = localStorage.getItem(localStorageKey);
+    if (cachedData) {
+        return JSON.parse(cachedData);
+    } else {
+        try {
+            console.log('Fetching NEW data');
+            const response = await fetch('https://api.github.com/repos/mikert1/Cryonium-Library');
+            console.log(response);
+            if (!response.ok) {
+                throw new Error('Failed to fetch');
+            }
+            const data = await response.json();
+            localStorage.setItem(localStorageKey, JSON.stringify(data));
+            return data;
+        } catch (error) {
+            console.error('Error fetching:', error);
+            throw error;
+        }
+    }
+}
+
 function getQueryParams() {
     let params = {};
     let queryString = window.location.search.slice(1);
@@ -72,6 +95,7 @@ async function getWebsiteStatus(url) {
 async function setProject() {
     data = await getData();
     const project = data[params.id];
+    console.log(await fetchGithub(project.name));
     title.textContent = project.name;
     const logo = document.getElementById('logo');
     logo.src = `../assets/projects/${project.name}/logo.png`;
@@ -244,5 +268,4 @@ async function setProject() {
         note.style.display = 'none';
     }
 }
-
 setProject();
