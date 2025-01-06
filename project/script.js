@@ -46,6 +46,18 @@ function getQueryParams() {
     return params;
 }
 
+function checkImage(url) {
+    return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => {
+            resolve(true);
+        };
+        img.onerror = () => {
+            resolve(false);
+        };
+        img.src = url;
+    });
+}
 
 let params = getQueryParams();
 if (params.id) {
@@ -93,10 +105,16 @@ async function getWebsiteStatus(url) {
 async function setProject() {
     data = await getData();
     const project = data[params.id];
-    console.log(await fetchGithub(project.rawName));
+    githubData = await fetchGithub(project.rawName);
+    
     page.title.textContent = project.name;
     const logo = document.getElementById('logo');
-    logo.src = `../assets/projects/${project.name}/logo.png`;
+    url = `../assets/projects/${project.name}/logo.png`;
+    if (await fetch(url).then(response => response.status === 200)) {
+        logo.src = url;
+    } else {
+        logo.src = `../assets/projects/${project.name}/logo.svg`;
+    }
     page.description.textContent = project.description;
     if (project.platforms) {
         for (let i = 0; i < project.platforms.length; i++) {
@@ -109,7 +127,7 @@ async function setProject() {
             });
         }
     }
-    if (project.type === 'Website') {
+    if (project.type === 'Website' || project.type === 'framework') {
         const output = await getWebsiteStatus(project.link);
         const spanElement = document.createElement('span');
         if (output == true) {
@@ -203,7 +221,11 @@ async function setProject() {
         primaryButton.href = project.link;
         page.version.innerHTML = "";
         svg.style.display = 'none';
-        
+    } else if (project.type === 'framework') {
+        primaryButton.querySelector('p').innerHTML = 'Documentation Soon';
+        primaryButton.href = project.link;
+        page.version.innerHTML = "";
+        svg.style.display = 'none';
     }
     const stack = document.getElementById('stack');
     stack.innerHTML = project.stack;

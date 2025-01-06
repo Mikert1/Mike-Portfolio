@@ -426,5 +426,34 @@
 
         "link": "https://mikert1.github.io/HelpGPT/",
         "repository": "https://github.com/Mikert1/HelpGPT"
+    },
+    {
+        "id": 11,
+        "name": "CryoClass",
+        "rawName": "CryoClass",
+        "type": "framework",
+        "project": "solo",
+        "color": {
+            "background": "#00C1C1",
+            "hover": "#008181"
+        },
+        "stack": "Front-end",
+        "lang": 
+        {
+            "JavaScript": {
+                "Files": 1
+            }
+        },
+        "description": "A Javascript based css framework that I made. Its for quickly adding css to your website by adding short/normal classes.",
+        "status": "Active",
+        "date": "2024-12-26",
+        "contributors": {
+            "Mike Balvert": {
+                "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4"
+            }
+        },
+
+        "link": "https://mikert1.github.io/CryoClass/",
+        "repository": "https://github.com/Mikert1/CryoClass"
     }
 ]
