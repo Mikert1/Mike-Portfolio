@@ -19,12 +19,12 @@ let projectType = urlParams.get('project');
 
 let cardAmount = 0;
 
-getData()
-.then(data => {
-    const order = [/*my own part*/ 2, 1, 7, 4, 8, /*school part*/ 5, 3, 10, 6, 9];
+async function setPage() {
+    const data = await getData();
+    const order = [/*my own part*/ 2, 1, 11, 7, 4, 8, /*school part*/ 5, 3, 10, 6, 9];
     const filteredData = data.filter(project => project.project == projectType);
     filteredData.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
-    filteredData.forEach(project => {
+    for (const project of filteredData) {
         cardAmount++;
         const shortedName = project.name.length > 25 ? project.name.slice(0, 25) + '...' : project.name;
         const clone = template.content.cloneNode(true);
@@ -57,7 +57,21 @@ getData()
         const contributorsLength = Object.keys(project.contributors).length;
         clone.querySelector('.team').innerHTML = contributorsLength > 1 ? `Team of <span>${contributorsLength}</span>` : `<span>Solo</span> project`;
         clone.querySelector('.link').href = `/project/?id=${project.id}`;
-        if (project.cardImage) {
+        if (project.type === 'framework') {
+            const url = `../assets/projects/${project.name}/logo.png`;
+            const response = await fetch(url);
+            if (response.status === 200) {
+                clone.querySelector('img').src = url;
+            } else {
+                Object.assign(clone.querySelector('img').style, { height: '150px', width: '150px' });
+                clone.querySelector('img').src = `../assets/projects/${project.name}/logo.svg`;
+            }
+            if (response.status === 200) {
+                clone.querySelector('img').src = url;
+            } else {
+                clone.querySelector('img').src = `../assets/projects/${project.name}/logo.svg`;
+            }
+        } else if (project.cardImage) {
             clone.querySelector('img').src = `../assets/projects/${project.name}/card.png`;
             clone.querySelector('.head').style.backgroundImage = `url('../assets/projects/${project.name}/background.png')`;
             clone.querySelector('.head').style.backgroundSize = 'cover';
@@ -80,8 +94,8 @@ getData()
             clearInterval(intervalId);
         });
         document.getElementById('projects').appendChild(clone);
-    });
-});
+    }
+}
 const next = document.getElementById('next');
 const prev = document.getElementById('prev');
 const cardWidth = 430;
@@ -126,3 +140,5 @@ window.addEventListener('scroll', () => {
         next.style.display = 'flex';
     }
 });
+
+setPage()
