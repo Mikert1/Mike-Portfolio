@@ -57,13 +57,13 @@ async function setPage() {
         const contributorsLength = Object.keys(project.contributors).length;
         clone.querySelector('.team').innerHTML = contributorsLength > 1 ? `Team of <span>${contributorsLength}</span>` : `<span>Solo</span> project`;
         clone.querySelector('.link').href = `/project/?id=${project.id}`;
-        if (project.type === 'framework') {
+        if (project.type === 'Framework') {
             const url = `../assets/projects/${project.name}/logo.png`;
             const response = await fetch(url);
             if (response.status === 200) {
                 clone.querySelector('img').src = url;
             } else {
-                Object.assign(clone.querySelector('img').style, { height: '150px', width: '150px' });
+                Object.assign(clone.querySelector('img').style, { height: '150px', width: '150px', objectFit: 'contain' });
                 clone.querySelector('img').src = `../assets/projects/${project.name}/logo.svg`;
             }
             if (response.status === 200) {

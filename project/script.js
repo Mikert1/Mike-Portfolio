@@ -126,6 +126,11 @@ async function setProject() {
                 page.platforms.appendChild(div);
             });
         }
+    } else if (project.type === 'Framework') {
+        document.getElementById('2thDisplay').innerHTML = "Type";
+        const div = document.createElement('div');
+        div.innerHTML = project.frameworkType;
+        page.platforms.appendChild(div);
     }
     if (project.type === 'Website' || project.type === 'framework') {
         const output = await getWebsiteStatus(project.link);
@@ -222,7 +227,7 @@ async function setProject() {
         page.version.innerHTML = "";
         svg.style.display = 'none';
     } else if (project.type === 'framework') {
-        primaryButton.querySelector('p').innerHTML = 'Documentation Soon';
+        primaryButton.querySelector('p').innerHTML = 'Go to Documentation';
         primaryButton.href = project.link;
         page.version.innerHTML = "";
         svg.style.display = 'none';

@@ -431,7 +431,7 @@
         "id": 11,
         "name": "CryoClass",
         "rawName": "CryoClass",
-        "type": "framework",
+        "type": "Framework",
         "project": "solo",
         "color": {
             "background": "#00C1C1",
@@ -444,6 +444,7 @@
                 "Files": 1
             }
         },
+        "frameworkType": ["CSS framework"],
         "description": "A Javascript based css framework that I made. Its for quickly adding css to your website by adding short/normal classes.",
         "status": "Active",
         "date": "2024-12-26",
