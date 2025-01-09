@@ -105,7 +105,7 @@ async function getWebsiteStatus(url) {
 async function setProject() {
     data = await getData();
     const project = data[params.id];
-    githubData = await fetchGithub(project.rawName);
+    // githubData = await fetchGithub(project.rawName);
     
     page.title.textContent = project.name;
     const logo = document.getElementById('logo');
@@ -132,7 +132,8 @@ async function setProject() {
         div.innerHTML = project.frameworkType;
         page.platforms.appendChild(div);
     }
-    if (project.type === 'Website' || project.type === 'framework') {
+    console.log('test')
+    if (project.type === 'Website' || project.type === 'Framework') {
         const output = await getWebsiteStatus(project.link);
         const spanElement = document.createElement('span');
         if (output == true) {
@@ -226,7 +227,7 @@ async function setProject() {
         primaryButton.href = project.link;
         page.version.innerHTML = "";
         svg.style.display = 'none';
-    } else if (project.type === 'framework') {
+    } else if (project.type === 'Framework') {
         primaryButton.querySelector('p').innerHTML = 'Go to Documentation';
         primaryButton.href = project.link;
         page.version.innerHTML = "";
