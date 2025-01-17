@@ -154,12 +154,12 @@ async function setProject() {
         page.lang.appendChild(span);
         page.lang.innerHTML += dot;
         if (project.lang[n].Lines) {
-            const p = document.createElement('p'); p.classList.add('m0');
+            const p = document.createElement('p'); p.classList.add('m-0');
             p.textContent = project.lang[n].Lines + ' lines';
             span.appendChild(p);
         }
         if (project.lang[n].Files) {
-            const p = document.createElement('p'); p.classList.add('m0');
+            const p = document.createElement('p'); p.classList.add('m-0');
             p.textContent = project.lang[n].Files + ' files';
             span.appendChild(p);
         }
@@ -242,7 +242,7 @@ async function setProject() {
         page.contributors.appendChild(img);
 
         const div = document.createElement('div');
-        const innerDiv = document.createElement('div'); innerDiv.classList.add('flex-ai-center', 'gap');
+        const innerDiv = document.createElement('div'); innerDiv.classList.add('d-f', 'ai-c', 'g-10px');
         const img2 = document.createElement('img'); 
         img2.src = project.contributors[n].image;
         innerDiv.appendChild(img2);
