@@ -2,7 +2,7 @@ const template = document.getElementById('template');
 
 async function getData(file) {
     try {
-        const response = await fetch(`../${file}.json`);
+        const response = await fetch(`../data/${file}.json`);
         if (!response.ok) {
             throw new Error('Failed to fetch');
         }

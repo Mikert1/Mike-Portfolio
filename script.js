@@ -10,7 +10,7 @@ if ('serviceWorker' in navigator) {
 
 async function getProjects() {
     try {
-        const response = await fetch('projects.json');
+        const response = await fetch('data/projects.json');
         if (!response.ok) {
             throw new Error('Failed to fetch');
         }
@@ -24,7 +24,7 @@ async function getProjects() {
 
 async function getPrograms() {
     try {
-        const response = await fetch('projects.json');
+        const response = await fetch('data/projects.json');
         if (!response.ok) {
             throw new Error('Failed to fetch');
         }
@@ -38,7 +38,7 @@ async function getPrograms() {
 
 async function getLanguages() {
     try {
-        const response = await fetch('languages.json');
+        const response = await fetch('data/languages.json');
         if (!response.ok) {
             throw new Error('Failed to fetch');
         }
