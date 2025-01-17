@@ -5,80 +5,91 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../style.css">
         <link rel="stylesheet" href="project.css">
-        <link rel="stylesheet" href="https://mikert1.github.io/ccu/style.css">
+        <script src="https://mikert1.github.io/CryoClass/script.js" errordisplay="true"></script>
         <meta name="theme-color" content="#1a1a1a">
         <link rel="icon" href="../favicon.ico" type="image/x-icon">
         <script src="script.js" defer></script>
         <title>Mikert.com | Project</title>
     </head>
     <body>
-        <object data="../objects/navbar.html" class="navbar-object"></object>
+        <object data="../objects/navbar.html" class="navbarObject"></object>
         <section class="lockonMargin m-5_800">
             <h1 id="title"></h1>
             <div class="d-f fw-w">
-                <div class="main-div d-f jc-s jc-c_800 w-100_800">
+                <div class="mainDiv d-f jc-s jc-c_800px w-100%_800px">
                     <main>
-                        <div class="p-r">
+                        <div class="pos-r">
                             <img src="" id="main-image" alt="img">
-                            <div class="image-overlay">
-                                <div class="p-a d-f jc-c ai-c arrow" id="prev">
+                            <div class="imageOverlay">
+                                <div class="pos-a d-f jc-c ai-c arrow" id="prev">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="cyan" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
                                       </svg>
                                 </div>
-                                <div class="p-a jc-c ai-c arrow" id="next">
+                                <div class="pos-a jc-c ai-c arrow" id="next">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="cyan" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
                                     </svg>
                                 </div>
                             </div>
                         </div>
-                        <div class="sub-images d-f jc-c g-5 jc-s_800">
+                        <div class="subImages d-f jc-c g-5px jc-s_800px">
                         </div>
-                        <div class="w-100">
+                        <div class="w-100%">
                             
                         </div>
                         <div id="note">
-                            <h2 class="m-0"></h2>
-                            <p class="m-0"></p>
+                            <h2 class="m-0px"></h2>
+                            <p class="m-0px"></p>
                         </div>
+                        <!-- <div class="mt-20">
+                            <p id="description"></p>
+                            <div>
+                                <h3 class="m-0">Languages:</h3>
+                                <div class="d-f fd-c" style="width: 300px; height: 150px; background-color: #1a1a1a; border-radius: 10px;">
+                                    <p>test</p>
+                                    <img src="../assets/img/languages/JavaScript.png" alt="">
+                                </div>
+                            </div>
+                        </div> -->
+
                     </main>
                 </div>
-                <div class="panel w-100_800">
+                <div class="panel w-100%_800px">
                     <div class="intro d-f jc-s fd-c ai-c">
                         <img id="logo" src="" alt="">
                     </div>
                     
-                    <div id="buttons" class="d-f fd-c g-10">
-                        <a href="" id="mainButton" class="w-100 d-f" target="_blank">
-                            <button class="d-f jc-c g-5 w-100 primaryButton">
+                    <div id="buttons" class="d-f fd-c g-10px">
+                        <a href="" id="mainButton" class="w-100% d-f" target="_blank">
+                            <button class="d-f jc-c g-5px w-100% primaryButton">
                                 <svg id="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"></svg>
                                 <p class="m-0"></p>
                             </button>
                         </a>
-                        <a href="" id="source" class="w-100 d-f" target="_blank"> 
-                            <button class="secondaryButton w-100">
+                        <a href="" id="source" class="w-100% d-f" target="_blank"> 
+                            <button class="secondaryButton w-100%">
                                 <p class="m-0">See Repository</p>
                             </button>
                         </a>
                     </div>
                     <div>
-                        <div class="d-f g-10 jc-sb ai-c">
+                        <div class="d-f g-10px jc-sb ai-c">
                             <p class="font-size m-0 gray1">Contributors:</p>
                             <div id="contributors"></div>
                         </div>
                         <hr class="gray4">
-                        <div class="d-f g-10 jc-sb ai-c">
+                        <div class="d-f g-10px jc-sb ai-c">
                             <p id="2thDisplay" class="font-size m-0 gray1">Platforms:</p>
-                            <div id="platforms" class="d-f g-10"></div>
+                            <div id="platforms" class="d-f g-10px"></div>
                         </div>
                         <hr class="gray4">
-                        <div class="d-f g-10 jc-sb ai-c">
+                        <div class="d-f g-10px jc-sb ai-c">
                             <p class="font-size m-0 gray1">Stack:</p>
                             <div id="stack"></div>
                         </div>
                         <hr class="gray4">
-                        <div class="d-f g-10 jc-sb ai-c">
+                        <div class="d-f g-10px jc-sb ai-c">
                             <p id="4thDisplay" class="font-size m-0 gray1">Status:</p>
                             <div id="status"></div>
                         </div>
@@ -92,15 +103,15 @@
             <div id="projectDisplay">
                 <div class="image">
                     <img src="" id="main-image" alt="img">
-                    <div class="sub-images">
+                    <div class="subImages">
                     </div>
                 </div>
-                <div class="info d-f jc-sb fd-c w40 mo-w100">
+                <div class="info d-f jc-sb fd-c w40 w-100%_1033px">
                     <div>
                         <div>
                             <h1 id="title"></h1>
                             <div id="version" class="iconDiv">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                     <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5"/>
                                     <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z"/>
                                 </svg>
@@ -115,15 +126,15 @@
                             <div id="contributors">
                             </div>
                     </div>
-                    <div id="buttons" class="d-f fd-c g-10">
-                        <a href="" id="mainButton" class="w-100 d-f" target="_blank">
-                            <button class="d-f jc-c g-5 w-100 primaryButton">
+                    <div id="buttons" class="d-f fd-c g-10px">
+                        <a href="" id="mainButton" class="w-100% d-f" target="_blank">
+                            <button class="d-f jc-c g-5px w-100% primaryButton">
                                 <svg id="svg" width="32px" height="32px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"></svg>
                                 <p class="m-0"></p>
                             </button>
                         </a>
-                        <a href="" id="source" class="w-100 d-f" target="_blank"> 
-                            <button class="secondaryButton w-100">
+                        <a href="" id="source" class="w-100% d-f" target="_blank"> 
+                            <button class="secondaryButton w-100%">
                                 <p class="m-0">See Repository</p>
                             </button>
                         </a>
@@ -135,7 +146,7 @@
                     <h1 class="m-0">More info</h1>
                 </div>
                 <div class="d-f flex-wrap w100">
-                    <div class="info mx-w45">
+                    <div class="info maxWidth-45%">
                         <h3 class="m-0">General Info</h3>
                         <p>Platforms:</p>
                             <div id="platforms" class="gap">
@@ -147,13 +158,13 @@
                             <p>Status:</p>
                             </div>
                     </div>
-                    <div class="info mx-w45">
+                    <div class="info maxWidth-45%">
                         <h3 class="m-0">Project Info</h3>
                         <p>Languages:</p>
                             <div id="moreLang">
                             </div>
                     </div>
-                    <div class="info mx-w45">
+                    <div class="info maxWidth-45%">
                         <h3 class="m-0">Contributors</h3>
                             <div id="moreContributors" class="flex-ai-start fd-c gap">
                             </div>
@@ -161,6 +172,6 @@
                 </div>
             </div>
         </section>
-        <object data="../objects/footer.html" class="footer-object"></object>
+        <object data="../objects/footer.html" class="footerObject"></object>
     </body>
 </html>

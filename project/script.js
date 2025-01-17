@@ -176,7 +176,7 @@ async function setProject() {
             div.addEventListener('click', () => {
                 page.mainImage.src = img.src;
             });
-            document.querySelector('.sub-images').appendChild(div);
+            document.querySelector('.subImages').appendChild(div);
         };
         img.onerror = () => {
             if (i === 0) {
@@ -276,7 +276,7 @@ async function setProject() {
 
     const source = document.getElementById('source');
     source.href = project.repository;
-    const subImages = document.querySelectorAll('.sub-images div img');
+    const subImages = document.querySelectorAll('.subImages div img');
     subImages.forEach((image) => {
         image.addEventListener('click', (e) => {
             document.getElementById('main-image').src = e.target.src;
