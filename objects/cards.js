@@ -36,8 +36,8 @@ async function setPage() {
             const dot = index < langEntries.length - 1 ? ', ' : ' ';
             const span = document.createElement('span');
             span.textContent = n;
-            clone.querySelector('h2').appendChild(span);
-            clone.querySelector('h2').innerHTML += dot;
+            clone.querySelector('.lang').appendChild(span);
+            clone.querySelector('.lang').innerHTML += dot;
         });
         const description = project.description.length > 90 ? project.description.slice(0, 90) + '...' : project.description;
         clone.querySelector('.description').textContent = description;

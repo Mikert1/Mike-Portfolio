@@ -40,8 +40,17 @@ body {
     src: url('assets/font/berylium bd.otf') format('opentype');
 }
 
-body {
+@font-face {
+    font-family: 'poppins';
+    src: url('assets/font/Poppins-Medium.ttf') format('truetype');
+}
+
+.berylium {
     font-family: 'Berylium BD';
+}
+
+body {
+    font-family: 'poppins';
     margin: 0;
     padding: 0;
 }
@@ -584,7 +593,7 @@ a:hover {
 }
 
 #projects .footer a {
-    width: 100%;
+    width: calc(100% - 20px);
     height: 100%;
 }
 
