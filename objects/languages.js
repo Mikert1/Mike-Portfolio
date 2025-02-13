@@ -24,7 +24,7 @@ async function load() {
         cardAmount++;
         const clone = template.content.cloneNode(true);
         clone.querySelector('.name').textContent = Langs.name;
-        clone.querySelector('.image').src = `../assets/img/languages/${Langs.name}.png`;
+        clone.querySelector('.image').src = `../assets/img/languages/rotated/${Langs.name}.png`;
         clone.querySelector('.description').textContent = Langs.description;
         const currentDate = new Date();
         const projectDate = new Date(Langs.since);
