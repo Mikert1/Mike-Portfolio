@@ -244,8 +244,8 @@ embed {
     gap: 10px;
 }
 
-#profile .left h1 {
-    font-size: 4em;
+#profile .left .name {
+    font-size: 3.2em;
 }
 
 #profile .left h2 {
@@ -801,8 +801,8 @@ a:hover {
 
 
 @media (max-width: 1500px) {
-    #profile .left h1 {
-        font-size: 3em;
+    #profile .left .name {
+        font-size: 2.1em;
     }
     #profile .left h2 {
         font-size: 4em;
@@ -828,8 +828,8 @@ a:hover {
         align-items: center;
         gap: 10px;
     }
-    #profile .left h1 {
-        font-size: 2em;
+    #profile .left .name {
+        font-size: 1.4em;
     }
     #profile .left h2 {
         font-size: 3em;
@@ -896,8 +896,8 @@ a:hover {
 
 @media (max-width: 500px) {
 
-    #profile .left h1 {
-        font-size: 1.5em;
+    #profile .left .name {
+        font-size: 1.2em;
     }
     #profile .left h2 {
         font-size: 2em;
