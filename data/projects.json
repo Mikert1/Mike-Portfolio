@@ -456,5 +456,41 @@
 
         "link": "https://mikert1.github.io/CryoClass/",
         "repository": "https://github.com/Mikert1/CryoClass"
+    },
+    {
+        "id": 12,
+        "name": "Softium",
+        "rawName": "softium",
+        "type": "Website",
+        "project": "solo",
+        "color": {
+            "background": "#00C1C1",
+            "hover": "#008181"
+        },
+        "stack": "Full-stack",
+        "lang": 
+        {
+            "HTML": {
+                "Files": 13
+            },
+            "CSS": {
+                "Files": 1
+            },
+            "JavaScript": {
+                "Files": 11
+            }
+        },
+        "platforms": ["mobile", "desktop"],
+        "description": "A website that I made for me to showcase my software. It even has a account system that works with sessions and cookies.",
+        "status": "Active",
+        "date": "2025-01-15",
+        "contributors": {
+            "Mike Balvert": {
+                "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4"
+            }
+        },
+
+        "link": "https://softium.com/",
+        "repository": "https://github.com/Mikert1/sorry_its_private"
     }
 ]
