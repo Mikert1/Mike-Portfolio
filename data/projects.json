@@ -64,7 +64,7 @@
         },
         "platforms": ["mobile", "desktop"],
         "description": "A website that has inspiration from Rotten Tomatoes, IMDb and Netflix.",
-        "status": "Active",
+        "status": "Inactive",
         "date": "2024-07-04",
         "contributors":
         {
@@ -274,7 +274,7 @@
         },
         "platforms": ["mobile", "desktop"],
         "description": "This is my personal website. I use it as a portfolio and to show my projects.",
-        "status": "Active",
+        "status": "Inactive",
         "date": "2024-05-22",
         "contributors": {
             "Mike Balvert": {
@@ -446,7 +446,7 @@
         },
         "frameworkType": ["CSS framework"],
         "description": "A Javascript based css framework that I made. Its for quickly adding css to your website by adding short/normal classes.",
-        "status": "Active",
+        "status": "Inactive",
         "date": "2024-12-26",
         "contributors": {
             "Mike Balvert": {
