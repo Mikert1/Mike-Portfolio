@@ -490,7 +490,40 @@
             }
         },
 
-        "link": "https://softium.com/",
+        "link": "https://softium.nl/",
         "repository": "https://github.com/Mikert1/sorry_its_private"
+    },
+    {
+        "id": 13,
+        "name": "Sky Tower",
+        "rawName": "sky-tower",
+        "type": "Game",
+        "versionPrefix": "v",
+        "version": "4.0",
+        "versionSuffix": " (Stable)",
+        "project": "school",
+        "color": {
+            "background": "#00C1C1",
+            "hover": "#008181"
+        },
+        "stack": "Game Development",
+        "lang": 
+        {
+            "Lua": {
+                "Files": 2
+            }
+        },
+        "platforms": ["mobile", "desktop"],
+        "description": "Master the jump, conquer the heights! Sky Tower is a thrilling game where you leap from platform to platform, aiming to reach the sky. With each successful jump, the platforms become more challenging, testing your reflexes and precision. Can you reach the top and claim the title of Sky Tower Champion?",
+        "status": "Done",
+        "date": "2025-02-20",
+        "contributors": {
+            "Mike Balvert": {
+                "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4"
+            }
+        },
+
+        "releases": "https://github.com/Mikert1/SkyTower/releases/tag/Beta",
+        "repository": "https://github.com/Mikert1/SkyTower"
     }
 ]
