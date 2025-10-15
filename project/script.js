@@ -78,8 +78,9 @@ const page = {
     contributors: document.getElementById('contributors'),
     moreLang: document.getElementById('moreLang'),
     moreContributors: document.getElementById('moreContributors'),
-
     mainImage: document.getElementById('main-image'),
+    trailer: document.getElementById('trailer'),
+    trailerContainer: document.getElementById('trailer-container'),
 }
 
 const buttons = document.getElementById('buttons');
@@ -105,7 +106,6 @@ async function getWebsiteStatus(url) {
 async function setProject() {
     data = await getData();
     const project = data[params.id];
-    // githubData = await fetchGithub(project.rawName);
     
     page.title.textContent = project.name;
     const logo = document.getElementById('logo');
@@ -165,6 +165,68 @@ async function setProject() {
         }
         page.moreLang.appendChild(span);
     });
+    
+    // Add trailer thumbnail first if exists
+    if (project.trailer) {
+        const trailerDiv = document.createElement('div');
+        trailerDiv.classList.add('trailer-thumbnail');
+        
+        // Create play button overlay
+        const playButton = document.createElement('div');
+        playButton.classList.add('play-button');
+        playButton.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
+            </svg>
+        `;
+        
+        // Create thumbnail image (YouTube thumbnail)
+        const videoId = project.trailer.split('/embed/')[1];
+        const thumbnailImg = document.createElement('img');
+        thumbnailImg.src = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+        thumbnailImg.onerror = () => {
+            thumbnailImg.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+        };
+        
+        trailerDiv.appendChild(thumbnailImg);
+        trailerDiv.appendChild(playButton);
+        
+        trailerDiv.addEventListener('click', () => {
+            // Replace main image with video iframe
+            const mainImageContainer = page.mainImage.parentElement;
+            const existingIframe = mainImageContainer.querySelector('iframe');
+            
+            if (existingIframe) {
+                existingIframe.remove();
+            }
+            
+            page.mainImage.style.display = 'none';
+            
+            const iframe = document.createElement('iframe');
+            iframe.id = 'main-trailer';
+            iframe.src = project.trailer + '?autoplay=1';
+            iframe.style.width = '100%';
+            iframe.style.aspectRatio = '16 / 9';
+            iframe.style.borderRadius = '15px';
+            iframe.style.border = 'none';
+            iframe.setAttribute('allowfullscreen', '');
+            iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+            
+            mainImageContainer.appendChild(iframe);
+        });
+        
+        document.querySelector('.subImages').appendChild(trailerDiv);
+        
+        // Add separator line after trailer
+        const separator = document.createElement('div');
+        separator.classList.add('trailer-separator');
+        document.querySelector('.subImages').appendChild(separator);
+        
+        amountOfImages++;
+    }
+    
+    // Load regular images
     for (let i = 0; i < 10; i++) {
         const img = new Image();
         img.src = `../assets/projects/${project.name}/${i + 1}.png`;
@@ -174,6 +236,13 @@ async function setProject() {
             img.id = `image${i + 1}`;
             div.appendChild(img);
             div.addEventListener('click', () => {
+                // Remove iframe if it exists and show image
+                const mainImageContainer = page.mainImage.parentElement;
+                const existingIframe = mainImageContainer.querySelector('#main-trailer');
+                if (existingIframe) {
+                    existingIframe.remove();
+                }
+                page.mainImage.style.display = 'block';
                 page.mainImage.src = img.src;
             });
             document.querySelector('.subImages').appendChild(div);
@@ -184,7 +253,28 @@ async function setProject() {
             }
         };
     }
-    page.mainImage.src = `../assets/projects/${project.name}/1.png`;
+    
+    // Set initial main image
+    if (project.trailer) {
+        // Show trailer initially
+        const videoId = project.trailer.split('/embed/')[1];
+        page.mainImage.style.display = 'none';
+        const mainImageContainer = page.mainImage.parentElement;
+        
+        const iframe = document.createElement('iframe');
+        iframe.id = 'main-trailer';
+        iframe.src = project.trailer;
+        iframe.style.width = '100%';
+        iframe.style.aspectRatio = '16 / 9';
+        iframe.style.borderRadius = '15px';
+        iframe.style.border = 'none';
+        iframe.setAttribute('allowfullscreen', '');
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+        
+        mainImageContainer.appendChild(iframe);
+    } else {
+        page.mainImage.src = `../assets/projects/${project.name}/1.png`;
+    }
     document.title = "Mikert.com | " + project.name;
     const svg = document.getElementById("svg");
     const primaryButton = document.getElementById('mainButton');

@@ -498,6 +498,7 @@
         "name": "Sky Tower",
         "rawName": "sky-tower",
         "type": "Game",
+        "trailer": "https://youtube.com/embed/dVLxnGZ1zc4",
         "versionPrefix": "v",
         "version": "4.0",
         "versionSuffix": " (Stable)",
@@ -513,13 +514,19 @@
                 "Files": 2
             }
         },
-        "platforms": ["mobile", "desktop"],
+        "platforms": ["windows", "mac", "linux"],
         "description": "Master the jump, conquer the heights! Sky Tower is a thrilling game where you leap from platform to platform, aiming to reach the sky. With each successful jump, the platforms become more challenging, testing your reflexes and precision. Can you reach the top and claim the title of Sky Tower Champion?",
         "status": "Done",
         "date": "2025-09-24",
         "contributors": {
             "Mike Balvert": {
                 "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4"
+            },
+            "Danielo923": {
+                "image": "https://avatars.githubusercontent.com/u/149661189?s=64&v=4"
+            },
+            "Mika Stengewis": {
+                "image": "https://avatars.githubusercontent.com/u/149662121?s=64&v=4"
             }
         },
 

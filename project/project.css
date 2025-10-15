@@ -26,10 +26,15 @@ main {
     border-radius: 15px;
     transition: opacity 0.5s ease-in-out;
     background: radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+    pointer-events: none;
 }
 
 .imageOverlay:hover {
     opacity: 1;
+}
+
+.imageOverlay .arrow {
+    pointer-events: auto;
 }
 
 #buttons {
@@ -89,6 +94,8 @@ main {
 .subImages {
     width: 100%;
     overflow-x: auto;
+    position: relative;
+    z-index: 10;
 }
 
 .subImages img {
@@ -103,6 +110,66 @@ main {
 
 .subImages img:hover {
     opacity: 1;
+}
+
+.trailer-separator {
+    width: 2px;
+    height: 56.25px; /* 16:9 aspect ratio height for 100px width */
+    background: linear-gradient(to bottom, transparent, cyan, transparent);
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.trailer-thumbnail {
+    position: relative;
+    width: 100px;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0.5;
+    flex-shrink: 0;
+    pointer-events: auto;
+}
+
+.trailer-thumbnail:hover {
+    opacity: 1;
+}
+
+.trailer-thumbnail img {
+    width: 100px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    opacity: 1 !important;
+}
+
+.trailer-thumbnail .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+.trailer-thumbnail:hover .play-button {
+    opacity: 1;
+}
+
+#main-trailer {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 15px;
+    border: none;
+}
+
+#trailer-container {
+    width: 100%;
+}
+
+#trailer-container h3 {
+    color: white;
+    margin-bottom: 10px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -129,5 +196,8 @@ main {
     }
     .imageOverlay:hover {
         opacity: 0;
+    }
+    #trailer-container {
+        margin-top: 15px;
     }
 }
