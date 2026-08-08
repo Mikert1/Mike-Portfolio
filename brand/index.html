@@ -8,11 +8,18 @@
     <link rel="stylesheet" href="../style.css">
     <script src="../assets/classium.js"></script>
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
-</head>
+        <script type="module" defer>
+            import { loadComponents } from '/assets/componium.js';
+            loadComponents({
+                components: ['navbar', 'footer'],
+                path: '/components/'
+            });
+        </script>
+    </head>
 <body>
-    <header>
-        <object data="objects/navbar.html" class="navbarObject"></object>
-    </header>
+        <div class="ml-10% mr-10% ml-5vw_500 mr-5vw_500">
+            <div id="navbar" class="mt-10px mb-20px"></div>
+        </div>
     <section class="ml-10% mr-10% ml-0px_500 mr-0px_500">
         <h1>Mikert brand logo,s</h1>
         <h3>logo,s</h3>
@@ -115,8 +122,6 @@
             </div>
         </div>
     </section>
-    <footer>
-        <object data="objects/footer.html" height="300px" class="footerObject"></object>
-    </footer>
+    <div id="footer"></div>
 </body>
 </html>

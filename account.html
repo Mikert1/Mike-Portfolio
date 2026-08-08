@@ -7,17 +7,24 @@
         <script src="assets/classium.js"></script>
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <title>Mikert.com | Home</title>
+            <script type="module" defer>
+            import { loadComponents } from '/assets/componium.js';
+            loadComponents({
+                components: ['navbar', 'footer'],
+                path: '/components/'
+            });
+        </script>
     </head>
     <body>
-        <header>
-            <object data="objects/navbar.html" class="navbarObject"></object>
-        </header>
+        <div class="ml-10% mr-10% ml-5vw_500 mr-5vw_500">
+            <div id="navbar" class="mt-10px mb-20px"></div>
+        </div>
         <section class="ml-10% mr-10% ml-0px_500 mr-0px_500">
             <div class="card">
                 <h2 class="beta">Danielo101</h2>
                 <p>Joined:</p>
             </div>
         </section>
-        <object data="objects/footer.html" class="footerObject"></object>
+        <div id="footer"></div>
     </body>
 </html>

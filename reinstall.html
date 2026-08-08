@@ -6,11 +6,18 @@
     <title>Mikert.com ReInstall Support</title>
     <link rel="stylesheet" href="style.css">
     <script src="assets/classium.js"></script>
-</head>
+        <script type="module" defer>
+            import { loadComponents } from '/assets/componium.js';
+            loadComponents({
+                components: ['navbar', 'footer'],
+                path: '/components/'
+            });
+        </script>
+    </head>
 <body>
-    <header>
-        <object data="objects/navbar.html" class="navbarObject"></object>
-    </header>
+        <div class="ml-10% mr-10% ml-5vw_500 mr-5vw_500">
+            <div id="navbar" class="mt-10px mb-20px"></div>
+        </div>
     <section class="ml-10% mr-10% ml-0px_500 mr-0px_500">
         <h1>Reinstall Support</h1>
         <p>Reinstalling your operating system can be a pain. Especially as a programmer. I'm here to help you with that.</p>
@@ -32,5 +39,6 @@
 
 
     </section>
+    <div id="footer"></div>
 </body>
 </html>

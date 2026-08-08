@@ -1,14 +1,40 @@
+:root {
+    --main-color: #00ffff;
+    --main-color-alpha-50: rgba(0, 255, 255, 0.5);
+    --main-color-alpha-25: rgba(0, 255, 255, 0.25);
+    --panel-bg: #050909;
+    --card-bg: #0b1214;
+    --card-border: #1a2427;
+    --frame-dim: #131619;
+    --text-muted: #93b0b0;
+}
+
 html {
-    background-color: #1f1f1f;
+    background-color: var(--panel-bg);
     color: aliceblue;
     padding: 0;
     height: 100%;
     width: 100%;
     scrollbar-color: #00000000;
+    /* the navbar menus jump to sections further down the page */
+    scroll-behavior: smooth;
+}
+
+/* Texture behind everything — same one the Softium site uses.
+   Found on https://www.transparenttextures.com */
+body,
+.background {
+    background-image: url('assets/textures/background.png');
+}
+
+/* Sections the navbar links to: keep the heading clear of the top edge
+   instead of ending up flush against it after the jump. */
+.sectionAnchor {
+    scroll-margin-top: 30px;
 }
 
 .button1 {
-    background-color: #1a1a1a;
+    background-color: var(--frame-dim);
     color: aliceblue;
     border: 1px solid white;
     border-radius: 5px;
@@ -17,7 +43,7 @@ html {
 }
 
 body {
-    background-color: #1f1f1f;
+    background-color: var(--panel-bg);
     margin: 0;
     padding: 0;
     min-height: 100%;
@@ -55,41 +81,168 @@ body {
     padding: 0;
 }
 
-nav {
-    display: flex;
-    background-color: #1a1a1a;
-    height: 50px;
+/* ---------------------------------------------------------------- */
+/* Navbar — wordmark only, no logo, with the two section menus.      */
+/* ---------------------------------------------------------------- */
+
+.navBrand {
+    color: var(--main-color);
+    white-space: nowrap;
 }
 
-nav .navContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    margin-left: 10%;
-    margin-right: 10%;
+.navBrand:hover {
+    color: var(--main-color);
+    filter: drop-shadow(0 0 4px var(--main-color-alpha-50));
 }
 
-.navContainer a {
-    height: 80%;
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
 
-.navContainer a img {
-    height: 100%;
+/* The checkbox is only there so touch devices, which have no hover,
+   can still open a menu by tapping its label. */
+.dropdownCheckbox {
+    display: none;
 }
 
-.navContainer div {
-    height: 100%;
+.dropdownBtn {
+    cursor: pointer;
+    transition: color 0.2s ease;
 }
 
-.navContainer div a {
-    height: 80%;
-    margin-left: 20px;
+.pointerSvg {
+    transition: transform 0.2s ease-in-out;
 }
 
-.navContainer div a img {
-    height: 100%;
+.dropdown:hover .pointerSvg {
+    transform: translateY(3px);
+}
+
+.dropdown:hover .dropdownBtn {
+    color: var(--main-color);
+}
+
+/* Kept in the layout (not display:none) so it can fade and slide in. */
+.dropdownContainer {
+    position: absolute;
+    left: -10px;
+    padding-top: 16px;
+    z-index: 20;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+}
+
+.dropdown:hover .dropdownContainer {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* The rightmost menu opens from its right edge — anchored on the left it
+   would hang off the side of the page and add a horizontal scrollbar. */
+.dropdownEnd .dropdownContainer {
+    left: auto;
+    right: -10px;
+}
+
+.dropdownContent {
+    background-color: var(--card-bg);
+    background-image: url('assets/textures/background.png');
+    border: 2px solid var(--card-border);
+    border-radius: 14px;
+    padding: 8px;
+    min-width: 240px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
+}
+
+.dropdownContent a {
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 10px 12px;
+    border-radius: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.dropdownContent a:hover {
+    color: aliceblue;
+    background-color: color-mix(in srgb, var(--main-color) 8%, transparent);
+}
+
+.dropdownDivider {
+    border: none;
+    border-top: 1px solid var(--card-border);
+    margin: 4px 10px;
+}
+
+.dropdownIcon {
+    color: var(--text-muted);
+    flex-shrink: 0;
+    transition: color 0.3s ease;
+}
+
+.dropdownContent a:hover .accentHue {
+    color: var(--main-color);
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .dropdownCheckbox:checked ~ .dropdownContainer {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
+/* Below 700px the two menus are hidden and this one replaces them, so
+   the absolutely positioned (but still laid out) container has to leave
+   the layout entirely or it overflows the page. */
+@media (max-width: 700px) {
+    .dropdownContainer {
+        display: none;
+    }
+}
+
+.hamburgerMenu {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 5vw;
+    width: 90vw;
+    box-sizing: border-box;
+    background-color: var(--card-bg);
+    background-image: url('assets/textures/background.png');
+    border: 2px solid var(--card-border);
+    border-radius: 14px;
+    padding: 10px 20px;
+    z-index: 10;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
+}
+
+.hamburgerMenu a {
+    display: block;
+    color: aliceblue;
+    text-decoration: none;
+    padding: 8px 0;
+    white-space: nowrap;
+}
+
+.hamburgerHeading {
+    padding-top: 8px;
+    color: var(--main-color);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+#hamburger-toggle:checked ~ .hamburgerMenu {
+    display: block;
+}
+
+.textMuted {
+    color: var(--text-muted);
 }
 
 .primaryButton {
@@ -187,15 +340,6 @@ object {
     width: 100%;
 }
 
-.navbarObject {
-    height: 50px;
-}
-
-.footerObject {
-    height: 300px;
-    margin-top: auto;
-}
-
 embed {
     width: 100%;
     height: 10vw;
@@ -271,7 +415,9 @@ embed {
 #projectDisplay {
     margin-top: 20px;
     display: flex;
-    background-color: #202020;
+    background-color: var(--card-bg);
+    background-image: url('assets/textures/background.png');
+    border: 2px solid var(--card-border);
     border-radius: 10px;
     width: 1400px;
     height: 577px;
@@ -332,7 +478,7 @@ embed {
 }
 
 #contributors img {
-    background-color: #1a1a1a;
+    background-color: var(--frame-dim);
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -341,7 +487,7 @@ embed {
 }
 
 #moreContributors img {
-    background-color: #1a1a1a;
+    background-color: var(--frame-dim);
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -372,7 +518,7 @@ embed {
     #projectDisplay {
         display: flex;
         flex-wrap: wrap;
-        background-color: rgb(32, 32, 32);
+        background-color: var(--card-bg);
         border-radius: 10px;
         width: 100%;
         height: 100%;
@@ -407,7 +553,9 @@ embed {
 .card {
     display: flex;
     flex-direction: column;
-    background-color: rgb(32, 32, 32);
+    background-color: var(--card-bg);
+    background-image: url('assets/textures/background.png');
+    border: 2px solid var(--card-border);
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 30px;
@@ -417,32 +565,85 @@ embed {
     width: 40%;
 }
 
-footer {
+/* ---------------------------------------------------------------- */
+/* Footer                                                            */
+/* ---------------------------------------------------------------- */
+
+/* The footer is injected into this wrapper, and the wrapper is the flex
+   child of body — so the "push me to the bottom" has to sit here. */
+#footer {
     margin-top: auto;
+}
+
+.siteFooter {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--card-bg);
+    background-image: url('assets/textures/background.png');
+    border-top: 2px solid var(--card-border);
+    color: aliceblue;
+}
+
+.footerInner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 5vw 30px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: end;
-    background-color: rgb(26, 26, 26);
-    height: 300px;
+    gap: 35px;
 }
-footer .body {
+
+/* The footer is injected after load, so its stacking has to be plain CSS
+   rather than classium's fd-c_* classes — otherwise the columns render
+   side by side on a phone until the first resize. */
+.footerTop {
     display: flex;
     justify-content: space-between;
-    align-items: start;
-    width: 100%;
-    padding: 10px;
-
+    gap: 40px;
 }
 
-footer .body .img {
-    width: 400px;
-}
-
-footer .copy {
+.footerBottom {
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 10px;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+@media (max-width: 700px) {
+    .footerTop {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 500px) {
+    .footerBottom {
+        flex-direction: column;
+    }
+}
+
+.footerHeading {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--main-color);
+    margin-bottom: 4px;
+}
+
+.footerLink {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.footerLink:hover {
+    color: var(--main-color);
+}
+
+.footerDivider {
+    height: 1px;
+    background-color: var(--card-border);
 }
 
 
@@ -490,7 +691,9 @@ a:hover {
 
 #projects .project{
     width: 400px;
-    background-color: rgb(29, 29, 29);
+    background-color: var(--card-bg);
+    background-image: url('assets/textures/background.png');
+    border: 2px solid var(--card-border);
 }
 
 #projects .project {
@@ -586,7 +789,7 @@ a:hover {
 }
 
 #projects .footer {
-    background-color: rgb(26, 26, 26);
+    background-color: var(--frame-dim);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     height: 50px;
@@ -634,7 +837,9 @@ a:hover {
     height: 100px;
     flex-shrink: 0;
     padding: 10px;
-    background-color: rgb(32, 32, 32);
+    background-color: var(--card-bg);
+    background-image: url('assets/textures/background.png');
+    border: 2px solid var(--card-border);
     border-radius: 10px;
     box-shadow: rgb(0, 0, 0) 0px 0px 10px;
     transition: box-shadow 0.1s ease, transform 0.1s ease;
@@ -667,7 +872,7 @@ a:hover {
     align-items: center;
     gap: 10px;
     padding: 10px;
-    background-color: rgb(32, 32, 32);
+    background-color: var(--card-bg);
     border-radius: 10px;
     box-shadow: rgb(0, 0, 0) 0px 0px 10px;
     transition: box-shadow 0.1s ease, transform 0.1s ease;
@@ -733,31 +938,10 @@ a:hover {
     height: 100%;
 }
 
-.githubImage {
-    background-image: url("assets/img/github.png");
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 100%;
-}
-
-.linkedinImage {
-    background-image: url("assets/img/linkedin.png");
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 100%;
-}
-
-.profileCard {
-    width: 25vw;
-    height: 13.5vw;
-}
-
 .profileImage {
     width: 300px;
     height: 300px;
-    background-color: #1a1a1a;
+    background-color: var(--frame-dim);
     padding: 5px;
     margin-left: 10px;
     border-radius: 50%;
@@ -847,10 +1031,6 @@ a:hover {
         align-items: center;
         gap: 10px;
     }
-    .profileCard {
-        width: 40vw;
-        height: 21.5vw;
-    }
     embed {
         width: 100%;
         height: 14vw;
@@ -859,38 +1039,13 @@ a:hover {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        
-    }
-    nav {
-        height: 50px;
-    }
-    .navbarObject {
-        height: 50px;
+
     }
     .plan {
         display: block;
         justify-content: space-around;
         align-items: center;
         margin-top: 10px;
-    }
-
-    footer .body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        padding: 0px;
-    }
-
-    footer .body .logo {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    footer .body .img {
-        width: 80%;
     }
 }
 
@@ -919,11 +1074,6 @@ a:hover {
     .arrow {
         display: none;
     }
-    .profileCard {
-        width: 80vw;
-        height: 43vw;
-    }
-
     #programs,
     #languages {
         display: flex;
@@ -940,7 +1090,7 @@ a:hover {
     #languages .language {
         width: calc(80%);
         padding: 10px;
-        background-color: rgb(32, 32, 32);
+        background-color: var(--card-bg);
         border-radius: 10px;
         box-shadow: rgb(0, 0, 0) 0px 0px 10px;
         transition: box-shadow 0.1s ease, transform 0.1s ease;
@@ -971,12 +1121,6 @@ a:hover {
         width: 94%;
     }
 
-    footer {
-        height: 250px;
-    }
-    .footerObject {
-        height: 250px;
-    }
     embed {
         width: 100%;
         height: 18vw;
