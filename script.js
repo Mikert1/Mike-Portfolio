@@ -24,7 +24,7 @@ async function getProjects() {
 
 async function getPrograms() {
     try {
-        const response = await fetch('data/projects.json');
+        const response = await fetch('data/programs.json');
         if (!response.ok) {
             throw new Error('Failed to fetch');
         }
@@ -83,13 +83,19 @@ getLanguages()
         console.error('Error fetching:', error);
     });
 
+/* How many cards a homepage row actually renders: the projects not archived,
+   plus the "show older projects" tile when there is anything archived. Used
+   to size the <object> rows, which stack vertically on phones. */
+function rowCardCount(data, types) {
+    const inRow = data.filter(project => types.includes(project.project));
+    const shown = inRow.filter(project => !project.archived).length;
+    return shown + (inRow.length > shown ? 1 : 0);
+}
+
 getProjects()
     .then(data => {
-        const gameProjects = data.filter(project => project.project === 'solo');
-        myOwnProjectsCount = gameProjects.length;
-        console.log(`Number of game projects: ${myOwnProjectsCount}`);
-        const schoolProjects = data.filter(project => project.project === 'school');
-        schoolProjectsCount = schoolProjects.length;
+        myOwnProjectsCount = rowCardCount(data, ['solo']);
+        schoolProjectsCount = rowCardCount(data, ['school', 'work']);
 
         resize()
     })

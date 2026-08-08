@@ -33,6 +33,16 @@ body,
     scroll-margin-top: 30px;
 }
 
+/* The card/language/program rows are separate documents inside <object>.
+   Left opaque they paint their own panel colour over the page — and since
+   their body is inset by a side margin, the untextured <html> colour showed
+   as a dark block beside the first card. Let the host page show through. */
+html.embedded,
+html.embedded body {
+    background-color: transparent;
+    background-image: none;
+}
+
 .button1 {
     background-color: var(--frame-dim);
     color: aliceblue;
@@ -123,10 +133,13 @@ body {
     color: var(--main-color);
 }
 
-/* Kept in the layout (not display:none) so it can fade and slide in. */
+/* Anchored to the opener's RIGHT edge so the panel grows leftwards, into the
+   page. These menus sit at the right end of the bar, so opening leftwards
+   (the usual default) pushed them off the side and cut them off.
+   Kept in the layout (not display:none) so it can fade and slide in. */
 .dropdownContainer {
     position: absolute;
-    left: -10px;
+    right: -10px;
     padding-top: 16px;
     z-index: 20;
     opacity: 0;
@@ -139,13 +152,6 @@ body {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
-}
-
-/* The rightmost menu opens from its right edge — anchored on the left it
-   would hang off the side of the page and add a horizontal scrollbar. */
-.dropdownEnd .dropdownContainer {
-    left: auto;
-    right: -10px;
 }
 
 .dropdownContent {
@@ -686,6 +692,83 @@ a:hover {
     gap: 30px;
     margin-left: 10px;
     margin-right: 10px;
+}
+
+/* ---------------------------------------------------------------- */
+/* Archived projects: hidden from the homepage rows, reachable via   */
+/* the tile at the end of a row and the /projects/ page.             */
+/* ---------------------------------------------------------------- */
+
+/* Sits in the homepage row as the last "card", so it matches the real cards
+   in width and stretches to their height. Dashed border to read as a way
+   out of the row rather than another project. */
+.olderCard {
+    flex-shrink: 0;
+    width: 400px;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+    background-color: var(--card-bg);
+    background-image: url('assets/textures/background.png');
+    border: 2px dashed var(--card-border);
+    border-radius: 10px;
+    transition: border-color 0.2s ease, transform 0.1s ease;
+    transform: translateY(0);
+}
+
+.olderCard:hover {
+    color: aliceblue;
+    border-color: var(--main-color-alpha-50);
+    transform: translateY(-5px);
+}
+
+.olderCard svg {
+    width: 40px;
+    height: 40px;
+    color: var(--main-color);
+}
+
+/* The /projects/ page reuses every .project rule above, but wraps instead of
+   scrolling sideways. The id has to stay for those rules to apply, so the
+   override is id + class to outweigh the plain id. */
+#projects.projectsGrid {
+    flex-wrap: wrap;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Full-width band that breaks the grid, marking where the projects kept off
+   the homepage start. Also the scroll target for the "show older" tile. */
+.olderDivider {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    border-top: 1px solid var(--card-border);
+    scroll-margin-top: 20px;
+}
+
+.groupTab {
+    padding: 8px 16px;
+    border: 2px solid var(--card-border);
+    border-radius: 999px;
+    color: var(--text-muted);
+    background-color: var(--card-bg);
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.groupTab:hover {
+    color: aliceblue;
+    border-color: var(--main-color-alpha-50);
+}
+
+.groupTabActive {
+    color: var(--panel-bg);
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+.groupTabActive:hover {
+    color: var(--panel-bg);
 }
 
 

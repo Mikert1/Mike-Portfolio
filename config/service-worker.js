@@ -1,7 +1,7 @@
 // Bump CACHE_NAME whenever the shell (HTML/CSS/JS) changes — the fetch
 // handler answers from the cache first, so without a new name a returning
 // visitor would keep being served the previous version of the site.
-const CACHE_NAME = 'static-cache-v2';
+const CACHE_NAME = 'static-cache-v3';
 
 const PRECACHE = [
     '/',
@@ -11,6 +11,7 @@ const PRECACHE = [
     '/components/navbar.html',
     '/components/footer.html',
     '/assets/componium.js',
+    '/assets/projectCard.js',
     '/assets/textures/background.png',
     '/assets/img/icon.png'
 ];

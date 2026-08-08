@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../style.css">
+        <script src="../assets/classium.js"></script>
+        <link rel="icon" href="../favicon.ico" type="image/x-icon">
+        <meta name="theme-color" content="#050909">
+        <title>Mikert.com | All projects</title>
+        <script type="module" defer>
+            import { loadComponents } from '/assets/componium.js';
+            loadComponents({
+                components: ['navbar', 'footer'],
+                path: '/components/'
+            });
+        </script>
+        <script src="../assets/projectCard.js" defer></script>
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <div class="ml-10% mr-10% ml-5vw_500 mr-5vw_500">
+            <div id="navbar" class="mt-10px mb-20px"></div>
+        </div>
+        <section class="ml-10% mr-10% ml-0px_500 mr-0px_500">
+            <div class="title">
+                <div class="svgDiv">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8.646 5.646a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 8 8.646 6.354a.5.5 0 0 1 0-.708m-1.292 0a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708-.708L5.707 8l1.647-1.646a.5.5 0 0 0 0-.708"/>
+                        <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"/>
+                        <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"/>
+                    </svg>
+                </div>
+                <h1 class="m-0" id="groupTitle">Projects</h1>
+            </div>
+            <p class="m-0 mt-40px textMuted" id="groupSubtitle">Everything in this category, newest work first.</p>
+
+            <div class="groupTabs d-f g-10px mt-20px mb-20px">
+                <a class="groupTab" id="tabSolo" href="?group=solo">My own</a>
+                <a class="groupTab" id="tabSchool" href="?group=school">School &amp; work</a>
+            </div>
+        </section>
+
+        <!-- Wider than the rest of the site on purpose: at 10% margins only
+             two 400px cards fit per row on a normal laptop, leaving a gap. -->
+        <section class="ml-5% mr-5% ml-0px_500 mr-0px_500">
+            <div id="projects" class="projectsGrid">
+                <template id="template">
+                    <div class="project font-0.8rem">
+                        <div class="head d-f jc-c ai-c">
+                            <img class="image">
+                        </div>
+                        <div class="body">
+                            <div class="d-f jc-sb">
+                                <p class="name"></p>
+                                <p class="status"></p>
+                            </div>
+                            <div>
+                                <p class="lang font-1.3rem"></p>
+                            </div>
+                            <div class="doubleDisplay">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                                    </svg>
+                                    <p class="date"></p>
+                                </div>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+                                    </svg>
+                                    <p class="team"></p>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="description"></p>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <a class="link d-f jc-sb ai-c pl-10px pr-10px" href="">
+                                <div class="d-f ai-c">
+                                    <p>View Project</p>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" fill="currentColor" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                                    </svg>
+                                </div>
+                                <div></div>
+                            </a>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </section>
+        <div id="footer" class="mt-40px"></div>
+    </body>
+</html>

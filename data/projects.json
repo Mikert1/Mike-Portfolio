@@ -41,6 +41,7 @@
     },
     {
         "id": 2,
+        "archived": true,
         "name": "Cryonium Library",
         "rawName": "Cryonium-Library",
         "type": "Website",
@@ -78,6 +79,7 @@
     },
     {
         "id": 3,
+        "archived": true,
         "name": "Mikert Food Menu",
         "rawName": "Mikert-food-menu",
         "type": "Website",
@@ -119,6 +121,7 @@
             "color": "#C10000"
         },
         "id": 4,
+        "archived": true,
         "name": "MB Elektro- & BeveiligingsTechniek",
         "rawName": "MB-Elektro",
         "type": "Website",
@@ -205,6 +208,7 @@
             "color": "#0071C1"
         },
         "id": 6,
+        "archived": true,
         "name": "One Punch Man Leaderboard",
         "rawName": "One-Punch-Man-Leaderboard",
         "type": "Website",
@@ -292,6 +296,7 @@
             "color": "#C10000"
         },
         "id": 8,
+        "archived": true,
         "name": "Browser Home",
         "rawName": "browser-home",
         "type": "Website",
@@ -333,6 +338,7 @@
             "color": "#0071C1"
         },
         "id": 9,
+        "archived": true,
         "name": "Game of life",
         "rawName": "game-of-life",
         "type": "Website",
@@ -459,7 +465,7 @@
     },
     {
         "id": 12,
-        "name": "Softium",
+        "name": "Softium.nl",
         "rawName": "softium",
         "type": "Website",
         "project": "solo",
@@ -482,7 +488,7 @@
         },
         "platforms": ["mobile", "desktop"],
         "description": "A website that I made for me to showcase my software. It even has a account system that works with sessions and cookies.",
-        "status": "Active",
+        "status": "Done",
         "date": "2025-02-25",
         "contributors": {
             "Mike Balvert": {
