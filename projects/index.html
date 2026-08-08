@@ -8,19 +8,16 @@
         <link rel="icon" href="../favicon.ico" type="image/x-icon">
         <meta name="theme-color" content="#050909">
         <title>Mikert.com | All projects</title>
-        <script type="module" defer>
-            import { loadComponents } from '/assets/componium.js';
-            loadComponents({
-                components: ['navbar', 'footer'],
-                path: '/components/'
-            });
-        </script>
         <script src="../assets/projectCard.js" defer></script>
         <script src="script.js" defer></script>
+        <script type="module" defer>
+            import { loadComponents } from '../assets/componium.js';
+            loadComponents({ components: ['navbar', 'footer'] });
+        </script>
     </head>
     <body>
-        <div class="ml-10% mr-10% ml-5vw_500 mr-5vw_500">
-            <div id="navbar" class="mt-10px mb-20px"></div>
+        <div class="ml-10% mr-10% ml-5vw_500 mr-5vw_500 mt-10px mb-20px">
+            <div id="navbar"></div>
         </div>
         <section class="ml-10% mr-10% ml-0px_500 mr-0px_500">
             <div class="title">
@@ -91,6 +88,6 @@
                 </template>
             </div>
         </section>
-        <div id="footer" class="mt-40px"></div>
+        <div id="footer"></div>
     </body>
 </html>

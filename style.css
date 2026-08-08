@@ -161,6 +161,8 @@ body {
     border-radius: 14px;
     padding: 8px;
     min-width: 240px;
+    /* Last-resort guard: whatever the width, the panel stays on the page. */
+    max-width: calc(100vw - 40px);
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
 }
 
@@ -170,6 +172,49 @@ body {
     padding: 10px 12px;
     border-radius: 10px;
     transition: background-color 0.2s ease;
+}
+
+/* ---------------------------------------------------------------- */
+/* Backup layout for the inside of a menu panel.                     */
+/*                                                                   */
+/* The panel's markup carries the usual classium classes (d-f, ai-c, */
+/* g-10px, fd-c, h-28px …) and those still drive it: classium writes */
+/* inline styles, and inline always beats a stylesheet, so when it   */
+/* has run these rules are simply overridden by identical values and */
+/* change nothing.                                                   */
+/*                                                                   */
+/* They matter only when it has NOT run. The navbar is fetched and   */
+/* injected after load, so if classium never processes those nodes   */
+/* the panel still opens but its rows have no flex layout and its    */
+/* icons no size — it reads as an empty box. This keeps it readable  */
+/* in that case. Nothing here sets `display` on the openers, so the  */
+/* classium-driven 700px switch is left alone.                       */
+/* ---------------------------------------------------------------- */
+
+.dropdownContent a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dropdownContent a > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dropdownContent a p {
+    margin: 0;
+}
+
+.dropdownContent a p + p {
+    font-size: 0.8rem;
+}
+
+.dropdownContent a > svg {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
 }
 
 .dropdownContent a:hover {
@@ -575,13 +620,10 @@ embed {
 /* Footer                                                            */
 /* ---------------------------------------------------------------- */
 
-/* The footer is injected into this wrapper, and the wrapper is the flex
-   child of body — so the "push me to the bottom" has to sit here. */
-#footer {
-    margin-top: auto;
-}
-
 .siteFooter {
+    /* body is a flex column, and the footer is one of its children — this is
+       what keeps it at the bottom on short pages. */
+    margin-top: auto;
     width: 100%;
     box-sizing: border-box;
     background-color: var(--card-bg);

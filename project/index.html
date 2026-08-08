@@ -10,17 +10,14 @@
         <link rel="icon" href="../favicon.ico" type="image/x-icon">
         <script src="script.js" defer></script>
         <title>Mikert.com | Project</title>
-            <script type="module" defer>
-            import { loadComponents } from '/assets/componium.js';
-            loadComponents({
-                components: ['navbar', 'footer'],
-                path: '/components/'
-            });
+        <script type="module" defer>
+            import { loadComponents } from '../assets/componium.js';
+            loadComponents({ components: ['navbar', 'footer'] });
         </script>
     </head>
     <body>
-        <div class="ml-10% mr-10% ml-5vw_500 mr-5vw_500">
-            <div id="navbar" class="mt-10px mb-20px"></div>
+        <div class="ml-10% mr-10% ml-5vw_500 mr-5vw_500 mt-10px mb-20px">
+            <div id="navbar"></div>
         </div>
         <section class="lockonMargin m-5_800">
             <h1 id="title"></h1>

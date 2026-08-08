@@ -7,16 +7,13 @@
     <link rel="stylesheet" href="style.css">
     <script src="assets/classium.js"></script>
         <script type="module" defer>
-            import { loadComponents } from '/assets/componium.js';
-            loadComponents({
-                components: ['navbar', 'footer'],
-                path: '/components/'
-            });
+            import { loadComponents } from './assets/componium.js';
+            loadComponents({ components: ['navbar', 'footer'] });
         </script>
     </head>
 <body>
-        <div class="ml-10% mr-10% ml-5vw_500 mr-5vw_500">
-            <div id="navbar" class="mt-10px mb-20px"></div>
+        <div class="ml-10% mr-10% ml-5vw_500 mr-5vw_500 mt-10px mb-20px">
+            <div id="navbar"></div>
         </div>
     <section class="ml-10% mr-10% ml-0px_500 mr-0px_500">
         <h1>Reinstall Support</h1>

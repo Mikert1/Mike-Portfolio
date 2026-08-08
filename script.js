@@ -1,11 +1,18 @@
+/* The service worker is gone: it cached the site's own files and answered from
+   that cache before the network, so edits kept not showing up. A reload now
+   always gets the real file.
+   This clears one out of any browser that installed it before — without it an
+   old worker keeps intercepting requests on its own. Safe to delete once no
+   browser you care about has visited the old version. */
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('config/service-worker.js')
-        .then(registration => {
-            console.log('Service Worker registered with scope:', registration.scope);
-        })
-        .catch(error => {
-            console.error('Service Worker registration failed:', error);
-        });
+    navigator.serviceWorker.getRegistrations()
+        .then(registrations => registrations.forEach(r => r.unregister()))
+        .catch(() => {});
+}
+if ('caches' in window) {
+    caches.keys()
+        .then(names => names.forEach(name => caches.delete(name)))
+        .catch(() => {});
 }
 
 async function getProjects() {

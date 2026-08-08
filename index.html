@@ -13,19 +13,16 @@
         <meta property="og:type" content="?" />
         <meta property="og:url" content="none"/>
         <meta property="og:image" content="https://mikert.com/assets/img/mikert.png" />
-        <title>Mikert.com | Home</title>
-        <script type="module" defer>
-            import { loadComponents } from '/assets/componium.js';
-            loadComponents({
-                components: ['navbar', 'footer'],
-                path: '/components/'
-            });
-        </script>
+        <title>Mike Balvert | Home</title>
         <script src="script.js" defer></script>
+        <script type="module" defer>
+            import { loadComponents } from './assets/componium.js';
+            loadComponents({ components: ['navbar', 'footer'] });
+        </script>
     </head>
     <body>
-        <div class="ml-10% mr-10% ml-5vw_500 mr-5vw_500">
-            <div id="navbar" class="mt-10px mb-20px"></div>
+        <div class="ml-10% mr-10% ml-5vw_500 mr-5vw_500 mt-10px mb-20px">
+            <div id="navbar"></div>
         </div>
         <section id="homepage" class="ml-10% mr-10% ml-0px_500 mr-0px_500">
             <div id="profile">
