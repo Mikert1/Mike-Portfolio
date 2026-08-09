@@ -15,6 +15,88 @@ if ('caches' in window) {
         .catch(() => {});
 }
 
+/* Hero parallax, plus the navbar that rides in behind it.
+
+   Every element in the hero carrying data-depth gets shifted down by
+   scroll * depth: at depth 1 that cancels the scroll exactly and the layer
+   looks pinned, at 0 it travels with the page, below 0 it outruns the page
+   and reads as being close to the camera.
+   Nothing here knows what the layers are, so swapping the placeholder
+   drawings for real photos needs no change on this side. */
+(function heroParallax() {
+    const hero = document.getElementById('hero');
+    if (!hero) return;
+
+    /* The bar only exists on the page that has a hero; elsewhere the navbar
+       is a normal block and none of this runs. */
+    const bar = document.getElementById('navbarBar');
+
+    /* Two thresholds, not one: a single line at the hero's edge would flip
+       the bar on and off on every small scroll that crosses it. */
+    const SHOW_AT = 0.9;
+    const HIDE_AT = 0.78;
+
+    const layers = Array.from(hero.querySelectorAll('[data-depth]'), element => ({
+        element,
+        depth: parseFloat(element.dataset.depth) || 0
+    }));
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let queued = false;
+    let lastOffset = null;
+    let barShown = false;
+
+    function render() {
+        queued = false;
+        const height = hero.offsetHeight;
+        /* Clamped: once the hero has scrolled past there is nothing left to
+           see, and letting the numbers run on would fling the layers away. */
+        const offset = Math.min(window.scrollY, height);
+        if (offset === lastOffset) return;
+        lastOffset = offset;
+
+        const progress = offset / height;
+        hero.style.setProperty('--hero-progress', progress.toFixed(4));
+
+        if (!reduced.matches) {
+            for (const layer of layers) {
+                layer.element.style.transform = `translate3d(0, ${(offset * layer.depth).toFixed(2)}px, 0)`;
+            }
+        }
+
+        if (bar) {
+            const shown = barShown ? progress > HIDE_AT : progress >= SHOW_AT;
+            if (shown !== barShown) {
+                barShown = shown;
+                bar.classList.toggle('navbarVisible', shown);
+            }
+        }
+    }
+
+    function onScroll() {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(render);
+    }
+
+    function onMotionPreferenceChange() {
+        if (reduced.matches) {
+            for (const layer of layers) layer.element.style.transform = '';
+        }
+        lastOffset = null;
+        render();
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    reduced.addEventListener('change', onMotionPreferenceChange);
+
+    render();
+    /* Transitions come on only after that first placement, so opening a
+       /#section link — which lands the page mid-scroll — shows the bar
+       already in place instead of sliding it in at the visitor. */
+    if (bar) requestAnimationFrame(() => bar.classList.add('navbarAnimated'));
+})();
+
 async function getProjects() {
     try {
         const response = await fetch('data/projects.json');

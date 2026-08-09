@@ -28,9 +28,10 @@ body,
 }
 
 /* Sections the navbar links to: keep the heading clear of the top edge
-   instead of ending up flush against it after the jump. */
+   instead of ending up flush against it after the jump. Wide enough to clear
+   the homepage's floating bar, which covers the top ~70px once it is in. */
 .sectionAnchor {
-    scroll-margin-top: 30px;
+    scroll-margin-top: 90px;
 }
 
 /* The card/language/program rows are separate documents inside <object>.
@@ -1280,4 +1281,224 @@ a:hover {
 * {
     scrollbar-width: thin;
     scrollbar-color: rgba(68, 68, 68, 0.8) rgba(44, 44, 44, 0.5);
+}
+/* ---------------------------------------------------------------- */
+/* Hero — the painting, with the plateau in front of it.             */
+/* script.js moves the layers; it only cares about data-depth.        */
+/* ---------------------------------------------------------------- */
+
+#hero {
+    position: relative;
+    width: 100%;
+    /* body is a column flex container: without this the hero is a shrinkable
+       item and its height is only a suggestion. */
+    flex: 0 0 auto;
+    height: 100vh;
+    /* svh = the viewport with the mobile browser's bars showing, so the hero
+       fills the screen without the bottom being hidden under them. */
+    height: 100svh;
+    min-height: 440px;
+    overflow: hidden;
+    /* keeps the layer stacking to itself, and clips the overscan below */
+    isolation: isolate;
+    background-color: #030809;
+    /* 0 at the top of the page, 1 once the hero is scrolled past — set by
+       script.js, used to fade the text and the scroll cue out. */
+    --hero-progress: 0;
+}
+
+.heroLayer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    will-change: transform;
+}
+
+.heroLayer svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* A layer needs image outside the frame only on the side it travels toward,
+   and only as much as |depth| x the hero's height. The vista's depth is
+   positive — it lags behind the page, which can never uncover its top edge —
+   so it needs none and sits flush in the frame. */
+#heroVista {
+    /* takes the warm painting a step towards the site's colder, darker page */
+    filter: saturate(0.94) brightness(0.92);
+}
+
+/* The plateau outruns the page by 0.06 of the hero's height, so it must hang
+   at least that far below the frame or it lifts off the bottom edge and the
+   vista shows underneath. 12% is double what it needs. */
+#heroPlateau {
+    bottom: -12%;
+}
+
+/* The figure is lit flat while the scene is backlit by a low sun. Pushing him
+   down towards silhouette is what makes him belong in the picture — raise the
+   brightness if he gets too dark to read against the grass. */
+.heroPerson {
+    filter: brightness(0.62) saturate(0.72) contrast(1.05);
+}
+
+.heroScrim {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(3, 8, 9, 0.5) 0%, rgba(3, 8, 9, 0.18) 28%, rgba(3, 8, 9, 0) 52%);
+}
+
+.heroContent {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 34%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+    will-change: transform, opacity;
+    opacity: calc(1 - var(--hero-progress) * 1.6);
+}
+
+.heroKicker {
+    color: aliceblue;
+    text-shadow: 0 8px 18px rgba(0, 0, 0, 1);
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    text-indent: 0.4em;
+}
+
+/* Two shadows, not one: the tight pass keeps the letterforms legible where
+   they cross a bright cloud, the wide one lifts the whole block off the sky. */
+.heroTitle {
+    font-size: 5.5em;
+    line-height: 1;
+    color: aliceblue;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.75), 0 0 60px rgba(0, 0, 0, 0.55);
+}
+
+.heroSub {
+    color: #cfe4e4;
+    font-size: 1.1em;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Bottom edge dissolves into the page so the hero and the intro read as
+   one surface instead of a photo pasted on top of the site. */
+.heroFade {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 22%;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(5, 9, 9, 0) 0%, rgba(5, 9, 9, 0.75) 55%, var(--panel-bg) 100%);
+}
+
+.heroScrollCue {
+    position: absolute;
+    left: 50%;
+    bottom: 26px;
+    transform: translateX(-50%);
+    color: var(--main-color);
+    opacity: calc(1 - var(--hero-progress) * 2.5);
+    animation: heroCueBob 2s ease-in-out infinite;
+}
+
+@keyframes heroCueBob {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 8px; }
+}
+
+@media (max-width: 1033px) {
+    #hero {
+        min-height: 380px;
+    }
+
+    .heroTitle {
+        font-size: 3.4em;
+    }
+}
+
+@media (max-width: 500px) {
+    .heroTitle {
+        font-size: 2.4em;
+    }
+
+    .heroSub {
+        font-size: 0.9em;
+    }
+}
+
+/* No parallax when the visitor asked for less movement: the layers just
+   stay where the markup puts them. script.js skips the transforms too. */
+@media (prefers-reduced-motion: reduce) {
+    .heroScrollCue {
+        animation: none;
+    }
+}
+
+/* ---------------------------------------------------------------- */
+/* Floating navbar — homepage only (#navbarBar wraps the navbar in   */
+/* index.html and nowhere else, so every other page keeps the plain  */
+/* bar at the top of its flow).                                      */
+/*                                                                   */
+/* Fixed and off-screen to start with: the hero gets the whole first */
+/* screen to itself. script.js adds .navbarVisible once the hero is  */
+/* nearly scrolled past, and from then on the bar rides along above  */
+/* the page.                                                         */
+/* ---------------------------------------------------------------- */
+
+#navbarBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* over the hero layers and the dropdown panels' own stacking */
+    z-index: 40;
+    background-color: rgba(5, 9, 9, 0.82);
+    background-image: url('assets/textures/background.png');
+    border-bottom: 1px solid var(--card-border);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Frosted where the browser can do it; the flat panel colour above is
+   already the fallback, so nothing is needed for browsers that can't. */
+@supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+    #navbarBar {
+        background-color: rgba(5, 9, 9, 0.65);
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+    }
+}
+
+/* Only animated after the first frame. Landing on /#languages-section puts
+   the page mid-scroll from the start, and the bar should already be there
+   rather than sliding in at the visitor. */
+#navbarBar.navbarAnimated {
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease, visibility 0.45s;
+}
+
+#navbarBar.navbarVisible {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #navbarBar {
+        transform: none;
+    }
+
+    #navbarBar.navbarAnimated {
+        transition: opacity 0.2s ease, visibility 0.2s;
+    }
 }

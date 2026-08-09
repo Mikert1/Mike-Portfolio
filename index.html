@@ -4,6 +4,11 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
+        <!-- The hero is the first thing on screen, and images referenced from
+             inside an <svg> are not discovered by the preload scanner — the
+             browser only finds them once the stylesheet is done. -->
+        <link rel="preload" as="image" href="assets/img/hero/vista.png">
+        <link rel="preload" as="image" href="assets/img/hero/plateau.png">
         <script src="assets/classium.js"></script>
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <link rel="manifest" href="config/manifest.json">
@@ -21,9 +26,79 @@
         </script>
     </head>
     <body>
-        <div class="ml-10% mr-10% ml-5vw_500 mr-5vw_500 mt-10px mb-20px">
-            <div id="navbar"></div>
+        <!-- The homepage opens on the hero alone, so the bar is lifted out of
+             the flow and off the top edge. script.js drops it back in once the
+             hero is scrolled past. Only this page wraps the navbar this way —
+             everywhere else it stays an ordinary block at the top. -->
+        <div id="navbarBar">
+            <div class="ml-10% mr-10% ml-5vw_500 mr-5vw_500 mt-10px mb-20px">
+                <div id="navbar"></div>
+            </div>
         </div>
+        <!-- ----------------------------------------------------------------
+             Hero.
+
+             data-depth is how far a layer is dragged along with the scroll:
+             1 = pinned to the viewport (never moves), 0 = glued to the page,
+             negative = leaves faster than the page, which is what sells a
+             layer as being close to the camera. Only the gap between two
+             layers is visible as depth, so what matters is the 0.56 between
+             the two here, not either number on its own.
+
+             Each layer is an <svg> rather than a plain <img> so its contents
+             sit in the artwork's own pixel grid: `slice` covers the frame the
+             way object-fit: cover would, and anything else in the same svg —
+             the figure, its shadow — is pinned to the art no matter how the
+             frame is cropped.
+             ---------------------------------------------------------------- -->
+        <section id="hero">
+            <!-- Far: the painting, whole. Everything in it is at a distance,
+                 so it moves as one piece and simply lags behind the scroll. -->
+            <div class="heroLayer" id="heroVista" data-depth="0.5">
+                <svg viewBox="0 0 1672 941" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                    <image href="assets/img/hero/vista.png" x="0" y="0" width="1672" height="941" preserveAspectRatio="xMidYMid slice"/>
+                </svg>
+            </div>
+
+            <!-- The painting's sky is near-white around the sun. This gives the
+                 wordmark, and later the navbar, something to sit on. -->
+            <div class="heroScrim"></div>
+
+            <div class="heroContent" data-depth="0.62">
+                <p class="heroKicker m-0">Portfolio</p>
+                <h1 class="heroTitle berylium m-0">Mike Balvert</h1>
+                <p class="heroSub m-0">Front-End Developer</p>
+            </div>
+
+            <!-- Near: the plateau and whoever is standing on it, in one layer
+                 so they can never drift apart. The figure's x/y/width/height
+                 below are plateau-image pixels — moving him is editing those. -->
+            <div class="heroLayer" id="heroPlateau" data-depth="-0.06">
+                <svg viewBox="0 0 1672 941" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+                    <defs>
+                        <filter id="heroContactShadow" x="-60%" y="-200%" width="220%" height="500%">
+                            <feGaussianBlur stdDeviation="10"/>
+                        </filter>
+                    </defs>
+                    <image href="assets/img/hero/plateau.png" x="0" y="0" width="1672" height="941" preserveAspectRatio="xMidYMax meet"/>
+                    <!-- without this he reads as pasted on rather than standing -->
+                    <ellipse cx="610" cy="796" rx="52" ry="11" fill="#2e1c06" opacity="0.45" filter="url(#heroContactShadow)"/>
+                    <!-- Box matches the file's 205x538 proportions, so nothing
+                         is letterboxed; YMax keeps his feet on the ground line
+                         at y=795 if you change his height. -->
+                    <image class="heroPerson" href="assets/img/hero/person.png" x="576" y="614" width="69" height="181" preserveAspectRatio="xMidYMax meet"/>
+                </svg>
+            </div>
+
+            <div class="heroFade"></div>
+
+            <div class="heroScrollCue" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+                </svg>
+            </div>
+        </section>
+
         <section id="homepage" class="ml-10% mr-10% ml-0px_500 mr-0px_500">
             <div id="profile">
                 <div class="left">
