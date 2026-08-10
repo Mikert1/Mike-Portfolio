@@ -105,13 +105,78 @@
                     <div class="d-b">
                         <p class="name m-0 c-white w-100%">I am Mike Balvert</p>
                         <div class="functionTitleDiv">
-                            <h2 class="m-0 mt-6px functionTitle berylium">Front-End Developer</h2>
+                            <h2 class="m-0 mt-6px functionTitle berylium">Full Stack Developer</h2>
                         </div>
                         <p>A place for my projects. My main language is Dutch but I make all my personal projects in English.</p>
                     </div>
                 </div>
                 <div class="right">
-                    <img src="assets/img/pfp.jpg" class="profileImage" width="170px">
+                    <!-- The other hats, orbiting the photo. The heading beside it has
+                         room for one title only, so the rest live out here.
+
+                         The ring is a closed loop with no seam: the path is 2*pi*160 =
+                         1005.3 units around, the four titles are pinned to explicit
+                         textLengths totalling 812, and the 193.3 left over is split into
+                         four identical 48.33 gaps with a dot centred in each. Every
+                         startOffset below is a running sum of those two numbers, so a
+                         title you reword has to be re-divided the same way or the loop
+                         stops being even.
+
+                         Radius 160 is as tight to the photo as the ring goes. The titles
+                         are a fixed width, so pulling the circle in is what shrinks the
+                         gaps -- but the photo's edge is at 150 and the descenders in
+                         "Developer" and "Designer" hang ~4 below the baseline, so 156
+                         would have them touching the frame.
+
+                         Each textLength is the title's natural width in Poppins plus
+                         2.4 per letter gap. That is what keeps the tracking looking the
+                         same on a long title and a short one -- splitting the circle
+                         into four equal quarters instead would stretch "Game Developer"
+                         far wider than "Front-End Developer". -->
+                    <div class="profileRing">
+                        <svg class="profileRingText" viewBox="0 0 400 400" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <title>Front-End Developer, Backend Developer, Game Developer, Front-End Developer, Backend Developer, Game Developer, Photo &amp; Video Editor</title>
+                            <defs>
+                                <!-- Starts at 9 o'clock and sweeps over the top, so the
+                                     text reads left-to-right where the eye lands first. -->
+                                <path id="profileRingPath" d="M 200 200 m -160 0 a 160 160 0 1 1 320 0 a 160 160 0 1 1 -320 0"/>
+                                <!-- One gradient per title, same 60deg two-stop idea as the
+                                     heading beside the photo. They live inside the rotating
+                                     <svg>, so each sweep stays locked to its own words. -->
+                                <linearGradient id="ringGradFront" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0" stop-color="#2b4bff"/>
+                                    <stop offset="1" stop-color="#00ffff"/>
+                                </linearGradient>
+                                <linearGradient id="ringGradBack" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0" stop-color="#8b5cf6"/>
+                                    <stop offset="1" stop-color="#f0abfc"/>
+                                </linearGradient>
+                                <linearGradient id="ringGradGame" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0" stop-color="#16c95e"/>
+                                    <stop offset="1" stop-color="#b6f04a"/>
+                                </linearGradient>
+                                <linearGradient id="ringGradMedia" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0" stop-color="#f59e0b"/>
+                                    <stop offset="1" stop-color="#fde047"/>
+                                </linearGradient>
+                            </defs>
+
+                            <g aria-hidden="true">
+                                <text fill="url(#ringGradFront)"><textPath href="#profileRingPath" xlink:href="#profileRingPath" startOffset="0" textLength="234" lengthAdjust="spacing">Front-End Developer</textPath></text>
+                                <text class="ringDot" text-anchor="middle"><textPath href="#profileRingPath" xlink:href="#profileRingPath" startOffset="258.2">·</textPath></text>
+
+                                <text fill="url(#ringGradBack)"><textPath href="#profileRingPath" xlink:href="#profileRingPath" startOffset="282.3" textLength="218" lengthAdjust="spacing">Backend Developer</textPath></text>
+                                <text class="ringDot" text-anchor="middle"><textPath href="#profileRingPath" xlink:href="#profileRingPath" startOffset="524.5">·</textPath></text>
+
+                                <text fill="url(#ringGradGame)"><textPath href="#profileRingPath" xlink:href="#profileRingPath" startOffset="548.7" textLength="185" lengthAdjust="spacing">Game Developer</textPath></text>
+                                <text class="ringDot" text-anchor="middle"><textPath href="#profileRingPath" xlink:href="#profileRingPath" startOffset="757.8">·</textPath></text>
+
+                                <text fill="url(#ringGradMedia)"><textPath href="#profileRingPath" xlink:href="#profileRingPath" startOffset="782.0" textLength="175" lengthAdjust="spacing">Photo &amp; Video Editor</textPath></text>
+                                <text class="ringDot" text-anchor="middle"><textPath href="#profileRingPath" xlink:href="#profileRingPath" startOffset="981.2">·</textPath></text>
+                            </g>
+                        </svg>
+                        <img src="assets/img/pfp.jpg" class="profileImage" alt="Mike Balvert">
+                    </div>
                 </div>
             </div>
             </section>
