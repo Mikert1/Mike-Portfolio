@@ -115,9 +115,9 @@
                          room for one title only, so the rest live out here.
 
                          The ring is a closed loop with no seam: the path is 2*pi*160 =
-                         1005.3 units around, the four titles are pinned to explicit
-                         textLengths totalling 812, and the 193.3 left over is split into
-                         four identical 48.33 gaps with a dot centred in each. Every
+                         1005.31 units around, the four titles are pinned to explicit
+                         textLengths totalling 870, and the 135.31 left over is split into
+                         four identical 33.83 gaps with a dot centred in each. Every
                          startOffset below is a running sum of those two numbers, so a
                          title you reword has to be re-divided the same way or the loop
                          stops being even.
@@ -125,17 +125,17 @@
                          Radius 160 is as tight to the photo as the ring goes. The titles
                          are a fixed width, so pulling the circle in is what shrinks the
                          gaps -- but the photo's edge is at 150 and the descenders in
-                         "Developer" and "Designer" hang ~4 below the baseline, so 156
+                         "Developer" and "Editor" hang ~4 below the baseline, so 156
                          would have them touching the frame.
 
-                         Each textLength is the title's natural width in Poppins plus
-                         2.4 per letter gap. That is what keeps the tracking looking the
-                         same on a long title and a short one -- splitting the circle
+                         Each textLength is the title's measured width in Poppins at 19px
+                         plus ~2.05 per letter gap. That is what keeps the tracking looking
+                         the same on a long title and a short one -- splitting the circle
                          into four equal quarters instead would stretch "Game Developer"
                          far wider than "Front-End Developer". -->
                     <div class="profileRing">
                         <svg class="profileRingText" viewBox="0 0 400 400" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <title>Front-End Developer, Backend Developer, Game Developer, Front-End Developer, Backend Developer, Game Developer, Photo &amp; Video Editor</title>
+                            <title>Front-End Developer, Backend Developer, Game Developer, Photo &amp; Video Editor</title>
                             <defs>
                                 <!-- Starts at 9 o'clock and sweeps over the top, so the
                                      text reads left-to-right where the eye lands first. -->
@@ -155,24 +155,54 @@
                                     <stop offset="0" stop-color="#16c95e"/>
                                     <stop offset="1" stop-color="#b6f04a"/>
                                 </linearGradient>
-                                <linearGradient id="ringGradMedia" x1="0" y1="0" x2="1" y2="1">
+                                <linearGradient id="ringGradPhoto" x1="0" y1="0" x2="1" y2="1">
                                     <stop offset="0" stop-color="#f59e0b"/>
                                     <stop offset="1" stop-color="#fde047"/>
                                 </linearGradient>
                             </defs>
 
+                            <!-- The dots are plain circles, not text on the path. As a 34px
+                                 middle dot they were centred correctly between the titles
+                                 but rendered ~4 units too far out, because that glyph's ink
+                                 sits 11 above its own baseline where a 19px capital's
+                                 optical centre is 7 -- so they floated above the gap instead
+                                 of sitting in it, and dy on path-bound text does not move
+                                 them reliably. A circle takes the angle and the radius as
+                                 plain numbers, so neither depends on font metrics.
+
+                                 cx/cy for a dot at arc length s, on a ring of radius 160
+                                 whose path starts at 9 o'clock and sweeps over the top:
+                                   phi = 180deg + degrees(s / 160) - 2deg
+                                   cx  = 200 + 165.3 * cos(phi)
+                                   cy  = 200 + 165.3 * sin(phi)
+
+                                 The -2deg is an optical correction, worth 5.6 units back
+                                 along the ring. Nothing measures it: by advance box, by
+                                 painted ink, and by ink density at six thresholds the
+                                 midpoints agree within 0.16deg, but centred there the dots
+                                 still read as crowding the title ahead of them. Every title
+                                 happens to end in "r" and every next one opens on a solid
+                                 cap (B, G, P, F), so the eye has a light edge on one side
+                                 of each gap and a heavy one on the other. Change a title
+                                 and this number is worth re-checking by eye.
+                                 165.3 is measured, not derived: at 12x magnification the visual
+                                 centres of the letters either side of a gap sit at radius
+                                 164.6 ("e") and 165.9 ("B"). The angles are the midpoints
+                                 of the true painted ink, found by hit-testing the glyphs
+                                 around the ring -- getEndPositionOfChar reports the advance
+                                 box, which lengthAdjust pads out past the last letter. -->
                             <g aria-hidden="true">
                                 <text fill="url(#ringGradFront)"><textPath href="#profileRingPath" xlink:href="#profileRingPath" startOffset="0" textLength="234" lengthAdjust="spacing">Front-End Developer</textPath></text>
-                                <text class="ringDot" text-anchor="middle"><textPath href="#profileRingPath" xlink:href="#profileRingPath" startOffset="258.2">·</textPath></text>
+                                <circle class="ringDot" cx="193.943" cy="34.811" r="3"/>
 
-                                <text fill="url(#ringGradBack)"><textPath href="#profileRingPath" xlink:href="#profileRingPath" startOffset="282.3" textLength="218" lengthAdjust="spacing">Backend Developer</textPath></text>
-                                <text class="ringDot" text-anchor="middle"><textPath href="#profileRingPath" xlink:href="#profileRingPath" startOffset="524.5">·</textPath></text>
+                                <text fill="url(#ringGradBack)"><textPath href="#profileRingPath" xlink:href="#profileRingPath" startOffset="267.8" textLength="218" lengthAdjust="spacing">Backend Developer</textPath></text>
+                                <circle class="ringDot" cx="365.212" cy="194.606" r="3"/>
 
-                                <text fill="url(#ringGradGame)"><textPath href="#profileRingPath" xlink:href="#profileRingPath" startOffset="548.7" textLength="185" lengthAdjust="spacing">Game Developer</textPath></text>
-                                <text class="ringDot" text-anchor="middle"><textPath href="#profileRingPath" xlink:href="#profileRingPath" startOffset="757.8">·</textPath></text>
+                                <text fill="url(#ringGradGame)"><textPath href="#profileRingPath" xlink:href="#profileRingPath" startOffset="519.7" textLength="185" lengthAdjust="spacing">Game Developer</textPath></text>
+                                <circle class="ringDot" cx="238.532" cy="360.746" r="3"/>
 
-                                <text fill="url(#ringGradMedia)"><textPath href="#profileRingPath" xlink:href="#profileRingPath" startOffset="782.0" textLength="175" lengthAdjust="spacing">Photo &amp; Video Editor</textPath></text>
-                                <text class="ringDot" text-anchor="middle"><textPath href="#profileRingPath" xlink:href="#profileRingPath" startOffset="981.2">·</textPath></text>
+                                <text fill="url(#ringGradPhoto)"><textPath href="#profileRingPath" xlink:href="#profileRingPath" startOffset="738.5" textLength="233" lengthAdjust="spacing">Photo &amp; Video Editor</textPath></text>
+                                <circle class="ringDot" cx="36.301" cy="222.948" r="3"/>
                             </g>
                         </svg>
                         <img src="assets/img/pfp.jpg" class="profileImage" alt="Mike Balvert">
@@ -193,7 +223,139 @@
                 <h1 class="m-0">Projects</h1>
             </div>
             </section>
-            <h2 id="my-own-projects" class="sectionAnchor m-0 ml-10% mr-10% ml-0px_500 mr-0px_500">My own:</h2>
+            <!-- ----------------------------------------------------------------
+                 Masterpiece — one project, one card, its own band.
+
+                 Deliberately not an <object> row like "My own" and "School &
+                 work" below: those are carousels built from data/projects.json
+                 by cards.js, and a section that holds exactly one card forever
+                 has nothing to gain from that machinery. It is hand-written
+                 here so it can be laid out as a wide two-column card instead of
+                 a 400px tile, and so Planium keeps its own blue inside a page
+                 that is otherwise cyan.
+
+                 Planium is also in projects.json, so it leads the row below as
+                 an ordinary card as well. The duplicate is deliberate: this band
+                 is the pitch, the card down there is the entry point to the
+                 project page, and only the card has anywhere to click through
+                 to. Both read the same screenshots out of
+                 assets/projects/Planium.
+                 ---------------------------------------------------------------- -->
+            <section id="masterpiece-project" class="sectionAnchor masterpiece">
+                <div class="masterpieceHeading">
+                    <span class="masterpieceRule" aria-hidden="true"></span>
+                    <h2 class="masterpieceLabel berylium">Masterpiece</h2>
+                    <span class="masterpieceRule" aria-hidden="true"></span>
+                </div>
+                <p class="masterpieceLead">The one I would point at first.</p>
+
+                <article class="masterpieceCard">
+                    <!-- Two soft lights, painted behind the content: Planium's own
+                         blue on the screenshot side, the site's cyan on the copy
+                         side, so the card reads as belonging to both. -->
+                    <div class="masterpieceGlow" aria-hidden="true"></div>
+
+                    <div class="masterpieceCopy">
+                        <div class="masterpieceBrand">
+                            <img src="assets/projects/Planium/logo.svg" alt="" class="masterpieceLogo" width="64" height="64">
+                            <div class="masterpieceNames">
+                                <div class="masterpieceNameRow">
+                                    <h3 class="masterpieceName">Planium</h3>
+                                    <span class="masterpieceStatus">Beta</span>
+                                </div>
+                                <p class="masterpieceTagline">Plan it together.</p>
+                            </div>
+                        </div>
+
+                        <p class="masterpieceText">
+                            A social planner for the part that is actually hard: agreeing on
+                            something. Post an activity, pull in the friends you want there,
+                            keep them in a group, and settle the rest with a poll and a chat
+                            that updates live for everyone at once. It installs to the home
+                            screen as a PWA and ships as a native app.
+                        </p>
+
+                        <ul class="masterpieceChips">
+                            <li>Activities</li>
+                            <li>Groups &amp; chat</li>
+                            <li>Polls</li>
+                            <li>Friends</li>
+                            <li>Live notifications</li>
+                        </ul>
+
+                        <dl class="masterpieceStats">
+                            <div>
+                                <dt>Built</dt>
+                                <dd>Since Jan 2025</dd>
+                            </div>
+                            <div>
+                                <dt>Commits</dt>
+                                <dd>600+</dd>
+                            </div>
+                            <div>
+                                <dt>Stack</dt>
+                                <dd>Full stack</dd>
+                            </div>
+                            <div>
+                                <dt>Runs on</dt>
+                                <dd>Native app &amp; PWA</dd>
+                            </div>
+                        </dl>
+
+                        <div class="masterpieceActions">
+                            <a class="masterpieceCta" href="https://planium.softium.nl/" target="_blank" rel="noopener">
+                                <span>Open Planium</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                                </svg>
+                            </a>
+                            <a class="masterpieceGhost" href="https://planium.softium.nl/get/" target="_blank" rel="noopener">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                                    <path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                                    <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+                                </svg>
+                                <span>Add to home screen</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- The screenshots are phone-shaped and the card is not, so
+                         rather than fight that, three of them are fanned out and
+                         run off the bottom edge (.masterpieceCard clips them).
+                         A tall image in a wide box stops being a problem the
+                         moment you stop trying to show all of it.
+
+                         Each .phoneScreen is a fixed 9:19.5 window with the image
+                         cover-fitted from the top, so a screenshot of any height
+                         drops in without being letterboxed or squashed.
+
+                         These are the same 1/2/3.png that the project card and
+                         the /project/ page read out of assets/projects/Planium.
+                         Both of those crop from the top too, so one set of phone
+                         screenshots serves all three. -->
+                    <div class="masterpieceShowcase">
+                        <figure class="phone phoneLeft">
+                            <span class="phoneNotch" aria-hidden="true"></span>
+                            <div class="phoneScreen">
+                                <img src="assets/projects/Planium/1.png" alt="Planium: the activities feed">
+                            </div>
+                        </figure>
+                        <figure class="phone phoneRight">
+                            <span class="phoneNotch" aria-hidden="true"></span>
+                            <div class="phoneScreen">
+                                <img src="assets/projects/Planium/3.png" alt="Planium: a user profile">
+                            </div>
+                        </figure>
+                        <figure class="phone phoneMain">
+                            <span class="phoneNotch" aria-hidden="true"></span>
+                            <div class="phoneScreen">
+                                <img src="assets/projects/Planium/2.png" alt="Planium: a group and its chat">
+                            </div>
+                        </figure>
+                    </div>
+                </article>
+            </section>
+            <h2 id="my-own-projects" class="sectionAnchor m-0 ml-10% mr-10% ml-0px_500 mr-0px_500">Projects I work on myself:</h2>
             <object data="objects/cards.html?project=solo" id="myOwnProjects" height="450px" type=""></object>
             <h2 id="school-projects" class="sectionAnchor m-0 ml-10% mr-10% ml-0px_500 mr-0px_500 mt-6px">School &amp; work:</h2>
             <object data="objects/cards.html?project=school" id="schoolProjects" height="450px" type=""></object>

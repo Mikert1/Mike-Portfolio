@@ -849,6 +849,57 @@ a:hover {
     height: 200px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    /* anchor for the masterpiece badge */
+    position: relative;
+}
+
+/* ---------------------------------------------------------------- */
+/* "Masterpiece" over a card's screenshot.                          */
+/*                                                                  */
+/* Switched on per project by "masterpiece": true in                */
+/* data/projects.json; projectCard.js builds the badge. Cyan and    */
+/* not the project's own colour on purpose: this is the portfolio   */
+/* saying it about the project, the same voice as the band up on    */
+/* the homepage, so it should read the same on whichever project    */
+/* carries the flag next.                                           */
+/* ---------------------------------------------------------------- */
+
+#projects .masterpieceBadge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 11px 5px 9px;
+    border: 1px solid var(--main-color-alpha-50);
+    border-radius: 999px;
+    /* What is behind it is a screenshot and could be anything, so the pill
+       brings its own dark ground instead of hoping the image is dark. */
+    background-color: rgba(5, 9, 9, 0.72);
+    color: var(--main-color);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+@supports (backdrop-filter: blur(6px)) or (-webkit-backdrop-filter: blur(6px)) {
+    #projects .masterpieceBadge {
+        background-color: rgba(5, 9, 9, 0.45);
+        -webkit-backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);
+    }
+}
+
+#projects .masterpieceBadge svg {
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+}
+
+#projects .masterpieceBadge p {
+    margin: 0;
 }
 
 #projects .hover .image {
@@ -1099,10 +1150,9 @@ a:hover {
 }
 
 /* The separators stay neutral so the four gradients are the only colour.
-   Oversized because a middle dot at the title's own 19px is a speck that
-   reads as dirt on the screen rather than as punctuation. */
+   r=3 matches the ink of the 34px middle dot these replaced -- big enough to
+   read as punctuation rather than as dirt on the screen. */
 .profileRingText .ringDot {
-    font-size: 34px;
     fill: var(--main-color);
     fill-opacity: 0.8;
 }
@@ -1566,5 +1616,520 @@ a:hover {
 
     #navbarBar.navbarAnimated {
         transition: opacity 0.2s ease, visibility 0.2s;
+    }
+}
+
+/* ================================================================== */
+/* Masterpiece — the Planium band on the homepage.                    */
+/*                                                                    */
+/* One card, alone in its own section, above the two project          */
+/* carousels. Everything here is written out rather than composed     */
+/* from classium classes: classium applies its styles from JS after   */
+/* the document parses, which is fine for a row of small tiles but    */
+/* shows as a visible reflow on a block this large.                   */
+/*                                                                    */
+/* The section brings in Planium's own blue, so two palettes are in   */
+/* play and they are split on purpose: cyan (--main-color) for what   */
+/* belongs to the portfolio — the label, the frame, the rules — and   */
+/* blue for what belongs to the app — the logo, the one solid button, */
+/* the light behind the screenshots.                                  */
+/* ================================================================== */
+
+.masterpiece {
+    --planium: #0659e5;
+    --planium-soft: #65a3ff;
+    /* One number drives the whole screenshot fan at the bottom of this
+       file. Every dimension down there is a multiple of it, so resizing
+       the phones is editing this line and nothing else. */
+    --phone-w: clamp(150px, 15vw, 215px);
+    margin: 40px 10% 10px 10%;
+}
+
+/* ---- "Masterpiece", ruled off on both sides ---------------------- */
+
+.masterpieceHeading {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.masterpieceLabel {
+    margin: 0;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    /* Blue into cyan: the word is the hinge between the app and the
+       site, so the gradient runs from one palette into the other. */
+    background: linear-gradient(60deg, var(--planium) 0%, var(--main-color) 100%);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* The rules fade out towards the page edges rather than stopping dead,
+   so the heading reads as a band and not as a boxed-in title. */
+.masterpieceRule {
+    flex: 1;
+    min-width: 20px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--main-color-alpha-50));
+}
+
+.masterpieceHeading .masterpieceRule:last-child {
+    background: linear-gradient(to left, transparent, var(--main-color-alpha-50));
+}
+
+.masterpieceLead {
+    margin: 6px 0 18px 0;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* ---- The card ---------------------------------------------------- */
+
+.masterpieceCard {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(340px, 0.92fr);
+    gap: 30px;
+    align-items: center;
+    padding: 34px;
+    border: 2px solid var(--card-border);
+    border-radius: 18px;
+    background-color: var(--card-bg);
+    background-image: url('assets/textures/background.png');
+    box-shadow: rgb(0, 0, 0) 0px 0px 24px;
+    /* The phones are meant to run off the bottom edge. This is what
+       cuts them. */
+    overflow: hidden;
+}
+
+/* Two soft lights behind the content. Kept on their own element so the
+   card can still carry the texture without the gradients washing it
+   out, and so nothing here can intercept a click. */
+.masterpieceGlow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(60% 70% at 78% 30%, rgba(6, 89, 229, 0.30), transparent 70%),
+        radial-gradient(55% 60% at 8% 85%, rgba(0, 255, 255, 0.10), transparent 70%);
+}
+
+/* Everything real sits above the glow. */
+.masterpieceCopy,
+.masterpieceShowcase {
+    position: relative;
+    z-index: 1;
+}
+
+.masterpieceCopy {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-width: 0;
+}
+
+/* ---- Name, logo, status ------------------------------------------ */
+
+.masterpieceBrand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.masterpieceLogo {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+    /* The icon's own background is near-black, the same as the card, so
+       without an edge of its own it floats. */
+    box-shadow: 0 0 0 1px rgba(101, 163, 255, 0.35), 0 6px 18px rgba(0, 0, 0, 0.55);
+}
+
+/* Margins are set here rather than left to classium's m-0: classium runs
+   from JS after parse, and on a block this size the reflow is visible. */
+.masterpieceName {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.1;
+    color: aliceblue;
+}
+
+.masterpieceTagline {
+    margin: 6px 0 0 0;
+    color: var(--planium-soft);
+    font-size: 0.95rem;
+}
+
+/* The pill belongs to the name, so it sits on the name's own row.
+   Pushed to the far side of the column with margin-left:auto it ends up
+   floating over the screenshots with nothing to attach it to. */
+.masterpieceNameRow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+.masterpieceNames {
+    min-width: 0;
+}
+
+.masterpieceStatus {
+    padding: 4px 12px;
+    border: 1px solid rgba(101, 163, 255, 0.45);
+    border-radius: 999px;
+    color: var(--planium-soft);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.masterpieceText {
+    margin: 0;
+    max-width: 52ch;
+    color: rgb(186, 186, 186);
+    line-height: 1.6;
+}
+
+/* ---- Feature chips ------------------------------------------------ */
+
+.masterpieceChips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    /* Same ceiling as the paragraph. Without it the chips fill the whole
+       column and the last one ends up under the leftmost phone, which
+       leans back over this side of the card. */
+    max-width: 52ch;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.masterpieceChips li {
+    padding: 5px 12px;
+    border: 1px solid var(--card-border);
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.03);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+/* ---- The four numbers --------------------------------------------- */
+
+.masterpieceStats {
+    display: grid;
+    /* Two fixed columns rather than auto-fit: four of these in a row is
+       too tight for "Vanilla JS, no build step" at any card width, and
+       auto-fit lands on three often enough to leave a ragged 3 + 1. */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 24px;
+    margin: 4px 0 0 0;
+    padding-top: 18px;
+    border-top: 1px solid var(--card-border);
+}
+
+.masterpieceStats dt {
+    color: #6f8686;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.masterpieceStats dd {
+    margin: 3px 0 0 0;
+    color: aliceblue;
+    font-size: 0.9rem;
+}
+
+/* ---- Buttons ------------------------------------------------------ */
+
+.masterpieceActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.masterpieceCta,
+.masterpieceGhost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 20px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease,
+                background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+/* The only solid blue thing on the page — it is the one link that
+   leaves for the app itself. */
+.masterpieceCta {
+    border: 1px solid var(--planium);
+    background-color: var(--planium);
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(6, 89, 229, 0.35);
+}
+
+.masterpieceCta:hover {
+    background-color: #0a68ff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(6, 89, 229, 0.5);
+}
+
+/* --card-border is nearly invisible against the lit part of the card,
+   so this one is a touch brighter than the card's own edge. */
+.masterpieceGhost {
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background-color: transparent;
+    color: var(--text-muted);
+}
+
+.masterpieceGhost:hover {
+    border-color: var(--main-color-alpha-50);
+    color: aliceblue;
+    transform: translateY(-2px);
+}
+
+/* ================================================================== */
+/* The screenshot fan.                                                */
+/*                                                                    */
+/* Planium's screenshots are phone-shaped and this card is not, which  */
+/* is the whole problem. Fitting a 9:19.5 image into a wide card any   */
+/* other way either letterboxes it into a thin sliver or shrinks it    */
+/* until nothing in it can be read.                                    */
+/*                                                                    */
+/* So: three of them, in phone frames, fanned and tilted, hanging off  */
+/* the bottom edge where .masterpieceCard clips them. The height stops */
+/* mattering the moment you decide not to show all of it, and the tall */
+/* shape becomes the thing that fills the width.                       */
+/*                                                                    */
+/* Screenshots drop in at any size: .phoneScreen is a fixed 9:19.5     */
+/* window and the image is cover-fitted from the top, so the top of a  */
+/* screen is always what survives the crop.                            */
+/* ================================================================== */
+
+.masterpieceShowcase {
+    position: relative;
+    align-self: stretch;
+    /* The phones are absolutely positioned and so carry no height of
+       their own. A phone is ~2.17 tall per unit of width; reserving a
+       little under that is what puts its bottom past the card's edge. */
+    min-height: calc(var(--phone-w) * 2.05);
+}
+
+/* Each phone's two positions, as custom properties rather than as
+   transforms directly: the resting fan and the slightly wider, higher
+   one it opens into on hover. Everything below only ever re-points
+   these two, so a position is defined in exactly one place. */
+.phoneMain {
+    --rest: translate(-50%, 8%);
+    --open: translate(-50%, 2%);
+    z-index: 3;
+}
+
+.phoneLeft {
+    --rest: translate(-104%, 17%) rotate(-6deg) scale(0.84);
+    --open: translate(-108%, 11%) rotate(-8deg) scale(0.84);
+    z-index: 2;
+}
+
+.phoneRight {
+    --rest: translate(4%, 17%) rotate(6deg) scale(0.84);
+    --open: translate(8%, 11%) rotate(8deg) scale(0.84);
+    z-index: 2;
+}
+
+/* The offsets above are in each phone's own width, measured from the
+   container's centre line, so the fan holds its proportions at any
+   --phone-w. -104% / +4% are mirrored, and the tilt is what actually
+   decides how wide the group ends up: a 202px phone 452px tall gains
+   ~40px of bounding width per 6deg of rotation, so tilting them further
+   is what pushes the outer two out over the copy beside them. */
+.phone {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: var(--phone-w);
+    margin: 0;
+    padding: 7px;
+    border-radius: calc(var(--phone-w) * 0.14);
+    /* Bezel: a dark body with a light top edge, which is what reads as
+       a rounded piece of glass instead of a rectangle with a border. */
+    background: linear-gradient(160deg, #2a3238, #0d1113 45%);
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.10),
+        0 18px 40px rgba(0, 0, 0, 0.65);
+    transform: var(--rest);
+    /* Scaling a side phone should keep its feet on the same line as the
+       middle one, not shrink it towards the container's centre. */
+    transform-origin: bottom center;
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* One gesture for the whole group, hung off the card — not three
+   separate hovers on three overlapping phones. */
+.masterpieceCard:hover .phone {
+    transform: var(--open);
+}
+
+.phoneScreen {
+    position: relative;
+    overflow: hidden;
+    border-radius: calc(var(--phone-w) * 0.10);
+    /* The window, not the image: a screenshot of any height is cropped
+       to this rather than setting it. */
+    aspect-ratio: 9 / 19.5;
+    background-color: #050909;
+}
+
+.phoneScreen img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Top-anchored: the header and the first few cards of a screen are
+       the part worth keeping when the bottom is cut off anyway. */
+    object-position: top center;
+}
+
+.phoneNotch {
+    position: absolute;
+    top: 11px;
+    left: 50%;
+    z-index: 2;
+    width: 34%;
+    height: calc(var(--phone-w) * 0.045);
+    border-radius: 999px;
+    background-color: #0d1113;
+    transform: translateX(-50%);
+}
+
+/* ---- Narrower than a two-column card can be ----------------------- */
+
+@media (max-width: 1033px) {
+
+    .masterpiece {
+        --phone-w: clamp(130px, 24vw, 190px);
+    }
+
+    /* Copy first, screenshots under it. The fan itself is unchanged;
+       only the reserved height drops, since a stacked card has the room
+       to let a little more of the phones show before the edge cuts. */
+    /* Capped and centred. Stacked, the copy is the only thing setting the
+       width, and left to fill a 1000px card it leaves the right half of
+       every row empty with the phones marooned underneath. */
+    .masterpieceCard {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 26px;
+        max-width: 620px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 26px;
+    }
+
+    .masterpieceShowcase {
+        min-height: calc(var(--phone-w) * 1.9);
+    }
+
+    /* Both lights move with the layout: the blue one belongs behind the
+       phones, which are now at the bottom. */
+    .masterpieceGlow {
+        background:
+            radial-gradient(70% 40% at 50% 90%, rgba(6, 89, 229, 0.30), transparent 70%),
+            radial-gradient(60% 40% at 10% 5%, rgba(0, 255, 255, 0.10), transparent 70%);
+    }
+}
+
+/* The two buttons stop fitting on one line a little above the card's own
+   breakpoint, and once they wrap, two left-aligned pills of different
+   widths read as a mistake. Below this they share the row instead. */
+@media (max-width: 620px) {
+
+    .masterpieceActions a {
+        flex: 1;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .masterpiece {
+        --phone-w: clamp(105px, 29vw, 150px);
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .masterpieceHeading {
+        gap: 12px;
+    }
+
+    .masterpieceCard {
+        padding: 20px 18px;
+        border-radius: 14px;
+    }
+
+    .masterpieceLogo {
+        width: 52px;
+        height: 52px;
+    }
+
+    .masterpieceName {
+        font-size: 1.6rem;
+    }
+
+    /* At this width the pill has nowhere to go beside a wrapped name, so
+       it drops onto its own line instead of squeezing the logo. */
+    .masterpieceBrand {
+        flex-wrap: wrap;
+    }
+
+    /* Pulled in: at 29vw the phones are already close together and the
+       full spread would push the outer two past the card's sides. */
+    .phoneLeft {
+        --rest: translate(-96%, 17%) rotate(-6deg) scale(0.84);
+        --open: translate(-100%, 11%) rotate(-8deg) scale(0.84);
+    }
+
+    .phoneRight {
+        --rest: translate(-4%, 17%) rotate(6deg) scale(0.84);
+        --open: translate(0%, 11%) rotate(8deg) scale(0.84);
+    }
+}
+
+/* A touch device has no hover to leave, so the fan would open on the tap
+   that follows the CTA and then stay open. Hold it at rest there. */
+@media (hover: none) and (pointer: coarse) {
+
+    .masterpieceCard:hover .phone {
+        transform: var(--rest);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .phone,
+    .masterpieceCta,
+    .masterpieceGhost {
+        transition: none;
+    }
+
+    /* Note this is --rest, not none: the resting fan *is* a transform,
+       and cancelling it would stack all three phones on the centre. */
+    .masterpieceCard:hover .phone {
+        transform: var(--rest);
+    }
+
+    .masterpieceCta:hover,
+    .masterpieceGhost:hover {
+        transform: none;
     }
 }

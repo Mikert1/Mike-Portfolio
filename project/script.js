@@ -61,10 +61,9 @@ function checkImage(url) {
 
 let params = getQueryParams();
 if (params.id) {
-    params.id = parseInt(params.id) - 1;
-    console.log(params.id);
+    params.id = parseInt(params.id);
 } else {
-    console.log("No name provided");
+    console.log("No id provided");
 }
 
 const page = {
@@ -105,7 +104,15 @@ async function getWebsiteStatus(url) {
 
 async function setProject() {
     data = await getData();
-    const project = data[params.id];
+    /* By id, not by position. This used to be data[params.id - 1], which only
+       ever worked because the ids happened to run 1..13 in the same order the
+       entries sat in the file -- the first project inserted anywhere but the
+       end shifted every link to the wrong project. */
+    const project = data.find(entry => entry.id === params.id);
+    if (!project) {
+        console.error('No project with id', params.id);
+        return;
+    }
     
     page.title.textContent = project.name;
     const logo = document.getElementById('logo');

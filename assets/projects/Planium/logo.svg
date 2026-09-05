@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Standalone copy of the app icon from Planium's own assets/planium.svg,
+     which is a hidden <symbol> sprite and so cannot be used as an <img> src.
+     Same geometry and the same #0659E5 brand blue; only the wrapper changed. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 208.0426" role="img" aria-label="Planium">
+    <rect width="210" height="208.0426" rx="25.402924" fill="#050909"/>
+    <rect x="1.965333" y="1.9655039" width="206.06892" height="43.556042" fill="#0659e5" stroke="#0659e5" stroke-width="3.93"/>
+    <rect y="42.796707" width="210" height="5.1418805" fill="#043589"/>
+
+    <path d="M152.62761,162.16569h25.62104c-0.45678,-13.60816 -15.5106,-24.46918 -33.93959,-24.48714 -5.92971,0.009 -11.75322,1.16288 -16.89228,3.34797"
+          fill="none" stroke="#0659e5" stroke-width="8.535" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <path d="M83.216813,140.7474c-4.96086,-2.00001 -10.518501,-3.0549 -16.170143,-3.06923 -18.428996,0.0181 -33.482555,10.87898 -33.93959,24.48714h24.099412"
+          fill="none" stroke="#0659e5" stroke-width="8.535" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <path d="M148.79669,180.20776H61.013285a43.963166,32.690669 0 0 1 43.891835,-31.88009 43.963166,32.690669 0 0 1 43.89157,31.88009z"
+          fill="#0659e5"/>
+
+    <ellipse cx="104.44611" cy="104.50425" rx="26.219675" ry="32.008434" fill="#0659e5"/>
+    <ellipse cx="56.671398" cy="108.06741" rx="14.641891" ry="17.874519" fill="none" stroke="#0659e5" stroke-width="8.535"/>
+    <ellipse cx="151.89075" cy="108.06749" rx="14.641891" ry="17.874519" fill="none" stroke="#0659e5" stroke-width="8.535"/>
+</svg>

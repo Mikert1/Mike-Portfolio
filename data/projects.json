@@ -1,5 +1,45 @@
 [
     {
+        "id": 14,
+        "name": "Planium",
+        "rawName": "planium",
+        "type": "Website",
+        "project": "solo",
+        "masterpiece": true,
+        "color": {
+            "background": "#0659E5",
+            "hover": "#0442A5"
+        },
+        "stack": "Full-stack",
+        "lang": 
+        {
+            "JavaScript": {
+                "Lines": 39259,
+                "Files": 49
+            },
+            "CSS": {
+                "Lines": 4960,
+                "Files": 1
+            },
+            "HTML": {
+                "Lines": 4867,
+                "Files": 2
+            }
+        },
+        "platforms": ["mobile", "desktop"],
+        "description": "A social planner for the part that is actually hard: agreeing on something. Post an activity, pull in the friends you want there, keep them in a group, and settle the rest with a poll and a chat that updates live for everyone at once.",
+        "status": "Active",
+        "date": "2025-01-17",
+        "contributors": {
+            "Mike Balvert": {
+                "image": "https://avatars.githubusercontent.com/u/73882306?s=64&v=4"
+            }
+        },
+
+        "link": "https://planium.softium.nl/",
+        "repository": "https://github.com/Mikert1/sorry_its_private"
+    },
+    {
         "note": {
             "title": "Inactive Development",
             "description": "This Project is not finished yet. I will continue this project in the future.",

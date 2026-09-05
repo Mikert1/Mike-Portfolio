@@ -14,7 +14,7 @@ const PROJECT_GROUPS = {
 /* Display order per group, best first. An id that isn't listed sorts to the
    front, which is how the newest additions lead each row. */
 const PROJECT_ORDER = {
-    solo: [12, 2, 1, 11, 7, 4, 8],
+    solo: [14, 12, 2, 1, 11, 7, 4, 8],
     school: [13, 5, 3, 10, 6, 9]
 };
 
@@ -98,6 +98,27 @@ async function buildProjectCard(project, template, assetBase) {
         clone.querySelector('.head').style.backgroundSize = 'cover';
     } else {
         img.src = `${imageDir}/1.png`;
+    }
+
+    /* "Masterpiece", laid over the screenshot, for whichever project carries
+       "masterpiece": true in projects.json. Built here rather than added to
+       the two card templates -- objects/cards.html and projects/index.html --
+       so the homepage rows and the all-projects page cannot drift apart.
+       The icon is lucide's drafting-compass. */
+    if (project.masterpiece) {
+        const badge = document.createElement('div');
+        badge.className = 'masterpieceBadge';
+        badge.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m12.99 6.74 1.93 3.44"/>
+                <path d="M19.136 12a10 10 0 0 1-14.271 0"/>
+                <path d="m21 21-2.16-3.84"/>
+                <path d="m3 21 8.02-14.26"/>
+                <circle cx="12" cy="5" r="2"/>
+            </svg>
+            <p>Masterpiece</p>
+        `;
+        clone.querySelector('.head').appendChild(badge);
     }
 
     // Hovering pans the screenshot down to its bottom, then releases it.
