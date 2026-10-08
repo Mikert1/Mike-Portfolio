@@ -40,10 +40,14 @@
 
              data-depth is how far a layer is dragged along with the scroll:
              1 = pinned to the viewport (never moves), 0 = glued to the page,
-             negative = leaves faster than the page, which is what sells a
-             layer as being close to the camera. Only the gap between two
-             layers is visible as depth, so what matters is the 0.56 between
-             the two here, not either number on its own.
+             negative = leaves faster than the page. Only the gap between two
+             layers is visible as depth, so what matters is the 0.5 between
+             the two here, not either number on its own — and keeping the near
+             layer on 0 buys that gap without the terrace moving against the
+             page it has to meet. Giving it a negative depth reads as closer to
+             the camera, but it also slides the bricks past the bottom edge as
+             you scroll, and then the point where the art stops and the page
+             starts is a moving target.
 
              Each layer is an <svg> rather than a plain <img> so its contents
              sit in the artwork's own pixel grid: `slice` covers the frame the
@@ -74,20 +78,20 @@
                  so they can never drift apart. The figure's x/y/width/height
                  below are scenery-frame pixels — moving him is editing those.
 
-                 The wall art is a 1376x387 strip, already the frame's own
+                 The wall art is a 1376x326 strip, already the frame's own
                  width, so it is laid along the bottom edge rather than being a
-                 full-frame plate like the scenery. Its top edge, y=381, is the
-                 horizon the figure stands in front of, and its last 121 rows
+                 full-frame plate like the scenery. Its top edge, y=442, is the
+                 horizon the figure stands in front of, and its last 120 rows
                  are the terrace's front face rather than paving — so the ground
-                 he can actually stand on runs out at y=647, not at 768. -->
-            <div class="heroLayer" id="heroWall" data-depth="-0.06">
+                 he can actually stand on runs out at y=648, not at 768. -->
+            <div class="heroLayer" id="heroWall" data-depth="0">
                 <svg viewBox="0 0 1376 768" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
                     <defs>
                         <filter id="heroContactShadow" x="-60%" y="-200%" width="220%" height="500%">
                             <feGaussianBlur stdDeviation="10"/>
                         </filter>
                     </defs>
-                    <image href="assets/img/hero/wall.png" x="0" y="381.0" width="1376" height="387.0" preserveAspectRatio="none"/>
+                    <image href="assets/img/hero/wall.png" x="0" y="442.0" width="1376" height="326.0" preserveAspectRatio="none"/>
                     <!-- Figure and shadow move together. He sits left of centre
                          so the river behind him stays unblocked; on a frame too
                          narrow to keep that spot in shot, style.css moves and
@@ -96,23 +100,24 @@
                         <!-- without this he reads as pasted on rather than
                              standing; flat lit stone needs a frank pool of it,
                              and at this size it is most of what grounds him -->
-                        <ellipse cx="430.0" cy="629.4" rx="153.97" ry="35.99" fill="#2a1d0f" opacity="0.5" filter="url(#heroContactShadow)"/>
+                        <ellipse cx="430.0" cy="637.48" rx="172.45" ry="40.31" fill="#2a1d0f" opacity="0.5" filter="url(#heroContactShadow)"/>
                         <!-- The box is the file's own 912x1724 proportions, so
                              nothing is letterboxed — get this wrong and `meet`
                              silently shrinks him to fit the narrower side.
 
                              He carries transparent padding, so the box is not
-                             the man: of its 511.88 height the body is 500, and
-                             of its 270.78 width the body is 162, sitting left
+                             the man: of its 573.17 height the body is 560, and
+                             of its 303.21 width the body is 182, sitting left
                              of the box's centre. The numbers below put that
-                             body 500 tall with its feet on the paving at
-                             y=620 and its middle at x=430. -->
-                        <image class="heroPerson" href="assets/img/hero/person.png" x="307.7" y="110.12" width="270.72" height="511.76" preserveAspectRatio="xMidYMax meet"/>
+                             body 560 tall with its feet on the paving at
+                             y=627 and its middle at x=430. Those units buy
+                             less than they used to: with the layer flush to
+                             the frame rather than hanging below it, the whole
+                             768 is on screen instead of 686 of it. -->
+                        <image class="heroPerson" href="assets/img/hero/person.png" x="293.02" y="55.89" width="303.21" height="573.17" preserveAspectRatio="xMidYMax meet"/>
                     </g>
                 </svg>
             </div>
-
-            <div class="heroFade"></div>
 
             <div class="heroScrollCue" aria-hidden="true">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">

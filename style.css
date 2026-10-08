@@ -1409,10 +1409,18 @@ a:hover {
     /* body is a column flex container: without this the hero is a shrinkable
        item and its height is only a suggestion. */
     flex: 0 0 auto;
-    height: 100vh;
+    /* The hero is taller than the screen by this much. The wall is anchored to
+       the hero's bottom edge, so that edge is what the overscroll holds just
+       out of sight: on load you get less wall and more valley, and the scroll
+       that brings the last brick into view is the same scroll that brings the
+       page up behind it. Making the hero taller rather than moving the wall is
+       the point — the bricks never shift against the edge they have to meet,
+       because nothing moves at all. */
+    --hero-overscroll: 10svh;
+    height: 110vh;
     /* svh = the viewport with the mobile browser's bars showing, so the hero
        fills the screen without the bottom being hidden under them. */
-    height: 100svh;
+    height: calc(100svh + var(--hero-overscroll));
     min-height: 440px;
     overflow: hidden;
     /* keeps the layer stacking to itself, and clips the overscan below */
@@ -1439,19 +1447,12 @@ a:hover {
 /* A layer needs image outside the frame only on the side it travels toward,
    and only as much as |depth| x the hero's height. The scenery's depth is
    positive — it lags behind the page, which can never uncover its top edge —
-   so it needs none and sits flush in the frame. */
+   so it needs none and sits flush in the frame. The wall does not travel at
+   all, so it needs none either: both layers are the plain inset: 0 above, and
+   the wall's last brick is therefore the hero's last pixel. */
 #heroScenery {
     /* takes the warm painting a step towards the site's colder, darker page */
     filter: saturate(0.94) brightness(0.92);
-}
-
-/* The wall outruns the page by 0.06 of the hero's height, so it must hang
-   at least that far below the frame or it lifts off the bottom edge and the
-   scenery shows underneath. 12% is double what it needs — it also drops the
-   lower part of the terrace's front face below the fold, so the near edge is
-   something the floor runs over rather than a line it stops at. */
-#heroWall {
-    bottom: -12%;
 }
 
 /* The figure is lit flat while the scene is backlit by a low sun. Pushing him
@@ -1472,7 +1473,9 @@ a:hover {
     position: absolute;
     left: 0;
     right: 0;
-    top: 34%;
+    /* svh, not %, so the wordmark keeps its place on the screen rather than
+       sliding down with the hero's extra height. */
+    top: 34svh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1506,22 +1509,12 @@ a:hover {
     text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
 }
 
-/* Bottom edge dissolves into the page so the hero and the intro read as
-   one surface instead of a photo pasted on top of the site. */
-.heroFade {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 22%;
-    pointer-events: none;
-    background: linear-gradient(180deg, rgba(5, 9, 9, 0) 0%, rgba(5, 9, 9, 0.75) 55%, var(--panel-bg) 100%);
-}
-
 .heroScrollCue {
     position: absolute;
     left: 50%;
-    bottom: 26px;
+    /* measured from the fold rather than the hero's real bottom, which the
+       overscroll has pushed off the screen */
+    bottom: calc(var(--hero-overscroll) + 26px);
     transform: translateX(-50%);
     color: var(--main-color);
     opacity: calc(1 - var(--hero-progress) * 2.5);
@@ -1549,9 +1542,11 @@ a:hover {
    of a phone screen — at full size he stands in front of the wordmark.
 
    So on narrow screens he moves to x=640, well inside the strip of painting
-   that survives the crop, and shrinks to 62%, which drops the top of his head
+   that survives the crop, and shrinks to 50%, which drops the top of his head
    clear of the subtitle. The origin is the point his feet are on, so the scale
    pivots there and he stays planted on the paving instead of sinking into it.
+   50 rather than the 62 this wanted while the layer still hung below the frame:
+   flush, the paving sits higher in shot, so the same man reaches further up it.
 
    The units are the svg's own, not pixels: transform-box: view-box is the
    initial value in current browsers, but older ones resolve it against the
@@ -1566,8 +1561,8 @@ a:hover {
 @media (max-aspect-ratio: 11/10), (max-width: 540px) {
     .heroFigure {
         transform-box: view-box;
-        transform-origin: 430px 620px;
-        transform: translateX(210px) scale(0.62);
+        transform-origin: 430px 627px;
+        transform: translateX(210px) scale(0.5);
     }
 }
 
