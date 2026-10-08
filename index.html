@@ -7,8 +7,8 @@
         <!-- The hero is the first thing on screen, and images referenced from
              inside an <svg> are not discovered by the preload scanner — the
              browser only finds them once the stylesheet is done. -->
-        <link rel="preload" as="image" href="assets/img/hero/vista.png">
-        <link rel="preload" as="image" href="assets/img/hero/plateau.png">
+        <link rel="preload" as="image" href="assets/img/hero/scenery.png">
+        <link rel="preload" as="image" href="assets/img/hero/wall.png">
         <script src="assets/classium.js"></script>
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <link rel="manifest" href="config/manifest.json">
@@ -54,9 +54,9 @@
         <section id="hero">
             <!-- Far: the painting, whole. Everything in it is at a distance,
                  so it moves as one piece and simply lags behind the scroll. -->
-            <div class="heroLayer" id="heroVista" data-depth="0.5">
-                <svg viewBox="0 0 1672 941" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                    <image href="assets/img/hero/vista.png" x="0" y="0" width="1672" height="941" preserveAspectRatio="xMidYMid slice"/>
+            <div class="heroLayer" id="heroScenery" data-depth="0.5">
+                <svg viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                    <image href="assets/img/hero/scenery.png" x="0" y="0" width="1376" height="768" preserveAspectRatio="xMidYMid slice"/>
                 </svg>
             </div>
 
@@ -70,23 +70,45 @@
                 <p class="heroSub m-0">Front-End Developer</p>
             </div>
 
-            <!-- Near: the plateau and whoever is standing on it, in one layer
+            <!-- Near: the terrace and whoever is standing on it, in one layer
                  so they can never drift apart. The figure's x/y/width/height
-                 below are plateau-image pixels — moving him is editing those. -->
-            <div class="heroLayer" id="heroPlateau" data-depth="-0.06">
-                <svg viewBox="0 0 1672 941" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+                 below are scenery-frame pixels — moving him is editing those.
+
+                 The wall art is a 1376x387 strip, already the frame's own
+                 width, so it is laid along the bottom edge rather than being a
+                 full-frame plate like the scenery. Its top edge, y=381, is the
+                 horizon the figure stands in front of, and its last 121 rows
+                 are the terrace's front face rather than paving — so the ground
+                 he can actually stand on runs out at y=647, not at 768. -->
+            <div class="heroLayer" id="heroWall" data-depth="-0.06">
+                <svg viewBox="0 0 1376 768" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
                     <defs>
                         <filter id="heroContactShadow" x="-60%" y="-200%" width="220%" height="500%">
                             <feGaussianBlur stdDeviation="10"/>
                         </filter>
                     </defs>
-                    <image href="assets/img/hero/plateau.png" x="0" y="0" width="1672" height="941" preserveAspectRatio="xMidYMax meet"/>
-                    <!-- without this he reads as pasted on rather than standing -->
-                    <ellipse cx="610" cy="796" rx="52" ry="11" fill="#2e1c06" opacity="0.45" filter="url(#heroContactShadow)"/>
-                    <!-- Box matches the file's 205x538 proportions, so nothing
-                         is letterboxed; YMax keeps his feet on the ground line
-                         at y=795 if you change his height. -->
-                    <image class="heroPerson" href="assets/img/hero/person.png" x="576" y="614" width="69" height="181" preserveAspectRatio="xMidYMax meet"/>
+                    <image href="assets/img/hero/wall.png" x="0" y="381.0" width="1376" height="387.0" preserveAspectRatio="none"/>
+                    <!-- Figure and shadow move together. He sits left of centre
+                         so the river behind him stays unblocked; on a frame too
+                         narrow to keep that spot in shot, style.css moves and
+                         shrinks this whole group rather than either part. -->
+                    <g class="heroFigure">
+                        <!-- without this he reads as pasted on rather than
+                             standing; flat lit stone needs a frank pool of it,
+                             and at this size it is most of what grounds him -->
+                        <ellipse cx="430.0" cy="629.4" rx="153.97" ry="35.99" fill="#2a1d0f" opacity="0.5" filter="url(#heroContactShadow)"/>
+                        <!-- The box is the file's own 912x1724 proportions, so
+                             nothing is letterboxed — get this wrong and `meet`
+                             silently shrinks him to fit the narrower side.
+
+                             He carries transparent padding, so the box is not
+                             the man: of its 511.88 height the body is 500, and
+                             of its 270.78 width the body is 162, sitting left
+                             of the box's centre. The numbers below put that
+                             body 500 tall with its feet on the paving at
+                             y=620 and its middle at x=430. -->
+                        <image class="heroPerson" href="assets/img/hero/person.png" x="307.7" y="110.12" width="270.72" height="511.76" preserveAspectRatio="xMidYMax meet"/>
+                    </g>
                 </svg>
             </div>
 

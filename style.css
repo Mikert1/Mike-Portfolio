@@ -1399,7 +1399,7 @@ a:hover {
     scrollbar-color: rgba(68, 68, 68, 0.8) rgba(44, 44, 44, 0.5);
 }
 /* ---------------------------------------------------------------- */
-/* Hero — the painting, with the plateau in front of it.             */
+/* Hero — the painting, with the terrace wall in front of it.        */
 /* script.js moves the layers; it only cares about data-depth.        */
 /* ---------------------------------------------------------------- */
 
@@ -1437,24 +1437,26 @@ a:hover {
 }
 
 /* A layer needs image outside the frame only on the side it travels toward,
-   and only as much as |depth| x the hero's height. The vista's depth is
+   and only as much as |depth| x the hero's height. The scenery's depth is
    positive — it lags behind the page, which can never uncover its top edge —
    so it needs none and sits flush in the frame. */
-#heroVista {
+#heroScenery {
     /* takes the warm painting a step towards the site's colder, darker page */
     filter: saturate(0.94) brightness(0.92);
 }
 
-/* The plateau outruns the page by 0.06 of the hero's height, so it must hang
+/* The wall outruns the page by 0.06 of the hero's height, so it must hang
    at least that far below the frame or it lifts off the bottom edge and the
-   vista shows underneath. 12% is double what it needs. */
-#heroPlateau {
+   scenery shows underneath. 12% is double what it needs — it also drops the
+   lower part of the terrace's front face below the fold, so the near edge is
+   something the floor runs over rather than a line it stops at. */
+#heroWall {
     bottom: -12%;
 }
 
 /* The figure is lit flat while the scene is backlit by a low sun. Pushing him
    down towards silhouette is what makes him belong in the picture — raise the
-   brightness if he gets too dark to read against the grass. */
+   brightness if he gets too dark to read against the valley. */
 .heroPerson {
     filter: brightness(0.62) saturate(0.72) contrast(1.05);
 }
@@ -1538,6 +1540,34 @@ a:hover {
 
     .heroTitle {
         font-size: 3.4em;
+    }
+}
+
+/* A narrow frame costs the figure twice. The layer is scaled to cover, so the
+   artwork is cropped inwards from both sides until he walks off the left edge;
+   and the same scaling is driven by height there, which blows him up to most
+   of a phone screen — at full size he stands in front of the wordmark.
+
+   So on narrow screens he moves to x=640, well inside the strip of painting
+   that survives the crop, and shrinks to 62%, which drops the top of his head
+   clear of the subtitle. The origin is the point his feet are on, so the scale
+   pivots there and he stays planted on the paving instead of sinking into it.
+
+   The units are the svg's own, not pixels: transform-box: view-box is the
+   initial value in current browsers, but older ones resolve it against the
+   element's bounding box, where neither number means anything.
+
+   The trigger is the frame's shape, not its width, because that is what drives
+   the crop: the layer is scaled by height, so the painting loses width until
+   he is cut off, and the arithmetic says that starts at a frame narrower than
+   0.99 of its height. 11/10 leaves a margin. The width clause is only there
+   for a window too short for min-height, where the hero is taller than the
+   viewport and the ratio above no longer describes it. */
+@media (max-aspect-ratio: 11/10), (max-width: 540px) {
+    .heroFigure {
+        transform-box: view-box;
+        transform-origin: 430px 620px;
+        transform: translateX(210px) scale(0.62);
     }
 }
 
