@@ -7,6 +7,20 @@
     --card-border: #1a2427;
     --frame-dim: #131619;
     --text-muted: #93b0b0;
+
+    /* The hero's two measurements live here rather than on #hero because the
+       page background has to agree with them: the wall carries on below the
+       hero, and it can only line up if it knows where the hero ends and how
+       wide its artwork was drawn. */
+    --hero-overscroll: 10svh;
+    --hero-height: calc(100svh + var(--hero-overscroll));
+    /* The wall layer's svg is 1376x768 and covers the hero, so its artwork is
+       drawn max(hero width, hero height x 1376/768) across — wider than the
+       screen on anything narrower than about 2:1, with the overflow cropped
+       evenly off both sides. The page wall has to be drawn to that same width,
+       and centred the same way, or its bricks come out a different size from
+       the ones directly above them. */
+    --wall-width: max(100%, calc(var(--hero-height) * 1.7916667));
 }
 
 html {
@@ -25,6 +39,19 @@ html {
 body,
 .background {
     background-image: url('assets/textures/background.png');
+}
+
+/* Two layers: the grain above, and under it the terrace's front face carrying
+   on down the page from the hero's last brick. The wall tiles downwards from
+   the hero's bottom edge, so the first course below the fold starts where the
+   hero stops rather than wherever the tiling happened to land. It tiles
+   upwards too, behind the hero, where the hero's own layers cover it. */
+body {
+    background-image: url('assets/textures/background.png'),
+                      url('assets/textures/wallface.png');
+    background-repeat: repeat, repeat-y;
+    background-position: 0 0, center var(--hero-height);
+    background-size: auto, var(--wall-width) auto;
 }
 
 /* Sections the navbar links to: keep the heading clear of the top edge
@@ -1409,18 +1436,17 @@ a:hover {
     /* body is a column flex container: without this the hero is a shrinkable
        item and its height is only a suggestion. */
     flex: 0 0 auto;
-    /* The hero is taller than the screen by this much. The wall is anchored to
-       the hero's bottom edge, so that edge is what the overscroll holds just
-       out of sight: on load you get less wall and more valley, and the scroll
-       that brings the last brick into view is the same scroll that brings the
-       page up behind it. Making the hero taller rather than moving the wall is
-       the point — the bricks never shift against the edge they have to meet,
-       because nothing moves at all. */
-    --hero-overscroll: 10svh;
+    /* The hero is taller than the screen by --hero-overscroll. The wall is
+       anchored to the hero's bottom edge, so that edge is what the overscroll
+       holds just out of sight: on load you get less wall and more valley, and
+       the scroll that brings the last brick into view is the same scroll that
+       brings the page up behind it. Making the hero taller rather than moving
+       the wall is the point — the bricks never shift against the edge they
+       have to meet, because nothing moves at all. */
     height: 110vh;
     /* svh = the viewport with the mobile browser's bars showing, so the hero
        fills the screen without the bottom being hidden under them. */
-    height: calc(100svh + var(--hero-overscroll));
+    height: var(--hero-height);
     min-height: 440px;
     overflow: hidden;
     /* keeps the layer stacking to itself, and clips the overscan below */
