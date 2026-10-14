@@ -460,25 +460,19 @@ embed {
     gap: 10px;
 }
 
+/* Both columns are stretched to the row's height, and both centre their own
+   contents inside it, so the heading sits on the same line as the middle of
+   the photo however tall either of them turns out to be. */
 #profile .left {
     display: flex;
     width: 70%;
     flex-direction: column;
+    justify-content: center;
     gap: 10px;
-}
-
-#profile .left .name {
-    font-size: 3.2em;
 }
 
 #profile .left h2 {
     font-size: 6em;
-}
-
-#profile .left p {
-    font-size: 1.3em;
-    width: 50%;
-    color: rgb(156, 156, 156);
 }
 
 #profile .right {
@@ -1126,12 +1120,71 @@ a:hover {
     display: flex;
 }
 
+/* Cut into the stone rather than written on it. The letter is the groove, so
+   it takes the wall's own colour knocked down into shadow, and the three shadows
+   are the three things a real cut does to the light coming from above: the
+   upper lip throws a hard line back into the groove, the lower lip catches the
+   light and goes bright, and the cut as a whole sits in its own soft shade.
+
+   That lower lip is what carries the reading — a groove this dark on stone
+   this dark has little contrast of its own, and the letterform is held by its
+   edge rather than its fill, which is also true of the real thing. Its colour
+   is the wall's own: the brightest stone on the surface here is #675943, and
+   the lip is a step up from that rather than a sand or cream, because light
+   falling on brick returns brick. Lit at a tone the wall cannot produce, it
+   stops being a cut face and starts being paint.
+
+   Offsets are in em, so the cut keeps its depth rather than going shallow when
+   the heading shrinks at the breakpoints below. */
 .functionTitle {
-    background: linear-gradient(60deg, #0000ff 0%, #00ffff 100%);
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
+    /* Transparent black, not a flat brown: the groove is the same stone as the
+       wall with less light reaching the bottom of it, and alpha over black is
+       exactly that — the wall multiplied down. So the cut carries the course
+       lines and the mortar through it, darker where it crosses a joint and
+       warmer where it crosses a brick, instead of lying over them at one
+       colour. Toward the background this would lighten the groove and read as
+       see-through text; toward black it can only ever darken, which is why it
+       still reads as a cut. */
+    color: rgba(0, 0, 0, 0.58);
+    text-shadow:
+        /* Offset by less than two pixels, this covers nearly all of the letter
+           rather than just the band above it, so its alpha multiplies the wall
+           everywhere the fill does. The two together have to land near a third
+           of the wall's brightness; darker than that and the cut goes black and
+           takes the texture with it. That is the whole trade — this line cannot
+           be opaque and the groove see the wall at the same time. */
+        0 -0.018em 0 rgba(0, 0, 0, 0.5),
+        /* The one layer that is not a darkening, so it is the one that has to
+           be built the other way round: a thin warm tint at low alpha rather
+           than a stone colour at high alpha. At 0.7 of a solid tan this was 70%
+           paint and 30% wall, and it sat on the texture instead of reacting to
+           it — the only part of the cut that stayed the same tone over a brick
+           and over a joint. Light on stone returns the stone, brighter, so the
+           lip lifts what is behind it and keeps two thirds of the wall. */
+        0 0.03em 0.004em rgba(255, 228, 180, 0.33),
+        /* Pushed clear of the letter rather than sitting under it. With an
+           opaque fill it made no difference where this sat, because only the
+           part outside the glyph ever showed; with a fill that multiplies, any
+           of it left underneath gets multiplied a second time and the cut goes
+           to near black with no wall left in it. */
+        0 0.1em 0.055em rgba(0, 0, 0, 0.42);
     flex-shrink: 1;
+
+    /* Kills the red/green/blue fringing on the letter edges. Windows draws
+       text with subpixel antialiasing, which lights the three stripes inside
+       one physical pixel by different amounts — at body-text size that reads
+       as a crisper edge, but on a face this big, this dark and this close in
+       tone to the wall it reads as colour. This heading never showed it before
+       because it was painted as a clipped background rather than as a colour,
+       and that path only ever gets plain grey antialiasing.
+
+       Promoting it to its own layer puts it back on that path: the text no
+       longer has a known opaque backdrop to tune the subpixels against, so the
+       browser falls back to grey. The two font-smoothing lines do the same job
+       on platforms that take the hint directly and ignore the transform. */
+    transform: translateZ(0);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .projects-image {
@@ -1246,14 +1299,8 @@ a:hover {
 
 
 @media (max-width: 1500px) {
-    #profile .left .name {
-        font-size: 2.1em;
-    }
     #profile .left h2 {
         font-size: 4em;
-    }
-    #profile .left p {
-        font-size: 1em;
     }
 }
     
@@ -1273,15 +1320,8 @@ a:hover {
         align-items: center;
         gap: 10px;
     }
-    #profile .left .name {
-        font-size: 1.4em;
-    }
     #profile .left h2 {
         font-size: 3em;
-    }
-    #profile .left p {
-        font-size: 0.8em;
-        width: 70%;
     }
     #profile .right {
         display: flex;
@@ -1317,15 +1357,8 @@ a:hover {
 
 @media (max-width: 500px) {
 
-    #profile .left .name {
-        font-size: 1.2em;
-    }
     #profile .left h2 {
         font-size: 2em;
-    }
-    #profile .left p {
-        font-size: 0.8em;
-        width: 90%;
     }
     .profileRing {
         --ring: min(290px, 82vw);
