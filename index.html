@@ -26,6 +26,24 @@
         </script>
     </head>
     <body>
+    <!-- The wall carrying on down the page from the hero's last course.
+
+         An element rather than a background on the body, because it has to
+         grow with the terrace above it and growing a tiled background means
+         re-tiling it: both the tile size and its centred position snap to
+         whole pixels, so the bricks step in size and shuffle sideways while
+         the terrace glides past them at sub-pixel precision. Scaled by a
+         transform it is the same operation the terrace uses, driven by the
+         same number and rasterised the same way - which is also why the two
+         now match in sharpness as well as in size.
+
+         data-depth="0" means it does not move against the page; the dolly is
+         the terrace's, so script.js hands it the identical scale. The wrapper
+         exists only to clip what that scale pushes past the edges. -->
+    <div id="pageWallClip" aria-hidden="true">
+        <div id="pageWall" data-depth="0" data-dolly="0.6"></div>
+    </div>
+
         <!-- The homepage opens on the hero alone, so the bar is lifted out of
              the flow and off the top edge. script.js drops it back in once the
              hero is scrolled past. Only this page wraps the navbar this way —
@@ -68,7 +86,7 @@
                  wordmark, and later the navbar, something to sit on. -->
             <div class="heroScrim"></div>
 
-            <div class="heroContent" data-depth="0.62">
+            <div class="heroContent" data-depth="0.62" data-fade="1.6">
                 <p class="heroKicker m-0">Portfolio</p>
                 <h1 class="heroTitle berylium m-0">Mike Balvert</h1>
                 <p class="heroSub m-0">Front-End Developer</p>
@@ -89,7 +107,7 @@
                  below the fold: the real floor he has at a standstill is y=632
                  to y=698, and his feet are placed inside that, not inside the
                  768. -->
-            <div class="heroLayer" id="heroWall" data-depth="0" data-dolly="0.6" data-dolly-shares="--wall-zoom">
+            <div class="heroLayer" id="heroWall" data-depth="0" data-dolly="0.6">
                 <svg viewBox="0 0 1376 768" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
                     <defs>
                         <filter id="heroContactShadow" x="-60%" y="-200%" width="220%" height="500%">
@@ -129,7 +147,7 @@
                 </svg>
             </div>
 
-            <div class="heroScrollCue" aria-hidden="true">
+            <div class="heroScrollCue" aria-hidden="true" data-fade="2.5">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
                 </svg>
@@ -143,7 +161,16 @@
                         <!-- The name is cut into the wall in the hero; saying it
                              again here only competes with it. -->
                         <div class="functionTitleDiv">
-                            <h2 class="m-0 mt-6px functionTitle berylium">Full Stack Developer</h2>
+                            <!-- The storm is built into this span by script.js: bolts
+                                 from letter to letter, and now and then one that leaves
+                                 the words for the wall. Nothing is written here because
+                                 none of it is the same twice.
+
+                                 Inside the h2 so the letters can be measured in its own
+                                 coordinates, and so the bolts land behind the white of
+                                 the text rather than over it. -->
+                            <h2 class="m-0 mt-6px functionTitle berylium">Full Stack Developer<span
+                                    class="functionTitleStorm" aria-hidden="true"></span></h2>
                         </div>
                     </div>
                 </div>
@@ -420,5 +447,6 @@
         <p class="m-0 gray2 ml-10% mr-10% ml-0px_500 mr-0px_500">But here I display what I am using now.</p>
         <object data="objects/programs.html" id="programs-object"></object>
         <div id="footer"></div>
-    </body>
+    
+</body>
 </html>

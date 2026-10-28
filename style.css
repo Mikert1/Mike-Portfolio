@@ -21,12 +21,6 @@
        and centred the same way, or its bricks come out a different size from
        the ones directly above them. */
     --wall-width: max(100%, calc(var(--hero-height) * 1.7916667));
-    /* script.js drives this from the hero's near layer while the camera is
-       moving, so the wall below the hero is drawn at whatever size the terrace
-       above it currently is. Without it the join is only honest at rest, and
-       the camera could not still be moving when it came into view. 1 is both
-       the resting value and what a visitor who asked for less movement gets. */
-    --wall-zoom: 1;
 }
 
 html {
@@ -47,26 +41,80 @@ body,
     background-image: url('assets/textures/background.png');
 }
 
-/* Two layers: the grain above, and under it the wall carrying on down the page
-   from the hero's last course. It tiles downwards from the hero's bottom edge,
-   so the first course below the fold starts where the hero stops rather than
-   wherever the tiling happened to land. It tiles upwards too, behind the hero,
-   where the hero's own layers cover it.
-
-   Tiling from that edge is also what lets --wall-zoom work: the first course
-   hangs off the join, so growing the tile grows it downwards from the same line
-   the terrace above grows upwards from, and the two stay the same size as each
-   other through the whole camera move.
+/* The wall below the hero used to be a second background layer on the body,
+   sized by a custom property the scroll handler drove. It had to stop being
+   one: a background grows by being re-tiled, and a tile snaps to whole pixels
+   in both its size and its centred position, so through the whole camera move
+   the courses below the join stepped and shuffled against the ones above,
+   which were being scaled by a transform and so moving smoothly. It is an
+   element now — see #pageWall — and the body is left carrying only the grain.
 
    Nothing is painted at the join. A shadow there reads as the course above
    oversailing the wall, which is only right if the artwork is drawn that way —
    on a face this flush it just looks like one stone sticking out. */
 body {
-    background-image: url('assets/textures/background.png'),
-                      url('assets/textures/wallface.png');
-    background-repeat: repeat, repeat-y;
-    background-position: 0 0, center var(--hero-height);
-    background-size: auto, calc(var(--wall-width) * var(--wall-zoom)) auto;
+    /* Containing block for #pageWallClip, which has to span the document
+       rather than the viewport. Safe: everything absolutely positioned on the
+       page already sits inside a positioned parent of its own.
+
+       z-index pins a stacking context here, and that is the load-bearing
+       half: it is what lets #pageWallClip sit at -1 and still be seen. With
+       no context of its own the body's children belong to the root's, where
+       everything negative is painted before any block background — including
+       the body's — so the wall would be buried and nothing below the hero
+       would show at all. Inside the body's own context the order comes out
+       right: body background, then the wall, then the page. Nothing else
+       moves, because every z-index on the page is already inside the body. */
+    position: relative;
+    z-index: 0;
+}
+
+/* Spans the page from the hero's bottom edge down, and clips. Scaling about
+   the join throws the wall wider than the screen and further down than the
+   page; without the clip both would become scrollable overflow and the
+   scrollbar would breathe in and out with the camera. */
+#pageWallClip {
+    position: absolute;
+    top: var(--hero-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: clip;
+    /* Behind the page's content, in front of the body's own background. */
+    z-index: -1;
+    pointer-events: none;
+}
+
+#pageWall {
+    position: absolute;
+    inset: 0;
+    background-image: url('assets/textures/wallface.png');
+    background-repeat: repeat-y;
+    /* Centred and drawn to the same width as the hero's artwork, so the
+       courses line up with the ones directly above them. Fixed, now: the
+       growing is the transform's job. */
+    background-position: center top;
+    background-size: var(--wall-width) auto;
+    /* The join. The terrace above scales about its bottom edge, this scales
+       about its top edge, and those are the same line. */
+    transform-origin: 50% 0;
+    /* Deliberately not promoted, unlike .heroLayer. Promoting it would hand
+       the compositor a layer the size of the whole page — about twenty
+       megabytes of texture — to save a repaint that measured a quarter of a
+       millisecond, and a measurement of the rendered sharpness either way
+       came out the same. Left alone, the browser rasterises the wall at the
+       size it is actually being shown at, every frame, which is both sharp
+       and cheap. */
+}
+
+/* The grain, back on top of the wall where it was when the two were layers of
+   one background. Not scaled — it is film on the lens, not on the wall. */
+#pageWallClip::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('assets/textures/background.png');
+    pointer-events: none;
 }
 
 /* Sections the navbar links to: keep the heading clear of the top edge
@@ -1131,75 +1179,223 @@ a:hover {
     font-size: 0.8em;
 }
 
+/* ---------------------------------------------------------------------- */
+/*  The title as a light rather than a surface.                             */
+/*                                                                          */
+/*  The carve this replaces depended on the wall being pale enough to show  */
+/*  a shadow in it. On the stone that is there now it had nothing to cut    */
+/*  into, so the job stopped being to mark the wall and became to light it. */
+/*                                                                          */
+/*  Four things have to be true at once or a discharge reads as a sticker:  */
+/*                                                                          */
+/*   1. the core is white, not blue. A light bright enough to be coloured   */
+/*      at its edges is clipping to white at its centre, and skipping that  */
+/*      is the single thing that makes glowing text look cheap.             */
+/*   2. the colour arrives on the way out — white, pale cyan, cyan, azure,  */
+/*      deep blue — because that is what a bright source does as it falls   */
+/*      off, each step wider and weaker than the last.                      */
+/*   3. the wall is lit by it. A glow that leaves its surroundings dark is  */
+/*      a decal; the pool below puts the light back onto the brick.         */
+/*   4. it is not steady. Nothing carrying this much energy is.             */
+/*                                                                          */
+/*  ---------------------------------------------------------------------  */
+/*                                                                          */
+/*  What changed, and why there is nothing expensive left in here.          */
+/*                                                                          */
+/*  The first version of (4) asked the browser to invent the shape of the   */
+/*  light: ten SVG filters, each generating a noise field, eroding a ring    */
+/*  out of the glyphs and warping it along that noise. It looked right and  */
+/*  it cost the page its scroll. feTurbulence, feDisplacementMap and        */
+/*  feMorphology have no GPU form, so Firefox said so in as many words —    */
+/*  "filter chain is too complex for WebRender" — and dropped the whole      */
+/*  title onto the software rasteriser, where it stayed.                    */
+/*                                                                          */
+/*  The mistake was not the number of filters. It was asking for the shape  */
+/*  to be computed at all. Nothing about it changes between frames: the      */
+/*  noise is seeded, the erosion is fixed, the warp is fixed. The same      */
+/*  answer was being recomputed sixty times a second.                       */
+/*                                                                          */
+/*  So it is computed once now, offline, and shipped as three drawings —    */
+/*  plain stroked polylines, no filter anywhere in them, their glow drawn    */
+/*  as nine concentric strokes rather than blurred. The browser's whole job  */
+/*  is to hold three static images and change their opacity.                */
+/*                                                                          */
+/*  Which leaves, per frame: no filter passes, no repaints, three texture   */
+/*  blends. Opacity on a promoted layer is the one thing a compositor does  */
+/*  without troubling the main thread at all, so the cost of the flicker    */
+/*  no longer depends on how fast it flickers, or on how many bolts are in  */
+/*  the drawing — a hundred of them cost exactly what one costs.            */
+/* ---------------------------------------------------------------------- */
+
 .functionTitleDiv {
     display: flex;
+    position: relative;
 }
 
-/* Cut into the stone rather than written on it. The letter is the groove, so
-   it takes the wall's own colour knocked down into shadow, and the three shadows
-   are the three things a real cut does to the light coming from above: the
-   upper lip throws a hard line back into the groove, the lower lip catches the
-   light and goes bright, and the cut as a whole sits in its own soft shade.
+/* The light the text throws onto the stone. Far wider than the letterforms
+   because a source this bright does not stop at them.
 
-   That lower lip is what carries the reading — a groove this dark on stone
-   this dark has little contrast of its own, and the letterform is held by its
-   edge rather than its fill, which is also true of the real thing. Its colour
-   is the wall's own: the brightest stone on the surface here is #675943, and
-   the lip is a step up from that rather than a sand or cream, because light
-   falling on brick returns brick. Lit at a tone the wall cannot produce, it
-   stops being a cut face and starts being paint.
+   It used to be composited with mix-blend-mode: screen, which keeps the
+   brick's own contrast perfectly and costs the compositor a read of whatever
+   is behind it on every frame it changes — and this one changes, because it
+   breathes. Plain alpha at this strength leaves the courses and the mortar
+   clearly visible anyway: at 0.26 the texture keeps three quarters of its
+   contrast, which is a difference you have to go looking for, against a
+   backdrop read it now never has to do. */
+.functionTitleDiv::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 128%;
+    height: 240%;
+    transform: translate(-50%, -50%);
+    background:
+        radial-gradient(58% 50% at 50% 50%,
+            rgba(150, 235, 255, 0.30) 0%,
+            rgba(60, 170, 255, 0.17) 28%,
+            rgba(28, 96, 230, 0.06) 55%,
+            rgba(10, 40, 160, 0) 76%);
+    pointer-events: none;
+    z-index: 0;
+    will-change: opacity;
+    animation: titleLightBreathe 5.5s ease-in-out infinite;
+}
 
-   Offsets are in em, so the cut keeps its depth rather than going shallow when
-   the heading shrinks at the breakpoints below. */
 .functionTitle {
-    /* Transparent black, not a flat brown: the groove is the same stone as the
-       wall with less light reaching the bottom of it, and alpha over black is
-       exactly that — the wall multiplied down. So the cut carries the course
-       lines and the mortar through it, darker where it crosses a joint and
-       warmer where it crosses a brick, instead of lying over them at one
-       colour. Toward the background this would lighten the groove and read as
-       see-through text; toward black it can only ever darken, which is why it
-       still reads as a cut. */
-    color: rgba(0, 0, 0, 0.58);
-    text-shadow:
-        /* Offset by less than two pixels, this covers nearly all of the letter
-           rather than just the band above it, so its alpha multiplies the wall
-           everywhere the fill does. The two together have to land near a third
-           of the wall's brightness; darker than that and the cut goes black and
-           takes the texture with it. That is the whole trade — this line cannot
-           be opaque and the groove see the wall at the same time. */
-        0 -0.018em 0 rgba(0, 0, 0, 0.5),
-        /* The one layer that is not a darkening, so it is the one that has to
-           be built the other way round: a thin warm tint at low alpha rather
-           than a stone colour at high alpha. At 0.7 of a solid tan this was 70%
-           paint and 30% wall, and it sat on the texture instead of reacting to
-           it — the only part of the cut that stayed the same tone over a brick
-           and over a joint. Light on stone returns the stone, brighter, so the
-           lip lifts what is behind it and keeps two thirds of the wall. */
-        0 0.03em 0.004em rgba(255, 228, 180, 0.33),
-        /* Pushed clear of the letter rather than sitting under it. With an
-           opaque fill it made no difference where this sat, because only the
-           part outside the glyph ever showed; with a fill that multiplies, any
-           of it left underneath gets multiplied a second time and the cut goes
-           to near black with no wall left in it. */
-        0 0.1em 0.055em rgba(0, 0, 0, 0.42);
+    position: relative;
+    z-index: 1;
     flex-shrink: 1;
 
-    /* Kills the red/green/blue fringing on the letter edges. Windows draws
-       text with subpixel antialiasing, which lights the three stripes inside
-       one physical pixel by different amounts — at body-text size that reads
-       as a crisper edge, but on a face this big, this dark and this close in
-       tone to the wall it reads as colour. This heading never showed it before
-       because it was painted as a clipped background rather than as a colour,
-       and that path only ever gets plain grey antialiasing.
+    /* Clipped to white at the centre, with every step out both wider and
+       weaker. The em units keep the falloff proportional to the letterforms
+       when the heading shrinks at the breakpoints below — a glow measured in
+       pixels turns into a halo on a small screen.
 
-       Promoting it to its own layer puts it back on that path: the text no
-       longer has a known opaque backdrop to tune the subpixels against, so the
-       browser falls back to grey. The two font-smoothing lines do the same job
-       on platforms that take the hint directly and ignore the transform. */
+       Six steps, and the last one stops at 0.85em, because blurring costs the
+       area of the blur and so goes as the square of its radius: a 2em step is
+       sixteen times the work of the 0.5em one. Those outermost steps were
+       together nineteen twentieths of the cost of the whole set while being
+       the ones nobody can point to, and the pool above covers that distance
+       anyway — a gradient, which costs a fill rather than a blur.
+
+       All six are paid once. Nothing animates the text, nothing invalidates
+       it, and it sits in a layer of its own, so this chain is blurred at
+       first paint and then never again. It was not always so: the torn copies
+       that used to hang off this element inherited the whole chain without
+       asking for it — text-shadow inherits — and blurred it again on every
+       flicker, which is how one heading came to be half the main thread. */
+    color: #ffffff;
+    text-shadow:
+        0 0 0.02em  rgba(255, 255, 255, 1),
+        0 0 0.055em rgba(236, 251, 255, 0.98),
+        0 0 0.12em  rgba(176, 236, 255, 0.92),
+        0 0 0.26em  rgba(86, 200, 255, 0.78),
+        0 0 0.5em   rgba(32, 136, 255, 0.58),
+        0 0 0.85em  rgba(14, 66, 216, 0.50);
+
+    /* Its own layer: the three sheets below are composited against it every
+       frame, and this also keeps Windows from putting subpixel colour on the
+       letter edges, which fights the blue. */
     transform: translateZ(0);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------------------------------------------------------------------- */
+/*  The storm.                                                              */
+/*                                                                          */
+/*  Everything that moves here is built by script.js and there is a long    */
+/*  note there about why. The short of it: the bolts are generated in the   */
+/*  page, a few times a second, and never touched again once drawn. What is */
+/*  left for the stylesheet is the stage they appear on and the two shapes  */
+/*  the wall makes when one of them lands on it.                            */
+/*                                                                          */
+/*  Nothing in here animates anything but opacity and transform, and every  */
+/*  element that does is promoted. That is the whole performance story: no  */
+/*  filters, no blurs, no blend modes, no repaints - the compositor blends  */
+/*  a handful of small textures and the main thread is left alone.          */
+/* ---------------------------------------------------------------------- */
+
+.functionTitleStorm {
+    position: absolute;
+    inset: 0;
+    /* Behind the white core, so the bolts come out from behind the letters
+       rather than lying across them. The heading is a stacking context of
+       its own, which is what gives -1 something to sit inside. */
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* One strike: a box holding one generated <svg>. The flicker is carried by
+   this element and not by anything inside it, because opacity on an HTML
+   element with will-change is a promise the compositor keeps, and opacity on
+   an SVG group is not. */
+.titleStrike,
+.titleFlash,
+.titleSeam {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    will-change: opacity;
+}
+
+.titleStrike > svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* The light of the contact, thrown back off the brick. Round because we are
+   looking at the wall head on. */
+.titleFlash {
+    border-radius: 50%;
+    will-change: transform, opacity;
+    background:
+        radial-gradient(circle at 50% 50%,
+            rgba(255, 255, 255, 0.95) 0%,
+            rgba(214, 246, 255, 0.72) 10%,
+            rgba(134, 216, 255, 0.44) 24%,
+            rgba(56, 160, 255, 0.20) 44%,
+            rgba(20, 80, 220, 0.07) 64%,
+            rgba(14, 66, 216, 0) 80%);
+}
+
+/* That light running away along the mortar line it landed on, lit end to end
+   for a moment. This is the one that says the wall is made of something
+   rather than being a backdrop the bolt stopped in front of. */
+.titleSeam {
+    will-change: transform, opacity;
+    /* An ellipse rather than a bar. A linear gradient fades along the joint
+       but not across it, which leaves a hard edge top and bottom and reads
+       as a line someone drew on the wall rather than as light lying in it.
+       Soft on every edge, long and thin, brightest where the bolt landed. */
+    background:
+        radial-gradient(closest-side ellipse at 50% 50%,
+            rgba(235, 251, 255, 0.95) 0%,
+            rgba(150, 225, 255, 0.60) 26%,
+            rgba(60, 170, 255, 0.28) 48%,
+            rgba(24, 92, 230, 0.09) 70%,
+            rgba(14, 66, 216, 0) 100%);
+}
+
+/* The pool breathes on a slower, smoother cycle than the bolts. A big soft
+   light does not flicker at the same rate as the discharge inside it, and
+   matching the two makes the whole thing strobe. */
+@keyframes titleLightBreathe {
+    0%, 100% { opacity: 0.82; }
+    34%      { opacity: 1; }
+    68%      { opacity: 0.7; }
+}
+
+/* Asked for less movement: the light stays, the instability goes. The script
+   draws one quiet set of bolts and leaves them alone, so the title keeps its
+   lightning without anything in the room moving. */
+@media (prefers-reduced-motion: reduce) {
+    .functionTitleDiv::before {
+        animation: none;
+        opacity: 0.86;
+    }
 }
 
 .projects-image {
