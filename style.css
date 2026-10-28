@@ -21,6 +21,12 @@
        and centred the same way, or its bricks come out a different size from
        the ones directly above them. */
     --wall-width: max(100%, calc(var(--hero-height) * 1.7916667));
+    /* script.js drives this from the hero's near layer while the camera is
+       moving, so the wall below the hero is drawn at whatever size the terrace
+       above it currently is. Without it the join is only honest at rest, and
+       the camera could not still be moving when it came into view. 1 is both
+       the resting value and what a visitor who asked for less movement gets. */
+    --wall-zoom: 1;
 }
 
 html {
@@ -47,6 +53,11 @@ body,
    wherever the tiling happened to land. It tiles upwards too, behind the hero,
    where the hero's own layers cover it.
 
+   Tiling from that edge is also what lets --wall-zoom work: the first course
+   hangs off the join, so growing the tile grows it downwards from the same line
+   the terrace above grows upwards from, and the two stay the same size as each
+   other through the whole camera move.
+
    Nothing is painted at the join. A shadow there reads as the course above
    oversailing the wall, which is only right if the artwork is drawn that way —
    on a face this flush it just looks like one stone sticking out. */
@@ -55,7 +66,7 @@ body {
                       url('assets/textures/wallface.png');
     background-repeat: repeat, repeat-y;
     background-position: 0 0, center var(--hero-height);
-    background-size: auto, var(--wall-width) auto;
+    background-size: auto, calc(var(--wall-width) * var(--wall-zoom)) auto;
 }
 
 /* Sections the navbar links to: keep the heading clear of the top edge
@@ -1518,6 +1529,16 @@ a:hover {
     filter: saturate(0.94) brightness(0.92);
 }
 
+/* The one thing the camera move must not touch is this layer's bottom edge:
+   it is where the terrace meets the page's own wall, and the bricks have to
+   stay the same size across that line. Scaling about the bottom holds it still
+   while everything above it grows, so the join survives the move at any scale
+   and the figure standing on the paving grows with the paving under his feet
+   rather than sliding off it. */
+#heroWall {
+    transform-origin: 50% 100%;
+}
+
 /* The figure is lit flat while the scene is backlit by a low sun. Pushing him
    down towards silhouette is what makes him belong in the picture — raise the
    brightness if he gets too dark to read against the valley. */
@@ -1605,13 +1626,20 @@ a:hover {
    of a phone screen — at full size he stands in front of the wordmark.
 
    So on narrow screens he moves to x=640, well inside the strip of painting
-   that survives the crop. He used to be scaled down here as well, because at
-   full size his head ran into the subtitle; standing as far off as he now does
-   he is less than half that tall and clears it on his own, so the scale and the
-   origin it pivoted on are both gone and this is a plain shift sideways.
+   that survives the crop, and shrinks to 62%.
 
-   The unit is the svg's own, not a pixel: a transform on an element inside an
-   <svg> is applied in that svg's coordinate system.
+   The shrink is back because the camera move brought it back. A narrow frame
+   scales this layer by height, so he is already the tallest thing here, and
+   opening the page at 1.6 puts his head through the wordmark. 62% is what
+   keeps his head below the subtitle at the closest the camera gets; at rest he
+   is simply smaller than that, which a figure standing that far off can afford
+   to be.
+
+   The origin is the point his feet are on, so the scale pivots there and he
+   stays planted on the paving rather than sinking into it. The units are the
+   svg's own, not pixels: a transform on an element inside an <svg> is applied
+   in that svg's coordinate system, and transform-box: view-box is the initial
+   value in current browsers but not in older ones.
 
    The trigger is the frame's shape, not its width, because that is what drives
    the crop: the layer is scaled by height, so the painting loses width until
@@ -1621,7 +1649,9 @@ a:hover {
    viewport and the ratio above no longer describes it. */
 @media (max-aspect-ratio: 11/10), (max-width: 540px) {
     .heroFigure {
-        transform: translateX(210px);
+        transform-box: view-box;
+        transform-origin: 430px 669px;
+        transform: translateX(210px) scale(0.62);
     }
 }
 

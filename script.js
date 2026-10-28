@@ -21,6 +21,16 @@ if ('caches' in window) {
    scroll * depth: at depth 1 that cancels the scroll exactly and the layer
    looks pinned, at 0 it travels with the page, below 0 it outruns the page
    and reads as being close to the camera.
+
+   data-dolly is the camera pulling back rather than panning. A layer starts
+   that much bigger than it belongs and settles to its true size as you scroll:
+   0.14 opens at 1.14 and ends at 1. Apparent size goes as one over distance,
+   so the near layer has to shrink far more than the far one for the move to
+   read as a camera and not as a zoom — the terrace is a few metres off and
+   loses a seventh of itself, the valley is kilometres off and loses almost
+   nothing. Giving them the same number would flatten the scene into a poster
+   being pulled away from the screen.
+
    Nothing here knows what the layers are, so swapping the placeholder
    drawings for real photos needs no change on this side. */
 (function heroParallax() {
@@ -38,8 +48,26 @@ if ('caches' in window) {
 
     const layers = Array.from(hero.querySelectorAll('[data-depth]'), element => ({
         element,
-        depth: parseFloat(element.dataset.depth) || 0
+        depth: parseFloat(element.dataset.depth) || 0,
+        dolly: parseFloat(element.dataset.dolly) || 0,
+        /* Name of a custom property to publish this layer's scale on, for the
+           parts of the page that are not layers but have to move with one. */
+        shares: element.dataset.dollyShares || null
     }));
+
+    /* How much of the hero's height the camera move is spread over. It used to
+       be pinned to the overscroll, because the wall carries on below the hero
+       as a background that does not scale, and any zoom still running when the
+       join came into view put bricks of two different sizes either side of it.
+       The page wall now follows the same zoom — see data-dolly-shares — so the
+       join holds at any scale and the move is free to take as long as it wants.
+
+       Which is what lets it be a big move. A camera that travels far needs room
+       to travel in, and one spread over a tenth of the hero is a jolt rather
+       than a dolly. */
+    const dollySpan = parseFloat(hero.dataset.dollySpan) || 1;
+    const root = document.documentElement;
+    let shared = null;
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
     let queued = false;
     let lastOffset = null;
@@ -58,8 +86,24 @@ if ('caches' in window) {
         hero.style.setProperty('--hero-progress', progress.toFixed(4));
 
         if (!reduced.matches) {
+            /* Linear against the scroll on purpose: an eased camera stops
+               feeling attached to the hand doing the scrolling. */
+            const settled = dollySpan > 0 ? Math.min(progress / dollySpan, 1) : 1;
             for (const layer of layers) {
-                layer.element.style.transform = `translate3d(0, ${(offset * layer.depth).toFixed(2)}px, 0)`;
+                let transform = `translate3d(0, ${(offset * layer.depth).toFixed(2)}px, 0)`;
+                if (layer.dolly) {
+                    const scale = (1 + layer.dolly * (1 - settled)).toFixed(4);
+                    transform += ` scale(${scale})`;
+                    /* Writing this repaints a tiled background the size of the
+                       page, so only do it when it has actually moved. Once the
+                       move is spent the value sticks at 1 and the rest of the
+                       page's scrolling costs nothing. */
+                    if (layer.shares && scale !== shared) {
+                        shared = scale;
+                        root.style.setProperty(layer.shares, scale);
+                    }
+                }
+                layer.element.style.transform = transform;
             }
         }
 

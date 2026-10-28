@@ -55,10 +55,10 @@
              the figure, its shadow — is pinned to the art no matter how the
              frame is cropped.
              ---------------------------------------------------------------- -->
-        <section id="hero">
+        <section id="hero" data-dolly-span="0.45">
             <!-- Far: the painting, whole. Everything in it is at a distance,
                  so it moves as one piece and simply lags behind the scroll. -->
-            <div class="heroLayer" id="heroScenery" data-depth="0.5">
+            <div class="heroLayer" id="heroScenery" data-depth="0.5" data-dolly="0.04">
                 <svg viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
                     <image href="assets/img/hero/scenery.png" x="0" y="0" width="1376" height="768" preserveAspectRatio="xMidYMid slice"/>
                 </svg>
@@ -89,7 +89,7 @@
                  below the fold: the real floor he has at a standstill is y=632
                  to y=698, and his feet are placed inside that, not inside the
                  768. -->
-            <div class="heroLayer" id="heroWall" data-depth="0">
+            <div class="heroLayer" id="heroWall" data-depth="0" data-dolly="0.6" data-dolly-shares="--wall-zoom">
                 <svg viewBox="0 0 1376 768" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
                     <defs>
                         <filter id="heroContactShadow" x="-60%" y="-200%" width="220%" height="500%">
