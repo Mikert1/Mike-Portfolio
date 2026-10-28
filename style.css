@@ -41,11 +41,15 @@ body,
     background-image: url('assets/textures/background.png');
 }
 
-/* Two layers: the grain above, and under it the terrace's front face carrying
-   on down the page from the hero's last brick. The wall tiles downwards from
-   the hero's bottom edge, so the first course below the fold starts where the
-   hero stops rather than wherever the tiling happened to land. It tiles
-   upwards too, behind the hero, where the hero's own layers cover it. */
+/* Two layers: the grain above, and under it the wall carrying on down the page
+   from the hero's last course. It tiles downwards from the hero's bottom edge,
+   so the first course below the fold starts where the hero stops rather than
+   wherever the tiling happened to land. It tiles upwards too, behind the hero,
+   where the hero's own layers cover it.
+
+   Nothing is painted at the join. A shadow there reads as the course above
+   oversailing the wall, which is only right if the artwork is drawn that way —
+   on a face this flush it just looks like one stone sticking out. */
 body {
     background-image: url('assets/textures/background.png'),
                       url('assets/textures/wallface.png');
@@ -1601,15 +1605,13 @@ a:hover {
    of a phone screen — at full size he stands in front of the wordmark.
 
    So on narrow screens he moves to x=640, well inside the strip of painting
-   that survives the crop, and shrinks to 50%, which drops the top of his head
-   clear of the subtitle. The origin is the point his feet are on, so the scale
-   pivots there and he stays planted on the paving instead of sinking into it.
-   50 rather than the 62 this wanted while the layer still hung below the frame:
-   flush, the paving sits higher in shot, so the same man reaches further up it.
+   that survives the crop. He used to be scaled down here as well, because at
+   full size his head ran into the subtitle; standing as far off as he now does
+   he is less than half that tall and clears it on his own, so the scale and the
+   origin it pivoted on are both gone and this is a plain shift sideways.
 
-   The units are the svg's own, not pixels: transform-box: view-box is the
-   initial value in current browsers, but older ones resolve it against the
-   element's bounding box, where neither number means anything.
+   The unit is the svg's own, not a pixel: a transform on an element inside an
+   <svg> is applied in that svg's coordinate system.
 
    The trigger is the frame's shape, not its width, because that is what drives
    the crop: the layer is scaled by height, so the painting loses width until
@@ -1619,9 +1621,7 @@ a:hover {
    viewport and the ratio above no longer describes it. */
 @media (max-aspect-ratio: 11/10), (max-width: 540px) {
     .heroFigure {
-        transform-box: view-box;
-        transform-origin: 430px 627px;
-        transform: translateX(210px) scale(0.5);
+        transform: translateX(210px);
     }
 }
 

@@ -78,12 +78,17 @@
                  so they can never drift apart. The figure's x/y/width/height
                  below are scenery-frame pixels — moving him is editing those.
 
-                 The wall art is a 1376x326 strip, already the frame's own
+                 The wall art is a 1024x101 strip drawn to the frame's full
                  width, so it is laid along the bottom edge rather than being a
-                 full-frame plate like the scenery. Its top edge, y=442, is the
-                 horizon the figure stands in front of, and its last 120 rows
-                 are the terrace's front face rather than paving — so the ground
-                 he can actually stand on runs out at y=648, not at 768. -->
+                 full-frame plate like the scenery. Its top edge, y=632, is the
+                 horizon the figure stands in front of, and its last 42 rows are
+                 the terrace's front face rather than paving — so the ground he
+                 can actually stand on runs out at y=712, not at 768.
+
+                 The hero is 110svh, so the bottom tenth of this viewBox is held
+                 below the fold: the real floor he has at a standstill is y=632
+                 to y=698, and his feet are placed inside that, not inside the
+                 768. -->
             <div class="heroLayer" id="heroWall" data-depth="0">
                 <svg viewBox="0 0 1376 768" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
                     <defs>
@@ -91,7 +96,7 @@
                             <feGaussianBlur stdDeviation="10"/>
                         </filter>
                     </defs>
-                    <image href="assets/img/hero/wall.png" x="0" y="442.0" width="1376" height="326.0" preserveAspectRatio="none"/>
+                    <image href="assets/img/hero/wall.png" x="0" y="613.42" width="1376" height="154.58" preserveAspectRatio="none"/>
                     <!-- Figure and shadow move together. He sits left of centre
                          so the river behind him stays unblocked; on a frame too
                          narrow to keep that spot in shot, style.css moves and
@@ -100,21 +105,26 @@
                         <!-- without this he reads as pasted on rather than
                              standing; flat lit stone needs a frank pool of it,
                              and at this size it is most of what grounds him -->
-                        <ellipse cx="430.0" cy="637.48" rx="172.45" ry="40.31" fill="#2a1d0f" opacity="0.5" filter="url(#heroContactShadow)"/>
+                        <ellipse cx="430.0" cy="673.69" rx="88.58" ry="20.71" fill="#2a1d0f" opacity="0.5" filter="url(#heroContactShadow)"/>
                         <!-- The box is the file's own 912x1724 proportions, so
                              nothing is letterboxed — get this wrong and `meet`
                              silently shrinks him to fit the narrower side.
 
                              He carries transparent padding, so the box is not
-                             the man: of its 573.17 height the body is 560, and
-                             of its 303.21 width the body is 182, sitting left
-                             of the box's centre. The numbers below put that
-                             body 560 tall with its feet on the paving at
-                             y=627 and its middle at x=430. Those units buy
-                             less than they used to: with the layer flush to
-                             the frame rather than hanging below it, the whole
-                             768 is on screen instead of 686 of it. -->
-                        <image class="heroPerson" href="assets/img/hero/person.png" x="293.02" y="55.89" width="303.21" height="573.17" preserveAspectRatio="xMidYMax meet"/>
+                             the man: of its 265.18 height the body is 259, and
+                             of its 140.28 width the body is 84, sitting left of
+                             the box's centre. The numbers below put that body
+                             259 tall with its feet on the paving at y=675 and
+                             its middle at x=430.
+
+                             259 rather than the 560 it was, because the art
+                             moved the camera back. The page wall's courses are
+                             the ruler: 68px of a 1024-wide file before, 31.5px
+                             after, both drawn to the same width on screen, so
+                             the scene is 2.16x further off and everything
+                             standing in it is 0.463 the size. Scale him by eye
+                             instead and he stops matching the masonry. -->
+                        <image class="heroPerson" href="assets/img/hero/person.png" x="359.64" y="374.95" width="155.75" height="294.41" preserveAspectRatio="xMidYMax meet"/>
                     </g>
                 </svg>
             </div>
